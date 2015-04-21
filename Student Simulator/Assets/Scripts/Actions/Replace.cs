@@ -9,12 +9,12 @@ using Actions.Core;
 
 namespace Actions
 {
-    class MoveTo : GameAction
+    class Replace : GameAction
     {
         GameObject target;
         Vector3 newPosition;
 
-        public MoveTo(GameObject Target, Vector3 NewPosition)
+        public Replace(GameObject Target, Vector3 NewPosition)
         {
             target = Target;
             newPosition = NewPosition;

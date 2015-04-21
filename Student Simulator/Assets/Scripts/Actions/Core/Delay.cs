@@ -17,7 +17,10 @@ namespace Actions.Core
 		{
 			currentDelay += Delta;
 			if(currentDelay > totalDelay)
+			{
+				currentDelay = 0;
 				OnEnd(this);
+			}
 		}
 	}
 }
