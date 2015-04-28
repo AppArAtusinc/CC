@@ -14,7 +14,7 @@ namespace Actions
 		Transform senderTransform;
 		Transform targetTransform;
 		Rigidbody targetRigibBody;
-
+		//тест коммита от Эда =)
 		Vector3 direction;
 
 		float impulse;
