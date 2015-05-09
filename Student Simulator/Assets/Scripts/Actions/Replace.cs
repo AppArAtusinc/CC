@@ -20,7 +20,6 @@ namespace Actions
             newPosition = NewPosition;
         }
 
-
         public override void Upadate(float Delta)
         {
 			target.transform.position = newPosition;

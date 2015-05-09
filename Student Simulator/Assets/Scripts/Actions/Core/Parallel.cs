@@ -22,6 +22,10 @@ namespace Actions.Core
 			endActions = new List<GameAction>();
 		}
 
+		public override void Reset ()
+		{
+
+		}
 		public override void Upadate (float Delta)
 		{
 			foreach(var action in actions)
@@ -36,6 +40,13 @@ namespace Actions.Core
 			}
 		}
 
+		
+		public GameAction SetBreakAction(GameAction BreakAction)
+		{
+			BreakAction.OnEnd += breakActionEnd;
+			actions.Add(BreakAction);
+			return this;
+		}
 
 		void onInnerActionEnd(GameAction EndedAction)
 		{
@@ -45,6 +56,12 @@ namespace Actions.Core
 			if(actionsRunning == 0)
 				OnEnd(this);
 		}
+
+		void breakActionEnd(GameAction BreakAction)
+		{
+			OnEnd(this);
+		}
+
 	}
 }
 

@@ -16,10 +16,20 @@ namespace Actions.Core
         public string Name
         {
             get;
-            set;
+            private set;
         }
 
+		public GameAction SetName(string Name)
+		{
+			this.Name = Name;
+			return this;
+		}
+
         public abstract void Upadate(float Delta);
+		public virtual void Reset()
+		{
+
+		}
 
     }
 }

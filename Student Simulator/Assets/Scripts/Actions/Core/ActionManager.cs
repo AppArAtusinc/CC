@@ -8,12 +8,10 @@ namespace Actions.Core
     static class ActionManager
     {
         static List<GameAction> actions;
-		static List<GameAction> endActions;
          
         static ActionManager()
         {
             actions = new List<GameAction>();
-			endActions = new List<GameAction>();
         }
 
         static public GameAction Add(GameAction NewAction)
@@ -39,21 +37,13 @@ namespace Actions.Core
 
         static public void Update(float Delta)
         {
-			foreach(var action in actions)
-				action.Upadate(Delta);
-
-			if(endActions.Count > 0)
-			{
-				foreach(var actionForDelete in endActions)
-				actions.Remove(actionForDelete);
-
-				endActions.Clear();
-			}
+            foreach (var action in actions)
+                action.Upadate(Delta);
         }
 
         static void onActionEnd(GameAction EndedAction)
         {
-			endActions.Add(EndedAction);
+            actions.Remove(EndedAction);
         }
     }
 }

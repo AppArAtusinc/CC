@@ -4,19 +4,32 @@ namespace Actions.Core
 {
 	class Sequense : GameAction
 	{
+		enum SequenseType
+		{
+			RepeatN,
+			RepeatForever
+		};
+
 		GameAction[] actions;
-		int repeatCount;
-		int index;
+		SequenseType sequenseType;
+		int startCount, repeatCount, index;
 	
 		public Sequense (params GameAction[] Actions)
 		{
 			actions = Actions;
+			sequenseType = SequenseType.RepeatN;
+			startCount = 1;
 			index = 0;
-			repeatCount = 1;
-
 
 			foreach (var action in actions)
 				action.OnEnd += onInnerActionEnd;
+		}
+
+		public override void Reset ()
+		{
+			index = 0;
+			repeatCount = 0;
+			resetActions();
 		}
 
 		public override void Upadate (float Delta)
@@ -26,37 +39,49 @@ namespace Actions.Core
 
 		public Sequense Repeat(int Count)
 		{
-			if(Count < 1)
-				return this;
-
-			repeatCount = Count;
-
+			sequenseType = SequenseType.RepeatN;
+			startCount = Count;
 			return this;
 		}
 
 		public Sequense RepeatForever()
 		{
-			repeatCount = -1;
+			sequenseType = SequenseType.RepeatForever;
 			return this;
+		}
+
+		void resetActions()
+		{
+			foreach(var action in actions)
+				action.Reset();
 		}
 
 		void onInnerActionEnd(GameAction Action)
 		{
 			index++;
-			if( index == actions.Length )
+
+			switch (sequenseType)
 			{
-				if(repeatCount == -1)
+			case SequenseType.RepeatForever:
+				if(index == actions.Length)
 				{
 					index = 0;
-					return;
+					resetActions();
+				}
+				break;
+			case SequenseType.RepeatN:
+				if(index == actions.Length)
+				{
+					index = 0;
+					repeatCount++;
+					resetActions();
 				}
 
-				repeatCount--;
-				if(repeatCount > 0)
-					index = 0;
-				else
+				if(repeatCount == startCount)
+				{
 					OnEnd(this);
-					
+				}
+				break;
 			}
 		}
 

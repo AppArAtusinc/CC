@@ -19,8 +19,7 @@ namespace Actions
 			target = Target;
 			impulse = Impulse;
 		}
-		
-		
+
 		public override void Upadate(float Delta)
 		{
 			var rigidBody = target.GetComponent<Rigidbody>();

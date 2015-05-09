@@ -14,7 +14,7 @@ namespace Actions
 		Transform senderTransform;
 		Transform targetTransform;
 		Rigidbody targetRigibBody;
-		//тест коммита от Эда =)
+
 		Vector3 direction;
 
 		float impulse;
@@ -30,8 +30,7 @@ namespace Actions
 				OnEnd(this);
 
 		}
-		
-		
+
 		public override void Upadate(float Delta)
 		{
 			direction = senderTransform.position - targetRigibBody.position;
