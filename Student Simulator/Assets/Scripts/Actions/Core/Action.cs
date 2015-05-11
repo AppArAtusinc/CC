@@ -10,8 +10,10 @@ namespace Actions.Core
         public delegate void OnBeginActionCallback();
         public delegate void OnEndActionCallback(GameAction Sender);
 
-        public OnBeginActionCallback OnBegin;
-        public OnEndActionCallback OnEnd;
+        //public OnBeginActionCallback OnBegin;
+		public OnEndActionCallback OnEnd;
+
+		public bool End;
 
         public string Name
         {
@@ -28,7 +30,7 @@ namespace Actions.Core
         public abstract void Upadate(float Delta);
 		public virtual void Reset()
 		{
-
+			End = false;
 		}
 
     }

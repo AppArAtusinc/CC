@@ -5,60 +5,34 @@ namespace Actions.Core
 {
 	class Parallel : GameAction
 	{
-		int actionsRunning;
-		List<GameAction> actions;
-		List<GameAction> endActions;
+		GameAction[] actions;
 
 		public Parallel (params GameAction[] Actions)
 		{
-			actions = new List<GameAction>();
-			for(int i=0; i<Actions.Length; i++)
-				actions.Add(Actions[i]);
-			actionsRunning = actions.Count;
-
+			actions = Actions;
 			foreach(var action in actions)
 				action.OnEnd += onInnerActionEnd;
-
-			endActions = new List<GameAction>();
 		}
 
 		public override void Reset ()
 		{
-
+			for(int i = 0; i<actions.Length; i++)
+				actions[i].Reset();
 		}
+
 		public override void Upadate (float Delta)
 		{
+			if(End)
+				return;
+
 			foreach(var action in actions)
 				action.Upadate(Delta);
-
-			if(endActions.Count > 0)
-			{
-				foreach(var action in endActions)
-					actions.Remove(action);
-
-				endActions.Clear();
-			}
 		}
 
-		
-		public GameAction SetBreakAction(GameAction BreakAction)
-		{
-			BreakAction.OnEnd += breakActionEnd;
-			actions.Add(BreakAction);
-			return this;
-		}
 
 		void onInnerActionEnd(GameAction EndedAction)
 		{
-			actionsRunning--;
-			endActions.Add(EndedAction);
-
-			if(actionsRunning == 0)
-				OnEnd(this);
-		}
-
-		void breakActionEnd(GameAction BreakAction)
-		{
+			End = true;
 			OnEnd(this);
 		}
 

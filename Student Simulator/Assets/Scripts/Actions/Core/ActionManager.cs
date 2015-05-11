@@ -8,6 +8,7 @@ namespace Actions.Core
     static class ActionManager
     {
         static List<GameAction> actions;
+		static int index = 0;
          
         static ActionManager()
         {
@@ -37,13 +38,16 @@ namespace Actions.Core
 
         static public void Update(float Delta)
         {
-            foreach (var action in actions)
-                action.Upadate(Delta);
+			//@todo: think about optimization
+			for(index = 0; index < actions.Count; index++)
+				actions[index].Upadate(Delta);
+
         }
 
         static void onActionEnd(GameAction EndedAction)
         {
             actions.Remove(EndedAction);
+			index--;
         }
     }
 }

@@ -33,8 +33,9 @@ public class TestScript : MonoBehaviour {
 			if(hit.collider != null && hit.collider.gameObject != GameObject.Find("Cube"))
 				//ActionManager.Add(new Drag(controller, hit.collider.gameObject, -0.5f));
 				ActionManager.Add(new Sequense(
-					new Jump(hit.collider.gameObject, 10f),
-					new Delay(2.5f)).Repeat(100));
+					new Delay(2.5f),
+					new Jump(hit.collider.gameObject, 10f)
+					));
 		}
 		
 		

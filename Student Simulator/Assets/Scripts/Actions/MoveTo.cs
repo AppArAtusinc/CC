@@ -12,5 +12,15 @@ namespace Actions
 {
     class MoveTo : GameAction
     {
+
+		public override void Reset ()
+		{
+
+		}
+
+		public override void Upadate (float Delta)
+		{
+
+		}
     }
 }
