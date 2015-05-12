@@ -2,6 +2,7 @@
 using Actions.Core;
 using Actions;
 using System.Collections;
+using UnityEditor;
 
 public class TestScript : MonoBehaviour {
 
@@ -25,6 +26,16 @@ public class TestScript : MonoBehaviour {
 			ActionManager.Add(new Replace(cube1, new Vector3(0,1,1)));
 			ActionManager.Add(new Replace(cube2, new Vector3(0,1,-1)));
 		}
+
+		//if(Input.GetKeyUp(KeyCode.C))
+		//{
+		//	EditorApplication.SaveScene("/save_test", true);
+		//}
+
+		//if(Input.GetKeyUp(KeyCode.L))
+		//{
+		//	EditorApplication.OpenScene("/save_test");
+		//}
 		
 		if(Input.GetMouseButtonUp(0))
 		{

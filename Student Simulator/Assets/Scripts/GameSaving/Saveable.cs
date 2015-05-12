@@ -5,10 +5,10 @@ using System.Text;
 
 namespace GameSaving{
 
-	abstract class Savable{
+	abstract class Saveable{
 		private SaveManager saveManager;
 
-		public Savable(){
+		public Saveable(){
 			this.saveManager = new SaveManager();
 		}
 
