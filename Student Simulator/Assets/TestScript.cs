@@ -16,8 +16,8 @@ public class TestScript : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		if(Input.GetKey(KeyCode.Escape))
-			Application.Quit();
+		//if(Input.GetKey(KeyCode.Escape))
+		//	Application.Quit();
 		
 		if(Input.GetKeyUp(KeyCode.R))
 		{
