@@ -7,14 +7,6 @@ namespace Actions.Core
 {
     abstract class GameAction
     {
-        public delegate void OnBeginActionCallback();
-        public delegate void OnEndActionCallback(GameAction Sender);
-
-        //public OnBeginActionCallback OnBegin;
-		public OnEndActionCallback OnEnd;
-
-		public bool End;
-
         public string Name
         {
             get;
@@ -27,10 +19,10 @@ namespace Actions.Core
 			return this;
 		}
 
-        public abstract void Upadate(float Delta);
+        public abstract bool Upadate(float Delta);
 		public virtual void Reset()
 		{
-			End = false;
+
 		}
 
     }

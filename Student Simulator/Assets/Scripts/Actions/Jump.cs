@@ -20,13 +20,13 @@ namespace Actions
 			impulse = Impulse;
 		}
 
-		public override void Upadate(float Delta)
+		public override bool Upadate(float Delta)
 		{
 			var rigidBody = target.GetComponent<Rigidbody>();
 			if(rigidBody != null)
 				rigidBody.AddForce(target.transform.up * impulse, ForceMode.Impulse);
 
-			OnEnd(this);
+			return false;
 		}
 	}
 }

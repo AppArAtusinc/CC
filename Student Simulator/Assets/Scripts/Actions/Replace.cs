@@ -20,10 +20,10 @@ namespace Actions
             newPosition = NewPosition;
         }
 
-        public override void Upadate(float Delta)
+		public override bool Upadate(float Delta)
         {
 			target.transform.position = newPosition;
-            OnEnd(this);
+			return false;
         }
     }
 }

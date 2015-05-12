@@ -6,36 +6,34 @@ namespace Actions.Core
 	class Parallel : GameAction
 	{
 		GameAction[] actions;
+		bool end;
 
 		public Parallel (params GameAction[] Actions)
 		{
 			actions = Actions;
-			foreach(var action in actions)
-				action.OnEnd += onInnerActionEnd;
 		}
 
 		public override void Reset ()
 		{
+			end = false;
 			for(int i = 0; i<actions.Length; i++)
 				actions[i].Reset();
 		}
 
-		public override void Upadate (float Delta)
+		public override bool Upadate (float Delta)
 		{
-			if(End)
-				return;
+			if(end)
+				return false;
 
 			foreach(var action in actions)
-				action.Upadate(Delta);
+				if(!action.Upadate(Delta))
+				{
+					end = true;
+					return false;
+				}
+
+			return true;
 		}
-
-
-		void onInnerActionEnd(GameAction EndedAction)
-		{
-			End = true;
-			OnEnd(this);
-		}
-
 	}
 }
 

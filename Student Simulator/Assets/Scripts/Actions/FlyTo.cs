@@ -23,7 +23,7 @@ namespace Actions
 			endPosition = EndPosition;
 		}
 		
-		public override void Upadate(float Delta)
+		public override bool Upadate(float Delta)
 		{
 			if(Vector3.Distance(target.position, endPosition) > 0.5)
 			{
@@ -31,7 +31,8 @@ namespace Actions
 				target.position =  target.position + (direction.normalized * speed) * Delta;
 			}
 			else
-				OnEnd(this);
+				return false;
+			return true;
 		}
 	}
 }

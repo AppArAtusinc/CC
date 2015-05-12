@@ -18,13 +18,13 @@ namespace Actions.Core
 			currentDelay = 0;
 		}
 
-		public override void Upadate (float Delta)
+		public override bool Upadate (float Delta)
 		{
-			currentDelay += Delta;
 			if(currentDelay > totalDelay)
-			{
-				OnEnd(this);
-			}
+				return false;
+
+			currentDelay += Delta;
+			return true;
 		}
 	}
 }

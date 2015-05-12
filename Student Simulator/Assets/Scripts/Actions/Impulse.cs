@@ -23,10 +23,10 @@ namespace Actions
 			impulse = Impulse;
 		}
 		
-		public override void Upadate(float Delta)
+		public override bool Upadate(float Delta)
 		{
 			target.AddForce(direction * impulse, ForceMode.Impulse);
-			OnEnd(this);
+			return false;
 		}
 	}
 }

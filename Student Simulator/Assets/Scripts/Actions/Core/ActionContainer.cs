@@ -46,10 +46,12 @@ namespace Actions.Core
 				action.Reset();
 		}
 
-		public override void Upadate (float Delta)
+		public override bool Upadate (float Delta)
 		{
 			foreach(GameAction action in actions)
 				action.Upadate(Delta);
+
+			return true;
 		}
 	}
 }

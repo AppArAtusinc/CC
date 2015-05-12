@@ -10,8 +10,6 @@ namespace Actions.Core
 		{
 			actions = Actions;
 			Reset();
-			foreach (var action in actions)
-				action.OnEnd += onInnerActionEnd;
 		}
 
 		public override void Reset ()
@@ -21,29 +19,21 @@ namespace Actions.Core
 			resetActions();
 		}
 
-		public override void Upadate (float Delta)
+		public override bool Upadate (float Delta)
 		{
-			if(End)
-				return;
+			if(index == actions.Length)
+				return false;
 
-			actions[index].Upadate(Delta);
+			if(!actions[index].Upadate(Delta))
+				index++;
+
+			return true;
 		}
 
 		void resetActions()
 		{
 			foreach(var action in actions)
 				action.Reset();
-		}
-
-		void onInnerActionEnd(GameAction Action)
-		{
-			index++;
-
-			if(index == actions.Length)
-			{
-				End = true;
-				OnEnd(this);
-			}
 		}
 	}
 }

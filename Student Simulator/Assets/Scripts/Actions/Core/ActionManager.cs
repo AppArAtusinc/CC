@@ -18,15 +18,12 @@ namespace Actions.Core
         static public GameAction Add(GameAction NewAction)
         {
             actions.Add(NewAction);
-            NewAction.OnEnd += onActionEnd;
-
             return NewAction;
         }
 
         static public GameAction GetActionsByName(string Name)
         {
             var query = actions.FindAll(o => o.Name == Name);
-
             return query.FirstOrDefault();
         }
 
@@ -36,18 +33,15 @@ namespace Actions.Core
             return true;
         }
 
-        static public void Update(float Delta)
+		static public bool Update(float Delta)
         {
 			//@todo: think about optimization
 			for(index = 0; index < actions.Count; index++)
-				actions[index].Upadate(Delta);
+				if(!actions[index].Upadate(Delta))
+					actions.Remove(actions[index--]);
 
+			return true;
         }
 
-        static void onActionEnd(GameAction EndedAction)
-        {
-            actions.Remove(EndedAction);
-			index--;
-        }
     }
 }

@@ -34,6 +34,12 @@ public class TestScript : MonoBehaviour {
 				//ActionManager.Add(new Drag(controller, hit.collider.gameObject, -0.5f));
 				ActionManager.Add(new Sequense(
 					new Delay(2.5f),
+					new Jump(hit.collider.gameObject, 10f),
+					new Delay(2.5f),
+					new Jump(hit.collider.gameObject, 10f),
+					new Delay(2.5f),
+					new Jump(hit.collider.gameObject, 10f),
+					new Delay(2.5f),
 					new Jump(hit.collider.gameObject, 10f)
 					));
 		}

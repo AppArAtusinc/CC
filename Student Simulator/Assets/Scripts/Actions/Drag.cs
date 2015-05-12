@@ -26,16 +26,13 @@ namespace Actions
 			impulse = Impulse;
 
 			targetRigibBody = Target.GetComponent<Rigidbody>();
-			if(targetRigibBody == null)
-				OnEnd(this);
-
 		}
 
-		public override void Upadate(float Delta)
+		public override bool Upadate(float Delta)
 		{
 			direction = senderTransform.position - targetRigibBody.position;
 			targetRigibBody.AddForce(direction.normalized * impulse, ForceMode.Impulse);
-			OnEnd(this);
+			return false;
 		}
 	}
 }
