@@ -6,7 +6,6 @@ public class GameCore : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		ActionManager.Init();
 	}
 	
 	// Update is called once per frame

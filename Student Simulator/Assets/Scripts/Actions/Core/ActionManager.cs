@@ -10,18 +10,20 @@ namespace Actions.Core
         List<GameAction> actions;
 		int index = 0;
 
+		static Func<ActionManager> getter = () => 
+		{ 
+			instanse = new ActionManager(); 
+			getter = null;
+			getter = () => { return instanse; };
+			return instanse;
+		};	
 		static ActionManager instanse;
 		static public ActionManager Instanse 
 		{
 			get
 			{
-				return instanse;
+				return getter();
 			}
-		}
-         
-		static public void Init()
-		{
-			instanse = new ActionManager();
 		}
 
         ActionManager()

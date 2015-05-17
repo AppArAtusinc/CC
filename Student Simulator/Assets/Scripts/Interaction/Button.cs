@@ -4,10 +4,12 @@ using System.Collections;
 using Actions.Core;
 using Actions;
 
-public class Button : Activable 
+public abstract class Button : Activable 
 {	
 	public float Shift = 0.03f;
 	bool activated = false;
+
+	public abstract void Clicked(GameObject Sender);
 
 	public override void Active (GameObject Activator)
 	{
@@ -15,8 +17,7 @@ public class Button : Activable
 			return;
 
 		activated = true;
-		OnActivated();
-
+		Clicked(Activator);
 		Vector3 startPos = gameObject.transform.position;
 		ActionManager.Instanse.Add(
 			new Sequense(

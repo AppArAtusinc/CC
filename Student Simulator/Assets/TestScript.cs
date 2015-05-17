@@ -11,6 +11,12 @@ public class TestScript : MonoBehaviour {
         cube1 = GameObject.Find("Cube 3");
 		cube2 = GameObject.Find("Cube 2");
 		controller = GameObject.Find("RigidBodyFPSController");
+
+		ActionManager.Instanse.Add(
+			new RepeatForever(
+				new Jump(cube2, 6),
+				new Delay(2))
+			);
 	
 	}
 
