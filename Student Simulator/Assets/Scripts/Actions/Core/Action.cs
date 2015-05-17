@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Actions.Core
 {
-    abstract class GameAction
+    abstract public class GameAction
     {
         public string Name
         {

@@ -25,7 +25,12 @@ namespace Actions.Core
 				return false;
 
 			if(!actions[index].Upadate(Delta))
+			{
 				index++;
+				if(index == actions.Length)
+					return false;
+				actions[index].Reset();
+			}
 
 			return true;
 		}

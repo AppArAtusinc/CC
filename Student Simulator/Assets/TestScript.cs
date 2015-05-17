@@ -2,7 +2,6 @@
 using Actions.Core;
 using Actions;
 using System.Collections;
-using UnityEditor;
 
 public class TestScript : MonoBehaviour {
 
@@ -22,37 +21,22 @@ public class TestScript : MonoBehaviour {
 		
 		if(Input.GetKeyUp(KeyCode.R))
 		{
-			ActionManager.Add(new Replace(controller, new Vector3(-1,1,0)));
-			ActionManager.Add(new Replace(cube1, new Vector3(0,1,1)));
-			ActionManager.Add(new Replace(cube2, new Vector3(0,1,-1)));
+			ActionManager.Instanse.Add(new Replace(controller, new Vector3(-1,1,0)));
+			ActionManager.Instanse.Add(new Replace(cube1, new Vector3(0,1,1)));
+			ActionManager.Instanse.Add(new Replace(cube2, new Vector3(0,1,-1)));
 		}
 
-		//if(Input.GetKeyUp(KeyCode.C))
-		//{
-		//	EditorApplication.SaveScene("/save_test", true);
-		//}
-
-		//if(Input.GetKeyUp(KeyCode.L))
-		//{
-		//	EditorApplication.OpenScene("/save_test");
-		//}
 		
-		if(Input.GetMouseButtonUp(0))
+		if(Input.GetKeyDown(KeyCode.E))
 		{
 			RaycastHit hit;
 			Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit);
-			if(hit.collider != null && hit.collider.gameObject != GameObject.Find("Cube"))
-				//ActionManager.Add(new Drag(controller, hit.collider.gameObject, -0.5f));
-				ActionManager.Add(new Sequense(
-					new Delay(2.5f),
-					new Jump(hit.collider.gameObject, 10f),
-					new Delay(2.5f),
-					new Jump(hit.collider.gameObject, 10f),
-					new Delay(2.5f),
-					new Jump(hit.collider.gameObject, 10f),
-					new Delay(2.5f),
-					new Jump(hit.collider.gameObject, 10f)
-					));
+			if(hit.collider != null)
+			{
+				var t = hit.collider.gameObject.GetComponent<Activable>();
+				if(t != null)
+					t.Active(gameObject);
+			}
 		}
 		
 		
@@ -61,7 +45,7 @@ public class TestScript : MonoBehaviour {
 			RaycastHit hit;
 			Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit);
 			if(hit.collider != null && hit.collider.gameObject != GameObject.Find("Cube"))
-				ActionManager.Add(new Drag(controller, hit.collider.gameObject, 0.5f));
+				ActionManager.Instanse.Add(new Drag(controller, hit.collider.gameObject, 0.5f));
 		}
 
 	}
