@@ -7,12 +7,15 @@ namespace Actions.Core
 {
     static class ActionManager
     {
+		static public ActionManager Instanse;
         static List<GameAction> actions;
 		static int index = 0;
          
         static ActionManager()
         {
             actions = new List<GameAction>();
+			Instanse = this;
+			
         }
 
         static public GameAction Add(GameAction NewAction)
