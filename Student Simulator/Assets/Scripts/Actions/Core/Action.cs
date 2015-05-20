@@ -19,7 +19,7 @@ namespace Actions.Core
 			return this;
 		}
 
-        public abstract bool Upadate(float Delta);
+		public abstract bool Upadate(float Delta);
 		public virtual void Reset()
 		{
 

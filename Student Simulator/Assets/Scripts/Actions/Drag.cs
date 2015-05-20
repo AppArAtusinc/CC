@@ -9,7 +9,7 @@ using Actions.Core;
 
 namespace Actions
 {
-	class Drag : GameAction
+	public class Drag : GameAction
 	{
 		Transform senderTransform;
 		Transform targetTransform;

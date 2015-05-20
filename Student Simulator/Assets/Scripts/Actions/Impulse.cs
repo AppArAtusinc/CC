@@ -9,7 +9,7 @@ using Actions.Core;
 
 namespace Actions
 {
-	class Impulse : GameAction
+	public class Impulse : GameAction
 	{
 		Rigidbody target;
 		float impulse;
