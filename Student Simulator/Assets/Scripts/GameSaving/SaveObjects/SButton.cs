@@ -15,8 +15,10 @@ namespace GameSaving.SaveObjects{
 
 		public SButton(){}
 
-		public SButton(string name, int id, Vector3 position, bool buttonPressed) : base(name, id, position){
-			this.buttonPressed = buttonPressed;
+		public SButton(string name, float x, float y, float z, float angleX, float angleY, float angleZ, float angleW)
+			: base(name, x, y, z, angleX, angleY, angleZ, angleW)
+		{
+			//this.buttonPressed = buttonPressed;
 		}
 
 		public override void State(){

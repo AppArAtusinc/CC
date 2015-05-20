@@ -26,10 +26,17 @@ namespace GameSaving{
 			}
 		}
 
-		public void LoadAll(){
-			for(int i=0; i<this.savedScenes.Count; i++){
-				var rewriteObj = Serializer.Deserialize(this.savePath);
-			}
+		public List<SaveObject> LoadAll(){
+			//List<SceneState> loadScene = new List<SceneState>();
+			var loadScene = Serializer.Deserialize(this.savePath);
+			return loadScene.GetSavedObjectsList();
+
+//			for(int i=0; i<this.savedScenes.Count; i++){
+//
+//				loadScene.Add(loadObj);
+//			}
+//
+//			return loadScene;
 		}
 	}
 }

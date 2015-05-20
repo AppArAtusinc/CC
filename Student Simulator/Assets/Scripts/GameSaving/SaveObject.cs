@@ -30,18 +30,35 @@ namespace GameSaving{
 		public GameObject inst { set { _inst = value; } }
 
 		[XmlElement("Type")]
-		public string objectName;	//prefab name
-		[XmlElement("Id")]
-		public int objectId;
-		[XmlElement("Position")]
-		public Vector3 objectPosition;
+		public string objectName;
+		//TODO add prefab name
+		//TODO add own list implementation
+		[XmlElement("PositionX")]
+		public float x;
+		[XmlElement("PositionY")]
+		public float y;
+		[XmlElement("PositionZ")]
+		public float z;
+		[XmlElement("RotationX")]
+		public float rotationX;
+		[XmlElement("RotationY")]
+		public float rotationY;
+		[XmlElement("RotationZ")]
+		public float rotationZ;
+		[XmlElement("RotationW")]
+		public float rotationW;
 		 
 		public SaveObject(){}
 
-		public SaveObject(string name, int id, Vector3 position){
+		public SaveObject(string name, float x, float y, float z, float angleX, float angleY, float angleZ, float angleW){
 			this.objectName=name;
-			this.objectId=id;
-			this.objectPosition=position;
+			this.x=x;
+			this.y=y;
+			this.z=z;
+			this.rotationX=angleX;
+			this.rotationY=angleY;
+			this.rotationZ=angleZ;
+			this.rotationW=angleW;
 		}
 
 		public virtual void State(){
@@ -49,7 +66,12 @@ namespace GameSaving{
 		}
 
 		public virtual void Update(){
-			this.objectPosition = this._inst.transform.position;
+			this.x = this._inst.transform.position.x;
+			this.y = this._inst.transform.position.y;
+			this.z = this._inst.transform.position.z;
+			this.rotationX = this._inst.transform.rotation.eulerAngles.x;
+			this.rotationY = this._inst.transform.rotation.eulerAngles.y;
+			this.rotationZ = this._inst.transform.rotation.eulerAngles.z;
 		}
 
 		//public Coordinates ObjectPosition;

@@ -11,7 +11,8 @@ namespace GameSaving.SaveObjects{
 	public class SCube : SaveObject{
 		public SCube(){}
 
-		public SCube(string name, int id,  Vector3 position) : base(name, id, position){}
+		public SCube(string name, float x, float y, float z, float angleX, float angleY, float angleZ, float angleW)
+		: base(name, x, y, z, angleX, angleY, angleZ, angleW){}
 
 		public override void State(){
 			//update own cube action

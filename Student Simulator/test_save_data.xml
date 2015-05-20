@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<SceneState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SceneObjects>
+    <SceneObject xsi:type="Cube">
+      <Type>Test Cube</Type>
+      <PositionX>-19.338192</PositionX>
+      <PositionY>0.50000006</PositionY>
+      <PositionZ>-19.9820385</PositionZ>
+      <RotationX>-1.43668558E-07</RotationX>
+      <RotationY>-3.99196722E-07</RotationY>
+      <RotationZ>-1.9995413E-07</RotationZ>
+      <RotationW>1</RotationW>
+    </SceneObject>
+    <SceneObject xsi:type="Cube">
+      <Type>Test Cube</Type>
+      <PositionX>-18.1822338</PositionX>
+      <PositionY>0.50000006</PositionY>
+      <PositionZ>18.7006779</PositionZ>
+      <RotationX>-1.43668558E-07</RotationX>
+      <RotationY>-3.99196722E-07</RotationY>
+      <RotationZ>-1.9995413E-07</RotationZ>
+      <RotationW>1</RotationW>
+    </SceneObject>
+  </SceneObjects>
+</SceneState>

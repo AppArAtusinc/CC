@@ -24,6 +24,10 @@ namespace GameSaving{
 			this.sceneObjects.Remove(item);
 		}
 
+		public List<SaveObject> GetSavedObjectsList(){
+			return this.sceneObjects;
+		}
+
 		public void Update(){
 			foreach(SaveObject item in this.sceneObjects){
 				item.Update();
