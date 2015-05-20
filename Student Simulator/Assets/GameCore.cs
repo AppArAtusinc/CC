@@ -6,11 +6,10 @@ public class GameCore : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        ActionManager.Update(Time.deltaTime);
+        ActionManager.Instanse.Update(Time.deltaTime);
 	}
 }

@@ -2,11 +2,11 @@ using System;
 
 namespace Actions.Core
 {
-	class Sequense : GameAction
+	class Sequence : GameAction
 	{
 		GameAction[] actions;
 		int index;
-		public Sequense (params GameAction[] Actions)
+		public Sequence (params GameAction[] Actions)
 		{
 			actions = Actions;
 			Reset();
@@ -16,7 +16,6 @@ namespace Actions.Core
 		{
 			base.Reset();
 			index = 0;
-			resetActions();
 		}
 
 		public override bool Upadate (float Delta)
@@ -25,15 +24,14 @@ namespace Actions.Core
 				return false;
 
 			if(!actions[index].Upadate(Delta))
+			{
 				index++;
+				if(index == actions.Length)
+					return false;
+				actions[index].Reset();
+			}
 
 			return true;
-		}
-
-		void resetActions()
-		{
-			foreach(var action in actions)
-				action.Reset();
 		}
 	}
 }
