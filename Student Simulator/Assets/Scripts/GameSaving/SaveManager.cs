@@ -6,28 +6,30 @@ using System.Text;
 namespace GameSaving{
 
 	class SaveManager{
-		private List<SaveObject> savedObjects;
-		//private SaveObject savingObject;
+		private List<SceneState> savedScenes;
+		private string savePath;
 
-		public SaveManager(){
-			this.savedObjects = new List<SaveObject>();
-			//this.savingObject = new SaveObject();
+		public SaveManager(string savePath){
+			this.savePath = savePath;
+			this.savedScenes = new List<SceneState>();
 		}
 
-		public void AddInSaveList(SaveObject saveObject){
-			if(saveObject != null){
-				this.savedObjects.Add(saveObject);
+		public void AddInSaveList(SceneState saveScene){
+			if(saveScene != null){
+				this.savedScenes.Add(saveScene);
 			}
 		}
 
 		public void SaveAll(){
-			foreach(var saveObj in this.savedObjects){
-				Serializer.Serialize(saveObj);
+			foreach(var saveObj in this.savedScenes){
+				Serializer.Serialize(saveObj, this.savePath);
 			}
 		}
 
 		public void LoadAll(){
-			var loadObject = Serializer.Deserialize();
+			for(int i=0; i<this.savedScenes.Count; i++){
+				var rewriteObj = Serializer.Deserialize(this.savePath);
+			}
 		}
 	}
 }

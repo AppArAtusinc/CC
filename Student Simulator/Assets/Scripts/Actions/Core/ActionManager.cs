@@ -7,6 +7,13 @@ namespace Actions.Core
 {
     class ActionManager
     {
+<<<<<<< HEAD
+		static public ActionManager Instanse;
+        static List<GameAction> actions;
+		static int index = 0;
+         
+        static ActionManager()
+=======
         List<GameAction> actions;
 		int index = 0;
 
@@ -27,8 +34,11 @@ namespace Actions.Core
 		}
 
         ActionManager()
+>>>>>>> origin/master
         {
             actions = new List<GameAction>();
+			Instanse = this;
+			
         }
 
         public GameAction Add(GameAction NewAction)
