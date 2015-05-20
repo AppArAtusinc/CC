@@ -4,8 +4,8 @@ namespace Actions.Core
 {
 	class RepeatForever : GameAction
 	{
-		GameAction[] actions;
-		int index;
+		public GameAction[] actions;
+		public int index;
 		
 		public RepeatForever (params GameAction[] Actions)
 		{

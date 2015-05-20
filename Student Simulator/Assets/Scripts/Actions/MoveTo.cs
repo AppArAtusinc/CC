@@ -11,10 +11,10 @@ namespace Actions
 {
 	public class MoveTo : GameAction
 	{
-		Transform target;
-		float speed;
-		float duration;
-		Vector3 endPosition, direction;
+		public Transform target;
+		public float speed;
+		public float duration;
+		public Vector3 endPosition, direction;
 		
 		
 		public MoveTo(GameObject Target, Vector3 EndPosition)

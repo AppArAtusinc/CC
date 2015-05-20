@@ -5,7 +5,7 @@ namespace Actions.Core
 
 	class CallFunction: GameAction
 	{
-		Action function;
+		public Action function;
 		public CallFunction(Action Function)
 		{
 			function = Function;

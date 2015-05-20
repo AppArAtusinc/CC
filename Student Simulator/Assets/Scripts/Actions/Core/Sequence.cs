@@ -4,8 +4,8 @@ namespace Actions.Core
 {
 	class Sequence : GameAction
 	{
-		GameAction[] actions;
-		int index;
+		public GameAction[] actions;
+		public int index;
 		public Sequence (params GameAction[] Actions)
 		{
 			actions = Actions;

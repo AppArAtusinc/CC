@@ -2,43 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.Serialization.Formatters;
 
 namespace Actions.Core
 {
+	[Serializable]
     class ActionManager
     {
-<<<<<<< HEAD
 		static public ActionManager Instanse;
-        static List<GameAction> actions;
-		static int index = 0;
+		static public List<GameAction> actions;
+		static public int index = 0;
          
         static ActionManager()
-=======
-        List<GameAction> actions;
-		int index = 0;
-
-		static Func<ActionManager> getter = () => 
-		{ 
-			instanse = new ActionManager(); 
-			getter = null;
-			getter = () => { return instanse; };
-			return instanse;
-		};	
-		static ActionManager instanse;
-		static public ActionManager Instanse 
-		{
-			get
-			{
-				return getter();
-			}
-		}
-
-        ActionManager()
->>>>>>> origin/master
         {
             actions = new List<GameAction>();
-			Instanse = this;
-			
+			Instanse = new ActionManager();
         }
 
         public GameAction Add(GameAction NewAction)

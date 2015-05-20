@@ -4,7 +4,6 @@ using System.Collections;
 
 public class Activable : MonoBehaviour {
 
-	public Action OnActivated;
 	
 	public virtual void Active(GameObject Activator)
 	{

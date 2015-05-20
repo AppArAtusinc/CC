@@ -10,8 +10,8 @@ namespace Actions
 {
     public class Replace : GameAction
     {
-        GameObject target;
-        Vector3 newPosition;
+		public GameObject target;
+		public Vector3 newPosition;
 
         public Replace(GameObject Target, Vector3 NewPosition)
         {

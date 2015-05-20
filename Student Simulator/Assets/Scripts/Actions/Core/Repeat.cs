@@ -4,10 +4,10 @@ namespace Actions.Core
 {
 	class Repeat : GameAction
 	{
-		GameAction[] actions;
-		int index;
-		int repeatCount;
-		int currentRepeatCount;
+		public GameAction[] actions;
+		public int index;
+		public int repeatCount;
+		public int currentRepeatCount;
 
 		public Repeat (params GameAction[] Actions)
 		{
