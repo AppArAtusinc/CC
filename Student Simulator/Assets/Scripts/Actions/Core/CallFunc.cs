@@ -2,7 +2,6 @@ using System;
 
 namespace Actions.Core
 {
-
 	class CallFunction: GameAction
 	{
 		public Action function;
@@ -10,7 +9,6 @@ namespace Actions.Core
 		{
 			function = Function;
 		}
-
 		public override bool Upadate (float Delta)
 		{
 			function();
