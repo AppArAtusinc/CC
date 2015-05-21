@@ -3,23 +3,43 @@
   <SceneObjects>
     <SceneObject xsi:type="Cube">
       <Type>Test Cube</Type>
-      <PositionX>-19.338192</PositionX>
-      <PositionY>0.50000006</PositionY>
-      <PositionZ>-19.9820385</PositionZ>
-      <RotationX>-1.43668558E-07</RotationX>
-      <RotationY>-3.99196722E-07</RotationY>
-      <RotationZ>-1.9995413E-07</RotationZ>
-      <RotationW>1</RotationW>
+      <PositionX>-18.8430138</PositionX>
+      <PositionY>0.5001225</PositionY>
+      <PositionZ>-19.97851</PositionZ>
+      <RotationX>-2.643737E-05</RotationX>
+      <RotationY>-0.001292216</RotationY>
+      <RotationZ>-0.000937634148</RotationZ>
+      <RotationW>0.999998748</RotationW>
     </SceneObject>
     <SceneObject xsi:type="Cube">
       <Type>Test Cube</Type>
-      <PositionX>-18.1822338</PositionX>
-      <PositionY>0.50000006</PositionY>
-      <PositionZ>18.7006779</PositionZ>
-      <RotationX>-1.43668558E-07</RotationX>
-      <RotationY>-3.99196722E-07</RotationY>
-      <RotationZ>-1.9995413E-07</RotationZ>
-      <RotationW>1</RotationW>
+      <PositionX>-17.6870537</PositionX>
+      <PositionY>0.5001231</PositionY>
+      <PositionZ>18.7042084</PositionZ>
+      <RotationX>-2.72391244E-05</RotationX>
+      <RotationY>-0.00129252975</RotationY>
+      <RotationZ>-0.000937051955</RotationZ>
+      <RotationW>0.9999988</RotationW>
+    </SceneObject>
+    <SceneObject xsi:type="Cube">
+      <Type>Test Cube</Type>
+      <PositionX>-19.8416767</PositionX>
+      <PositionY>0.500011563</PositionY>
+      <PositionZ>-19.9851189</PositionZ>
+      <RotationX>5.37204141E-05</RotationX>
+      <RotationY>-0.0017866788</RotationY>
+      <RotationZ>0.000941378239</RotationZ>
+      <RotationW>0.999998033</RotationW>
+    </SceneObject>
+    <SceneObject xsi:type="Cube">
+      <Type>Test Cube</Type>
+      <PositionX>-18.6857185</PositionX>
+      <PositionY>0.5000113</PositionY>
+      <PositionZ>18.6976</PositionZ>
+      <RotationX>5.39970279E-05</RotationX>
+      <RotationY>-0.00178573385</RotationY>
+      <RotationZ>0.0009407373</RotationZ>
+      <RotationW>0.999998</RotationW>
     </SceneObject>
   </SceneObjects>
 </SceneState>
