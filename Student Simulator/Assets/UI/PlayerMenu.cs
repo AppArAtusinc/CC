@@ -5,11 +5,11 @@ using System.Collections;
 public class PlayerMenu : MonoBehaviour 
 {
 	//public short selectedMenu;
-	public GameObject Map, Relationships;
+	public GameObject Map, Relationships, Inventory, Mission, Student;
 	// Use this for initialization
 	void Start () 
 	{
-		//selectedMenu = 0;
+		ChangeMenu (0);
 	}
 	
 	// Update is called once per frame
@@ -23,6 +23,7 @@ public class PlayerMenu : MonoBehaviour
 		if(NoMenu==0)
 		{
 			ClearPanel();
+			Inventory.SetActive (true);
 		}
 		else if(NoMenu==1)
 		{
@@ -32,6 +33,7 @@ public class PlayerMenu : MonoBehaviour
 		else if(NoMenu==2)
 		{
 			ClearPanel();
+			Mission.SetActive (true);
 		}
 		else if(NoMenu==3)
 		{
@@ -41,6 +43,7 @@ public class PlayerMenu : MonoBehaviour
 		else if(NoMenu==4)
 		{
 			ClearPanel();
+			Student.SetActive (true);
 		}
 	}
 
@@ -48,6 +51,9 @@ public class PlayerMenu : MonoBehaviour
 	{
 		Map.SetActive (false);
 		Relationships.SetActive (false);
+		Student.SetActive (false);
+		Mission.SetActive (false);
+		Inventory.SetActive (false);
 	}
 
 }
