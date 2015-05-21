@@ -6,7 +6,6 @@ using System.Runtime.Serialization.Formatters;
 
 namespace Actions.Core
 {
-	[Serializable]
     class ActionManager
     {
 		static public ActionManager Instanse;
