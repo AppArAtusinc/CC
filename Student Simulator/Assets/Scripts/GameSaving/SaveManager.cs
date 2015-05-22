@@ -20,6 +20,16 @@ namespace GameSaving{
 			}
 		}
 
+		public void RemoveFromSaveList(SceneState saveScene){
+			if(this.savedScenes.Count != 0){
+				this.savedScenes.Remove(saveScene);
+			}
+		}
+
+		public void ClearSaveList(){
+			this.savedScenes.Clear();
+		}
+
 		public void SaveAll(){
 			foreach(var saveObj in this.savedScenes){
 				Serializer.Serialize(saveObj, this.savePath);
@@ -27,16 +37,8 @@ namespace GameSaving{
 		}
 
 		public List<SaveObject> LoadAll(){
-			//List<SceneState> loadScene = new List<SceneState>();
 			var loadScene = Serializer.Deserialize(this.savePath);
 			return loadScene.GetSavedObjectsList();
-
-//			for(int i=0; i<this.savedScenes.Count; i++){
-//
-//				loadScene.Add(loadObj);
-//			}
-//
-//			return loadScene;
 		}
 	}
 }

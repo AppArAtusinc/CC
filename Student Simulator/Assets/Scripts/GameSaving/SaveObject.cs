@@ -7,19 +7,6 @@ using System.Xml.Serialization;
 
 namespace GameSaving{
 
-//	public struct Coordinates{
-//		public float xCoord;
-//		public float yCoord;
-//		public float zCoord;
-//		public float angle;
-//	}
-//
-//	public struct Size{
-//		public float width;
-//		public float height;
-//		public float depth;
-//	}
-
 	[XmlType("SaveObject")]
 	[XmlInclude(typeof(GameSaving.SaveObjects.SCube))]
 	//[XmlInclude(typeof(SButton))]
@@ -29,10 +16,10 @@ namespace GameSaving{
 		protected GameObject _inst;
 		public GameObject inst { set { _inst = value; } }
 
-		[XmlElement("Type")]
-		public string objectName;
-		//TODO add prefab name
-		//TODO add own list implementation
+		[XmlElement("PrefabName")]
+		public string prefabName;
+		[XmlElement("ObjectName")]
+		public string objSceneName;
 		[XmlElement("PositionX")]
 		public float x;
 		[XmlElement("PositionY")]
@@ -47,11 +34,16 @@ namespace GameSaving{
 		public float rotationZ;
 		[XmlElement("RotationW")]
 		public float rotationW;
+		[XmlElement("ActionType")]
+		public string actionType;
+		[XmlElement("ActionState")]
+		public bool actionState;
 		 
 		public SaveObject(){}
 
-		public SaveObject(string name, float x, float y, float z, float angleX, float angleY, float angleZ, float angleW){
-			this.objectName=name;
+		public SaveObject(string name, string sceneName, float x, float y, float z, float angleX, float angleY, float angleZ, float angleW, string actionType, bool actionState){
+			this.prefabName=name;
+			this.objSceneName=sceneName;
 			this.x=x;
 			this.y=y;
 			this.z=z;
@@ -59,6 +51,8 @@ namespace GameSaving{
 			this.rotationY=angleY;
 			this.rotationZ=angleZ;
 			this.rotationW=angleW;
+			this.actionType=actionType;
+			this.actionState=actionState;		
 		}
 
 		public virtual void State(){
@@ -69,13 +63,10 @@ namespace GameSaving{
 			this.x = this._inst.transform.position.x;
 			this.y = this._inst.transform.position.y;
 			this.z = this._inst.transform.position.z;
-			this.rotationX = this._inst.transform.rotation.eulerAngles.x;
-			this.rotationY = this._inst.transform.rotation.eulerAngles.y;
-			this.rotationZ = this._inst.transform.rotation.eulerAngles.z;
+			this.rotationX = this._inst.transform.rotation.x;
+			this.rotationY = this._inst.transform.rotation.y;
+			this.rotationZ = this._inst.transform.rotation.z;
+			this.rotationW = this._inst.transform.rotation.w;
 		}
-
-		//public Coordinates ObjectPosition;
-		//public Size ObjectSize;
-		//public abstract void CreateObject();
 	}
 }

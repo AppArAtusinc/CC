@@ -1,15 +1,27 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Actions\Core\ActionManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameSaving\Serializer.cs">
     <Files>
-      <File FileName="Assets\Scripts\Actions\Core\ActionManager.cs" Line="9" Column="1" />
-      <File FileName="Assets\TestSequeceButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\TestScript.cs" Line="64" Column="5" />
+      <File FileName="Assets\Scripts\GameSaving\SaveManager.cs" Line="8" Column="19" />
+      <File FileName="Assets\Scripts\GameSaving\SaveObject.cs" Line="42" Column="20" />
+      <File FileName="Assets\Scripts\GameSaving\SceneState.cs" Line="11" Column="25" />
+      <File FileName="Assets\Scripts\GameSaving\Serializer.cs" Line="12" Column="26" />
+      <File FileName="Assets\Scripts\GameSaving\SaveObjects\SButton.cs" Line="11" Column="22" />
+      <File FileName="Assets\Scripts\GameSaving\SaveObjects\SCube.cs" Line="9" Column="2" />
+      <File FileName="Assets\Scripts\GameSaving\SaveObjects\SLight.cs" Line="19" Column="47" />
+      <File FileName="Assets\Scripts\GameSaving\SaveObjects\SCamera.cs" Line="15" Column="26" />
+      <File FileName="Assets\Scripts\GameSaving\SaveObjects\SBar.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameSaving\SaveObjects\SMenu.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="D:\SkyDrive\StudentSimulate\CC\Student Simulator\Assets\TestScript.cs" line="104" />
+      <Breakpoint file="D:\SkyDrive\StudentSimulate\CC\Student Simulator\Assets\TestScript.cs" line="119" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="Assets\TestScript.cs" line="63" offsetX="767" offsetY="1022" expression="objName" liveUpdate="False" />
+    <Watch file="Assets\TestScript.cs" line="63" offsetX="731" offsetY="1081" expression="sceneObj" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

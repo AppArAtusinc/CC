@@ -54,11 +54,24 @@ public class TestScript : MonoBehaviour {
 		var listOfSavedObjects = saveManager.LoadAll();
 		
 		for(int j = 0; j<listOfSavedObjects.Count; j++){
-			var objName = listOfSavedObjects[j].objectName;
+			var prefName = listOfSavedObjects[j].prefabName;
+			var objName = listOfSavedObjects[j].objSceneName;
+
+			var objects = GameObject.FindObjectsOfType(typeof(GameObject));
+
+			for(int i = 0; i<objects.Length; i++){
+				var sceneObj = GameObject.Find(objName);
+
+				if(sceneObj && objects[i].name == objName){
+					Destroy(sceneObj);
+				}
+			}
+			var objects1 = GameObject.FindObjectsOfType(typeof(GameObject));
+
 			Vector3 objPos = new Vector3(listOfSavedObjects[j].x, listOfSavedObjects[j].y, listOfSavedObjects[j].z);
 			Quaternion objRotation = new Quaternion(listOfSavedObjects[j].rotationX, listOfSavedObjects[j].rotationY, listOfSavedObjects[j].rotationZ, listOfSavedObjects[j].rotationW);
 			
-			var resourceObj = Resources.Load("Objects/" + objName);
+			var resourceObj = Resources.Load("Objects/" + prefName);
 			
 			GameObject.Instantiate(resourceObj, objPos, objRotation);
 		}
@@ -72,6 +85,8 @@ public class TestScript : MonoBehaviour {
 		SaveManager saveManager = new SaveManager("test_save_data.xml");
 		SceneState saveScene = new SceneState();
 		for(int i = 0; i<saveableObjects.Length; i++){
+			var name = saveableObjects[i].name;
+
 			var cube1PosX = saveableObjects[i].transform.position.x;
 			var cube1PosY = saveableObjects[i].transform.position.y;
 			var cube1PosZ = saveableObjects[i].transform.position.z;
@@ -81,7 +96,7 @@ public class TestScript : MonoBehaviour {
 			var cube1AngleZ = saveableObjects[i].transform.rotation.z;
 			var cube1AngleW = saveableObjects[i].transform.rotation.w;
 			
-			SaveObject sObjCube = new SCube("Test Cube", cube1PosX, cube1PosY, cube1PosZ, cube1AngleX, cube1AngleY, cube1AngleZ, cube1AngleW);
+			SaveObject sObjCube = new SCube("Test Cube", name, cube1PosX, cube1PosY, cube1PosZ, cube1AngleX, cube1AngleY, cube1AngleZ, cube1AngleW, "None", false);
 			
 			saveScene.AddItem(sObjCube);
 		}
