@@ -62,7 +62,7 @@ public class TestScript : MonoBehaviour {
 			for(int i = 0; i<objects.Length; i++){
 				var sceneObj = GameObject.Find(objName);
 
-				if(sceneObj && objects[i].name == objName){
+				if(sceneObj){
 					Destroy(sceneObj);
 				}
 			}
@@ -73,7 +73,8 @@ public class TestScript : MonoBehaviour {
 			
 			var resourceObj = Resources.Load("Objects/" + prefName);
 			
-			GameObject.Instantiate(resourceObj, objPos, objRotation);
+			var newObj = GameObject.Instantiate(resourceObj, objPos, objRotation);
+			newObj.name = objName;
 		}
 	}
 
