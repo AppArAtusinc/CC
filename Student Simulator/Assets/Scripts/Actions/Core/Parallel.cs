@@ -3,17 +3,33 @@ using System.Collections.Generic;
 
 namespace Actions.Core
 {
+	/// <summary>
+	/// Using for creating action pool, where action will work parallel
+	/// </summary>
 	class Parallel : GameAction
 	{
-		GameAction[] actions;
-		bool[] ended;
+		/// <summary>
+		/// Pool action for parallel processing
+		/// </summary>
+		public GameAction[] actions;
+		/// <summary>
+		/// Flags for each action. If true action is end it's work.
+		/// </summary>
+		public bool[] ended;
 
+		/// <summary>
+		/// Creating action with parallel action pool.
+		/// </summary>
+		/// <param name="Actions"> Actions for pool. </param>
 		public Parallel (params GameAction[] Actions)
 		{
 			actions = Actions;
 			ended = new bool[actions.Length];
 		}
 
+		/// <summary>
+		/// Reset all action to start state.
+		/// </summary>
 		public override void Reset ()
 		{
 			for(int i = 0; i<actions.Length; i++)
@@ -23,6 +39,14 @@ namespace Actions.Core
 			}
 		}
 
+		/// <summary>
+		/// Calling each frame for updating action pool.
+		/// </summary>
+		/// <param name="Delta"> Time from last call. </param>
+		/// <returns>
+		/// true: not all action end it work.
+		/// false: all action end it work.
+		/// </returns>
 		public override bool Upadate (float Delta)
 		{
 			bool ok = false;

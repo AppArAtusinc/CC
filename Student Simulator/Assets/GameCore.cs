@@ -6,10 +6,13 @@ public class GameCore : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+#if UNITY_EDITOR
+		Game.GetInstance().Entites.Bind();
+#endif
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        ActionManager.Instanse.Update(Time.deltaTime);
+		Game.GetInstance().Update(Time.deltaTime);
 	}
 }

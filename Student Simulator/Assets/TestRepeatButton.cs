@@ -8,10 +8,10 @@ public class TestRepeatButton : Button {
 	
 	public override void Clicked (GameObject Sender)
 	{
-		ActionManager.Instanse.RemoveByName("Test Action");
+		Game.GetInstance().Actions.RemoveByName("Test Action");
 		var cube = GameObject.Find("Test Cube 2");
 		
-		ActionManager.Instanse.Add(
+		Game.GetInstance().Actions.Add(
 			new Repeat(
 			new MoveTo(cube, new Vector3(-5,0.5f,-5)).SetDuration(2),
 			new MoveTo(cube, new Vector3(-10,0.5f,-5)).SetDuration(1),

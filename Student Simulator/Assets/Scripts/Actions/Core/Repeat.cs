@@ -2,46 +2,81 @@ using System;
 
 namespace Actions.Core
 {
+	/// <summary>
+	/// Using for creating action sequence which can repeat some times.
+	/// </summary>
 	class Repeat : GameAction
 	{
+		/// <summary>
+		/// Action sequence.
+		/// </summary>
 		public GameAction[] actions;
-		public int index;
-		public int repeatCount;
-		public int currentRepeatCount;
+		/// <summary>
+		/// Index of current running action.
+		/// </summary>
+		public int Index;
+		/// <summary>
+		/// Total count for repeating action sequence.
+		/// </summary>
+		public int RepeatCount;
+		/// <summary>
+		/// Current repeat count.
+		/// </summary>
+		public int CurrentRepeatCount;
 
+		/// <summary>
+		/// Create action sequence wich repeat only one time.
+		/// </summary>
+		/// <param name="Actions"> Action sequence. </param>
 		public Repeat (params GameAction[] Actions)
 		{
 			actions = Actions;
 			Reset();
 		}
 		
+		/// <summary>
+		/// Reset all action to start state.
+		/// </summary>
 		public override void Reset ()
 		{
 			base.Reset();
-			index = 0;
-			currentRepeatCount = 0;
-			actions[index].Reset();
+			Index = 0;
+			CurrentRepeatCount = 0;
+			actions[Index].Reset();
 		}
 
+		/// <summary>
+		/// Set total repeat count.
+		/// </summary>
+		/// <param name="Count"> Value for repeat count. </param>
+		/// <returns> Return this action. </returns>
 		public Repeat SetRepeatCount(int Count)
 		{
-			repeatCount = Count;
+			RepeatCount = Count;
 			return this;
 		}
 
+		/// <summary>
+		/// Calling each frame, update action sequence.
+		/// </summary>
+		/// <param name="Delta"> Time bettwen two calls. </param>
+		/// <returns>
+		/// true: still running
+		/// false: finish running
+		/// </returns>
 		public override bool Upadate (float Delta)
 		{
-			if(!actions[index].Upadate(Delta))
+			if(!actions[Index].Upadate(Delta))
 			{
-				index++;
-				if(index == actions.Length)
+				Index++;
+				if(Index == actions.Length)
 				{
-					index = 0;
-					currentRepeatCount++;
-					if(currentRepeatCount == repeatCount)
+					Index = 0;
+					CurrentRepeatCount++;
+					if(CurrentRepeatCount == RepeatCount)
 						return false;
 				}
-				actions[index].Reset();
+				actions[Index].Reset();
 			}
 			
 			return true;

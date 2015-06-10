@@ -5,47 +5,80 @@ using System.Text;
 
 using UnityEngine;
 using Actions.Core;
+using SimpleGameTypes;
+using Entity;
 
 
 namespace Actions
 {
 	public class MoveTo : GameAction
 	{
-		public Transform target;
-		public float speed;
-		public float duration;
-		public Vector3 endPosition, direction;
+		public LinkToEntity Entity;
 		
+		public float Duration;		
+		public float Speed;
+
+		public SimpleVector3 FinishPosition
+		{
+			get { return new SimpleVector3(endPosition);}
+			set 
+			{ 
+				endPosition = value.ToVector3();
+			}
+		}
+		Vector3 direction, endPosition;
+
+		Transform transform;
+		Transform Transform
+		{
+			get
+			{
+				if (Entity.IsValid())
+					return transform;
+
+				if(Entity.Link())
+					transform = Entity.GetValue().GetGameObject().transform;
+				return transform;
+			}
+		}
+
+		public MoveTo()
+		{
+
+		}
 		
 		public MoveTo(GameObject Target, Vector3 EndPosition)
 		{
-			target = Target.transform;
-			endPosition = EndPosition;
-			speed = 0;
+			Entity = new LinkToEntity();
+			Entity.Id = GameInformation.GetId(Target);
+			FinishPosition = new SimpleVector3 (EndPosition);
+
+			Speed = 0;
+			Reset();
 		}
 
 		public override void Reset ()
 		{
-			SetDuration(duration);
+			SetDuration(Duration);
 		}
 
 		public MoveTo SetDuration(float Duration)
 		{
-			duration = Duration;
-			var d = Vector3.Distance(target.position, endPosition);
-			speed =  d / Duration;
+			this.Duration = Duration;
+			var d = Vector3.Distance(Transform.position, endPosition);
+			Speed =  d / Duration;
 			return this;
 		}
 
 		public override bool Upadate(float Delta)
 		{
-			direction = (endPosition - target.position).normalized;
-			float step = (speed * Delta);
-			if(Vector3.Distance(target.position, endPosition) > step)
-				target.position = (target.position + (direction * step));
+			direction = (endPosition - Transform.position).normalized;
+			float step = (Speed * Delta);
+			if (Vector3.Distance(Transform.position, endPosition) > step)
+				Transform.position = (Transform.position + (direction * step));
 			else
 			{
-				target.position = endPosition;
+				Transform.position = endPosition;
 				return false;
 			}
 			return true;
