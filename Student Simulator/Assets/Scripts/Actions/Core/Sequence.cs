@@ -22,7 +22,7 @@ namespace Actions.Core
 		/// <param name="Actions"> Actions for sequence. </param>
 		public Sequence (params GameAction[] Actions)
 		{
-			Actions = Actions;
+			this.Actions = Actions;
 			Reset();
 		}
 
@@ -33,7 +33,8 @@ namespace Actions.Core
 		{
 			base.Reset();
 			Index = 0;
-			Actions[Index].Reset();
+			if(Actions.Length != 0)
+				Actions[Index].Reset();
 		}
 
 		/// <summary>

@@ -86,7 +86,7 @@ namespace Entity
 		/// </summary>
 		public void Destroy()
 		{
-			Game.GetInstance().Entites.Actor.Remove(this);
+			//Game.GetInstance().Entites.Actor.Remove(this);
 			GameObject.Destroy(gameObject);
 		}
 	}

@@ -41,6 +41,25 @@ public class TestScript : MonoBehaviour {
 			}
 		}
 
+
+
+		
+		//save
+		if(Input.GetKeyDown(KeyCode.C))
+		{			
+			SaveScene ();	
+		}
+
+		//load
+		if(Input.GetKeyDown(KeyCode.L))
+		{
+			LoadScene ();
+		}
+
+	}
+
+	public void LateUpdate()
+	{
 		//saving
 		if (Input.GetKeyDown(KeyCode.F5))
 		{
@@ -58,21 +77,8 @@ public class TestScript : MonoBehaviour {
 			Game.InitInstance(game);
 	
 		}
-
-		
-		//save
-		if(Input.GetKeyDown(KeyCode.C))
-		{			
-			SaveScene ();	
-		}
-
-		//load
-		if(Input.GetKeyDown(KeyCode.L))
-		{
-			LoadScene ();
-		}
-
 	}
+
 
 	public void LoadScene()
 	{
