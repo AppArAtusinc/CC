@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,22 +10,28 @@ namespace Entity
 	/// <summary>
 	/// Using for controlling PoolEntites.
 	/// </summary>
-	public class PoolManager
+	public class GameEntityManager
 	{
-		public List<PoolEntity> Actor;
+		/// <summary>
+		/// All GameEntites.
+		/// </summary>
+		public List<GameEntity> Actor;
 
-		public PoolManager()
+		public GameEntityManager()
 		{
-			Actor = new List<PoolEntity>();
+			Actor = new List<GameEntity>();
 		}
 
+		/// <summary>
+		/// Bind all GameObject in scene, while launching from Unity Editor. Calling automaticly.
+		/// </summary>
 		public void Bind()
 		{
 			var objs = GameObject.FindGameObjectsWithTag("TestSaving");
 
 			foreach (var obj in objs) {
 				GameInformation info = obj.GetComponent<GameInformation>();
-				Actor.Add(new PoolEntity(info.name, info.PrefabName, new SimpleTransform(obj.transform)));
+				Actor.Add(new GameEntity(info.name, info.PrefabName, new SimpleTransform(obj.transform)));
 				GameObject.Destroy(obj);
 			}
 

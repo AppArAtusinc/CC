@@ -9,16 +9,18 @@ using Entity;
 public class Game
 {
 	public ActionManager Actions;
-	public PoolManager Entites;
+	public GameEntityManager Entites;
 
 	static Game Instance;
 	public static Game GetInstance(){return Instance;}
 
 	public static void InitInstance (Game game)
 	{
-		Instance.Entites.Actor.ForEach( o => o.Destroy());
-		Instance.Entites.Actor.Clear();
+		while (Instance.Entites.Actor.Count != 0)
+			Instance.Entites.Actor.First().Destroy();
+
 		Instance.Actions.actions.Clear();
+
 		Instance = null;
 		GC.Collect();
 		Instance = game;
@@ -34,7 +36,7 @@ public class Game
 	Game()
 	{
 		Actions = new ActionManager();
-		Entites = new PoolManager();
+		Entites = new GameEntityManager();
 	}
 
 	public void Update(float Delta)

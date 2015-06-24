@@ -13,7 +13,7 @@ namespace Actions
 {
 	public class MoveTo : GameAction
 	{
-		public LinkToEntity Entity;
+		public LinkToGameEntity Entity;
 		
 		public float Duration;		
 		public float Speed;
@@ -49,7 +49,7 @@ namespace Actions
 		
 		public MoveTo(GameObject Target, Vector3 EndPosition)
 		{
-			Entity = new LinkToEntity();
+			Entity = new LinkToGameEntity();
 			Entity.Id = GameInformation.GetId(Target);
 			FinishPosition = new SimpleVector3 (EndPosition);
 

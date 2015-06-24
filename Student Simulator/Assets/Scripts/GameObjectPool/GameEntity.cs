@@ -10,8 +10,9 @@ namespace Entity
 	/// <summary>
 	/// Need for saving context bettwen save/load operation.
 	/// </summary>
-	public class PoolEntity
+	public class GameEntity
 	{
+		static UInt64 NextId = 1;
 		/// <summary>
 		/// Identificator for this entity. Use for work with same entity bettwen save/load operation.
 		/// </summary>
@@ -28,7 +29,7 @@ namespace Entity
 		GameObject gameObject;
 
 		/// <summary>
-		/// Transform of entity on hte scene.
+		/// Transform of entity on the scene.
 		/// </summary>
 		public SimpleTransform transform;
 		/// <summary>
@@ -51,18 +52,17 @@ namespace Entity
 
 			return true;
 		}
-		static UInt64 NextId = 1;
-		public PoolEntity()
+		public GameEntity()
 		{
 
 		}
 		/// <summary>
-		/// Use for creating new entity and GameObject ob scene.s
+		/// Use for creating new entity and GameObject ob scene.
 		/// </summary>
 		/// <param name="Name"> Name of entity and GameObject. </param>
 		/// <param name="PrefabName"> Name of prefab of loading. </param>
 		/// <param name="transform"> Transform for GameObject on scene. </param>
-		public PoolEntity(string Name, string PrefabName, SimpleTransform transform)
+		public GameEntity(string Name, string PrefabName, SimpleTransform transform)
 		{
 			Id = NextId++;
 			this.Name = Name;
@@ -86,7 +86,7 @@ namespace Entity
 		/// </summary>
 		public void Destroy()
 		{
-			//Game.GetInstance().Entites.Actor.Remove(this);
+			Game.GetInstance().Entites.Actor.Remove(this);
 			GameObject.Destroy(gameObject);
 		}
 	}

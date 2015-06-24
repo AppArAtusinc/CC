@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 
 namespace Entity
 {
-	public class LinkToEntity
+	public class LinkToGameEntity
 	{
-		PoolEntity value;
+		GameEntity value;
 		public UInt64 Id;
 
-		public PoolEntity GetValue()
+		public GameEntity GetValue()
 		{
 			return value;
 		}
