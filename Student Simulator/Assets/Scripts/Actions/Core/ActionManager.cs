@@ -14,11 +14,11 @@ namespace Actions.Core
 		/// <summary>
 		/// List of all action.
 		/// </summary>
-		public List<GameAction> actions;
+		public List<GameAction> Actions;
          
         public ActionManager()
         {
-            actions = new List<GameAction>();
+            Actions = new List<GameAction>();
         }
 
 		/// <summary>
@@ -28,7 +28,7 @@ namespace Actions.Core
 		/// <returns> Return just added action. </returns>
         public GameAction Add(GameAction NewAction)
         {
-            actions.Add(NewAction);
+            Actions.Add(NewAction);
             return NewAction;
         }
 
@@ -39,7 +39,7 @@ namespace Actions.Core
 		/// <returns> Action which finded. If not find any action return null. </returns>
         public GameAction GetActionsByName(string Name)
         {
-            var query = actions.FindAll(o => o.Name == Name);
+            var query = Actions.FindAll(o => o.Name == Name);
             return query.FirstOrDefault();
         }
 
@@ -53,7 +53,7 @@ namespace Actions.Core
 		/// </returns>
         public bool RemoveByName(string Name)
         {
-            actions.RemoveAll(o => o.Name == Name);
+            Actions.RemoveAll(o => o.Name == Name);
             return true;
         }
 
@@ -65,9 +65,9 @@ namespace Actions.Core
 		public bool Update(float Delta)
         {
 			//@todo: think about optimization
-			for(int index = 0; index < actions.Count; index++)
-				if(!actions[index].Upadate(Delta))
-					actions.Remove(actions[index--]);
+			for(int index = 0; index < Actions.Count; index++)
+				if(!Actions[index].Upadate(Delta))
+					Actions.Remove(Actions[index--]);
 
 			return true;
         }

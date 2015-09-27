@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using SimpleGameTypes;
 using UnityEngine;
+using Newtonsoft.Json;
 
 namespace Entity
 {
@@ -32,6 +33,7 @@ namespace Entity
 		/// Transform of entity on the scene.
 		/// </summary>
 		public SimpleTransform transform;
+
 		/// <summary>
 		/// Use for initing GameObject in scene. Calling automaticly.
 		/// </summary>
@@ -75,10 +77,13 @@ namespace Entity
 		/// <summary>
 		/// Use for getting inner GameoObject.
 		/// </summary>
+        /// <remarks>
+        /// DONT TRY TO CREATE PROPETY!!! IT WILL BROKE SERALIZATION
+        /// </remarks>
 		/// <returns></returns>
 		public GameObject GetGameObject()
 		{
-			return gameObject;
+            return gameObject;
 		}
 
 		/// <summary>
@@ -86,7 +91,7 @@ namespace Entity
 		/// </summary>
 		public void Destroy()
 		{
-			Game.GetInstance().Entites.Actor.Remove(this);
+			//Game.GetInstance().Entites.Actor.Remove(this);
 			GameObject.Destroy(gameObject);
 		}
 	}

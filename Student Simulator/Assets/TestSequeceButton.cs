@@ -8,10 +8,10 @@ public class TestSequeceButton : Button {
 
 	public override void Clicked (GameObject Sender)
 	{
-		Game.GetInstance().Actions.RemoveByName("Test Action");
+		Game.GetInstance().ActionManager.RemoveByName("Test Action");
 		var cube1 = GameObject.Find("Test Cube 1");
 
-		Game.GetInstance().Actions.Add(
+		Game.GetInstance().ActionManager.Add(
 			new Sequence(
 				new MoveTo(cube1, new Vector3(-5,0.5f,-5)).SetDuration(2),
 				new MoveTo(cube1, new Vector3(-10,0.5f,-5)).SetDuration(1),

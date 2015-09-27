@@ -4,7 +4,7 @@ namespace Actions.Core
 {
 
 	/// <summary>
-	/// Usse for repeating sequence forever.
+	/// Use for repeating sequence forever.
 	/// </summary>
 	class RepeatForever : GameAction
 	{
@@ -23,8 +23,7 @@ namespace Actions.Core
 		/// <param name="Actions"> Sequence for repeating. </param>
 		public RepeatForever (params GameAction[] Actions)
 		{
-			Actions = Actions;
-			Reset();
+			this.Actions = Actions;
 		}
 		
 		/// <summary>

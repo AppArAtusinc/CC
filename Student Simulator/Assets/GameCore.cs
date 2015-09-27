@@ -12,7 +12,7 @@ public class GameCore : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		Game.GetInstance().Update(Time.deltaTime);
 	}
 }

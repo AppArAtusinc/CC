@@ -19,10 +19,9 @@ public class TestScript : MonoBehaviour {
 		cube2 = GameObject.Find("Test Cube 2");
 		controller = GameObject.Find("RigidBodyFPSController");
 		set = new JsonSerializerSettings();
+		set.Formatting = Formatting.Indented;
 		set.TypeNameHandling = TypeNameHandling.All;
-		set.MetadataPropertyHandling = MetadataPropertyHandling.ReadAhead;
 		set.TypeNameAssemblyFormat = System.Runtime.Serialization.Formatters.FormatterAssemblyStyle.Full;
-		set.CheckAdditionalContent = false;
 
 
 	}
@@ -40,9 +39,6 @@ public class TestScript : MonoBehaviour {
 					t.Active(gameObject);
 			}
 		}
-
-
-
 		
 		//save
 		if(Input.GetKeyDown(KeyCode.C))
@@ -70,13 +66,15 @@ public class TestScript : MonoBehaviour {
 		}
 		if (Input.GetKeyDown(KeyCode.F9))
 		{
-			StreamReader fs = new StreamReader("test.txt");
-			var data = fs.ReadToEnd();
-			var game = (Game)JsonConvert.DeserializeObject(data, set);
-			fs.Close();
-			Game.InitInstance(game);
-	
-		}
+            using (StreamReader fs = new StreamReader("test.txt"))
+            {
+                var data = fs.ReadToEnd();
+				Debug.Log (data);
+
+				var game = (Game)JsonConvert.DeserializeObject(data, set);;
+		    	Game.InitInstance(game);
+            }
+        }
 	}
 
 

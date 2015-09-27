@@ -19,7 +19,7 @@ public abstract class Button : Activable
 		activated = true;
 		Clicked(Activator);
 		Vector3 startPos = gameObject.transform.position;
-			Game.GetInstance().Actions.Add(
+			Game.GetInstance().ActionManager.Add(
 			new Sequence(
 				//new MoveTo(gameObject, (gameObject.transform.position - (gameObject.transform.up*Shift))).SetDuration(0.1f),
 				new Delay(0.5f),

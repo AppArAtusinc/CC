@@ -31,7 +31,6 @@ namespace Actions.Core
 		public Repeat (params GameAction[] Actions)
 		{
 			actions = Actions;
-			Reset();
 		}
 		
 		/// <summary>

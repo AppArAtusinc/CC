@@ -18,7 +18,13 @@ namespace SimpleGameTypes
 			y = vector.y;
 			z = vector.z;
 		}
-		public Vector3 ToVector3()
+
+        static public implicit operator Vector3(SimpleVector3 Vector)
+        {
+            return Vector.ToVector3();
+        }
+
+        public Vector3 ToVector3()
 		{
 			return new Vector3((float)x, (float)y, (float)z);
 		}

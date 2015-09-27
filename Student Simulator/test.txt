@@ -1,120 +1,116 @@
 {
   "$type": "Game, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-  "Actions": {
+  "ActionManager": {
     "$type": "Actions.Core.ActionManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-    "actions": {
+    "Actions": {
       "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
       "$values": [
         {
-          "$type": "Actions.Core.Sequence, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Actions": {
+          "$type": "Actions.Core.Repeat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "actions": {
             "$type": "Actions.Core.GameAction[], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "$values": [
               {
-                "$type": "Actions.MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "Entity": {
+                "$type": "MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "Target": {
                   "$type": "Entity.LinkToGameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                  "Id": 4
+                  "Id": 3
                 },
-                "Duration": 2.0,
-                "Speed": 13.6664228,
-                "FinishPosition": {
+                "Position": {
                   "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                   "x": -5.0,
                   "y": 0.5,
                   "z": -5.0
                 },
+                "Duration": 2.0,
+                "SpeedPerSecond": 10.5228252,
                 "Name": null
               },
               {
-                "$type": "Actions.MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "Entity": {
+                "$type": "MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "Target": {
                   "$type": "Entity.LinkToGameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                  "Id": 4
+                  "Id": 3
                 },
-                "Duration": 1.0,
-                "Speed": 5.0,
-                "FinishPosition": {
+                "Position": {
                   "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                   "x": -10.0,
                   "y": 0.5,
                   "z": -5.0
                 },
+                "Duration": 1.0,
+                "SpeedPerSecond": 17.8927765,
                 "Name": null
               },
               {
-                "$type": "Actions.MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "Entity": {
+                "$type": "MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "Target": {
                   "$type": "Entity.LinkToGameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                  "Id": 4
+                  "Id": 3
                 },
-                "Duration": 1.0,
-                "Speed": 16.1843147,
-                "FinishPosition": {
+                "Position": {
                   "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                   "x": -10.0,
                   "y": 0.5,
                   "z": 5.0
                 },
+                "Duration": 1.0,
+                "SpeedPerSecond": 26.83024,
                 "Name": null
               },
               {
-                "$type": "Actions.MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "Entity": {
+                "$type": "MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "Target": {
                   "$type": "Entity.LinkToGameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                  "Id": 4
+                  "Id": 3
                 },
-                "Duration": 1.0,
-                "Speed": 19.316843,
-                "FinishPosition": {
+                "Position": {
                   "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                   "x": -5.0,
                   "y": 0.5,
                   "z": 5.0
                 },
+                "Duration": 1.0,
+                "SpeedPerSecond": 29.0280857,
                 "Name": null
               },
               {
-                "$type": "Actions.MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "Entity": {
+                "$type": "MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "Target": {
                   "$type": "Entity.LinkToGameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                  "Id": 4
+                  "Id": 3
                 },
-                "Duration": 1.0,
-                "Speed": 27.3328457,
-                "FinishPosition": {
+                "Position": {
                   "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                   "x": -5.0,
                   "y": 0.5,
                   "z": -5.0
                 },
+                "Duration": 1.0,
+                "SpeedPerSecond": 21.04565,
                 "Name": null
               },
               {
-                "$type": "Actions.Core.Delay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "TotalDelay": 2.0,
-                "CurrentDelay": 0.0,
-                "Name": null
-              },
-              {
-                "$type": "Actions.MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "Entity": {
+                "$type": "MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "Target": {
                   "$type": "Entity.LinkToGameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                  "Id": 4
+                  "Id": 3
                 },
-                "Duration": 2.0,
-                "Speed": 0.948602,
-                "FinishPosition": {
+                "Position": {
                   "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                   "x": -20.0,
                   "y": 0.5,
-                  "z": 20.0
+                  "z": -20.0
                 },
+                "Duration": 2.0,
+                "SpeedPerSecond": 0.111837454,
                 "Name": null
               }
             ]
           },
-          "Index": 1,
+          "Index": 0,
+          "RepeatCount": 2,
+          "CurrentRepeatCount": 0,
           "Name": "Test Action"
         }
       ]
@@ -190,15 +186,15 @@
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": -19.77679443359375,
+              "x": -7.6598172187805176,
               "y": 0.50000005960464478,
-              "z": -19.985517501831055
+              "z": -7.697385311126709
             },
             "Rotation": {
               "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": -4.0785272403809358E-07,
-              "y": 0.0038300848100334406,
-              "z": 4.7717071538500022E-07,
+              "x": -1.6474335495786363E-07,
+              "y": 0.0038287711795419455,
+              "z": -1.565465197472804E-07,
               "w": 0.9999927282333374
             },
             "Scale": {
@@ -218,15 +214,15 @@
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": -7.50593900680542,
+              "x": -18.62083625793457,
               "y": 0.50000005960464478,
-              "z": -5.0
+              "z": 18.697198867797852
             },
             "Rotation": {
               "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": -1.6394518809192959E-07,
-              "y": 0.0038237893022596836,
-              "z": -1.7503785443295783E-07,
+              "x": -4.1854073629110644E-07,
+              "y": 0.0038300862070173025,
+              "z": 4.6514986706824857E-07,
               "w": 0.9999927282333374
             },
             "Scale": {
@@ -246,16 +242,16 @@
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": 3.5250370502471924,
+              "x": 4.4207320213317871,
               "y": 0.80000072717666626,
-              "z": -4.259918212890625
+              "z": -1.6837834119796753
             },
             "Rotation": {
               "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
               "x": 0.0,
-              "y": 0.61483573913574219,
+              "y": 0.70140695571899414,
               "z": 0.0,
-              "w": -0.788655161857605
+              "w": -0.71276110410690308
             },
             "Scale": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",

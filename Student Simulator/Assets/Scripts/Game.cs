@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using Actions.Core;
 using Entity;
+using UnityEngine;
 
 [Serializable]
 public class Game
 {
-	public ActionManager Actions;
+	public ActionManager ActionManager;
 	public GameEntityManager Entites;
 
 	static Game Instance;
@@ -16,15 +17,15 @@ public class Game
 
 	public static void InitInstance (Game game)
 	{
-		while (Instance.Entites.Actor.Count != 0)
-			Instance.Entites.Actor.First().Destroy();
-
-		Instance.Actions.actions.Clear();
+        Instance.Entites.Actor.ForEach(o => o.Destroy());
+        Instance.Entites.Actor.Clear();
+		Instance.ActionManager.Actions.Clear();
 
 		Instance = null;
 		GC.Collect();
 		Instance = game;
 		Instance.Entites.Actor.ForEach( o => o.Init());
+        LinkToGameEntity.Link();
 	}
 
 	static Game()
@@ -35,12 +36,12 @@ public class Game
 
 	Game()
 	{
-		Actions = new ActionManager();
+		ActionManager = new ActionManager();
 		Entites = new GameEntityManager();
 	}
 
 	public void Update(float Delta)
 	{
-		Actions.Update(Delta);
+		ActionManager.Update(Delta);
 	}
 }
