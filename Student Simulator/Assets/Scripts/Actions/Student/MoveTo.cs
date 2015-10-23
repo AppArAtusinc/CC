@@ -1,6 +1,7 @@
 ﻿using Actions.Core;
 using Entity;
 using SimpleGameTypes;
+using StudentSimulator.SaveSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +10,22 @@ using UnityEngine;
 
 class MoveTo : GameAction
 {
-    public LinkToGameEntity Target;
-    public SimpleVector3 Position;
+    [Save]
+    LinkToGameEntity Target;
 
-    public float Duration;
-    public float SpeedPerSecond;
+    [Save]
+    SimpleVector3 Position;
 
-    public MoveTo() { 
-		Debug.Log ("from MoveTo");
-	}
+    [Save]
+    float Duration;
+
+    [Save]
+    float SpeedPerSecond;
+
+    public MoveTo()
+    {
+    }
+
     public MoveTo(GameObject Target, Vector3 Position)
     {
         this.Target = new LinkToGameEntity(Target.GetEntityId());

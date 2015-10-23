@@ -1,148 +1,148 @@
 {
-  "$type": "Game, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+  "$type": "Game, Assembly-CSharp",
   "ActionManager": {
-    "$type": "Actions.Core.ActionManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "$type": "Actions.Core.ActionManager, Assembly-CSharp",
     "Actions": {
-      "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp]], mscorlib",
       "$values": [
         {
-          "$type": "Actions.Core.Repeat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Actions.Core.Repeat, Assembly-CSharp",
+          "Name": "Test Action",
           "actions": {
-            "$type": "Actions.Core.GameAction[], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp]], mscorlib",
             "$values": [
               {
-                "$type": "MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "$type": "MoveTo, Assembly-CSharp",
+                "Name": null,
                 "Target": {
-                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp",
                   "Id": 3
                 },
                 "Position": {
-                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
                   "x": -5.0,
                   "y": 0.5,
                   "z": -5.0
                 },
                 "Duration": 2.0,
-                "SpeedPerSecond": 10.5228252,
-                "Name": null
+                "SpeedPerSecond": 10.5228252
               },
               {
-                "$type": "MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "$type": "MoveTo, Assembly-CSharp",
+                "Name": null,
                 "Target": {
-                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp",
                   "Id": 3
                 },
                 "Position": {
-                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
                   "x": -10.0,
                   "y": 0.5,
                   "z": -5.0
                 },
                 "Duration": 1.0,
-                "SpeedPerSecond": 17.8927765,
-                "Name": null
+                "SpeedPerSecond": 5.0
               },
               {
-                "$type": "MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "$type": "MoveTo, Assembly-CSharp",
+                "Name": null,
                 "Target": {
-                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp",
                   "Id": 3
                 },
                 "Position": {
-                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
                   "x": -10.0,
                   "y": 0.5,
                   "z": 5.0
                 },
                 "Duration": 1.0,
-                "SpeedPerSecond": 26.83024,
-                "Name": null
+                "SpeedPerSecond": 10.0
               },
               {
-                "$type": "MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "$type": "MoveTo, Assembly-CSharp",
+                "Name": null,
                 "Target": {
-                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp",
                   "Id": 3
                 },
                 "Position": {
-                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
                   "x": -5.0,
                   "y": 0.5,
                   "z": 5.0
                 },
                 "Duration": 1.0,
-                "SpeedPerSecond": 29.0280857,
-                "Name": null
+                "SpeedPerSecond": 5.0
               },
               {
-                "$type": "MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "$type": "MoveTo, Assembly-CSharp",
+                "Name": null,
                 "Target": {
-                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp",
                   "Id": 3
                 },
                 "Position": {
-                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
                   "x": -5.0,
                   "y": 0.5,
                   "z": -5.0
                 },
                 "Duration": 1.0,
-                "SpeedPerSecond": 21.04565,
-                "Name": null
+                "SpeedPerSecond": 21.04565
               },
               {
-                "$type": "MoveTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "$type": "MoveTo, Assembly-CSharp",
+                "Name": null,
                 "Target": {
-                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp",
                   "Id": 3
                 },
                 "Position": {
-                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
                   "x": -20.0,
                   "y": 0.5,
                   "z": -20.0
                 },
                 "Duration": 2.0,
-                "SpeedPerSecond": 0.111837454,
-                "Name": null
+                "SpeedPerSecond": 0.111837454
               }
             ]
           },
-          "Index": 0,
-          "RepeatCount": 2,
-          "CurrentRepeatCount": 0,
-          "Name": "Test Action"
+          "index": 3,
+          "repeatCount": 2,
+          "currentRepeatCount": 0
         }
       ]
     }
   },
   "Entites": {
-    "$type": "Entity.GameEntityManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "$type": "Entity.GameEntityManager, Assembly-CSharp",
     "Actor": {
-      "$type": "System.Collections.Generic.List`1[[Entity.GameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "$type": "System.Collections.Generic.List`1[[Entity.GameEntity, Assembly-CSharp]], mscorlib",
       "$values": [
         {
-          "$type": "Entity.GameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.GameEntity, Assembly-CSharp",
           "Id": 1,
           "Name": "WaterProDaytime",
           "PrefabName": "Objects/WaterProDaytime",
           "transform": {
-            "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp",
             "Position": {
-              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
               "x": 0.0,
               "y": -1.0,
               "z": 0.0
             },
             "Rotation": {
-              "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp",
               "x": 0.0,
               "y": 0.0,
               "z": 0.0,
               "w": 1.0
             },
             "Scale": {
-              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
               "x": 1000.0,
               "y": 1.0,
               "z": 1000.0
@@ -150,27 +150,27 @@
           }
         },
         {
-          "$type": "Entity.GameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.GameEntity, Assembly-CSharp",
           "Id": 2,
           "Name": "Cube",
           "PrefabName": "Objects/Cube",
           "transform": {
-            "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp",
             "Position": {
-              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
               "x": 0.0,
               "y": -25.0,
               "z": 0.0
             },
             "Rotation": {
-              "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp",
               "x": 0.0,
               "y": 0.0,
               "z": 0.0,
               "w": 1.0
             },
             "Scale": {
-              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
               "x": 50.0,
               "y": 50.0,
               "z": 50.0
@@ -178,27 +178,27 @@
           }
         },
         {
-          "$type": "Entity.GameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.GameEntity, Assembly-CSharp",
           "Id": 3,
           "Name": "Test Cube 2",
           "PrefabName": "Objects/Test Cube",
           "transform": {
-            "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp",
             "Position": {
-              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": -7.6598172187805176,
+              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
+              "x": -9.2999973297119141,
               "y": 0.50000005960464478,
-              "z": -7.697385311126709
+              "z": 5.0
             },
             "Rotation": {
-              "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": -1.6474335495786363E-07,
-              "y": 0.0038287711795419455,
-              "z": -1.565465197472804E-07,
+              "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp",
+              "x": -1.6507330258264119E-07,
+              "y": 0.0038251483347266912,
+              "z": -1.6117435563955951E-07,
               "w": 0.9999927282333374
             },
             "Scale": {
-              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
               "x": 1.0,
               "y": 1.0,
               "z": 1.0
@@ -206,27 +206,27 @@
           }
         },
         {
-          "$type": "Entity.GameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.GameEntity, Assembly-CSharp",
           "Id": 4,
           "Name": "Test Cube 1",
           "PrefabName": "Objects/Test Cube",
           "transform": {
-            "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp",
             "Position": {
-              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
               "x": -18.62083625793457,
               "y": 0.50000005960464478,
               "z": 18.697198867797852
             },
             "Rotation": {
-              "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp",
               "x": -4.1854073629110644E-07,
               "y": 0.0038300862070173025,
               "z": 4.6514986706824857E-07,
               "w": 0.9999927282333374
             },
             "Scale": {
-              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
               "x": 1.0,
               "y": 1.0,
               "z": 1.0
@@ -234,27 +234,27 @@
           }
         },
         {
-          "$type": "Entity.GameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.GameEntity, Assembly-CSharp",
           "Id": 5,
           "Name": "RigidBodyFPSController",
           "PrefabName": "Objects/RigidBodyFPSController",
           "transform": {
-            "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp",
             "Position": {
-              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": 4.4207320213317871,
+              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
+              "x": 2.2159335613250732,
               "y": 0.80000072717666626,
-              "z": -1.6837834119796753
+              "z": -2.0484182834625244
             },
             "Rotation": {
-              "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp",
               "x": 0.0,
-              "y": 0.70140695571899414,
+              "y": 0.66444778442382813,
               "z": 0.0,
-              "w": -0.71276110410690308
+              "w": -0.74733477830886841
             },
             "Scale": {
-              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
               "x": 1.0,
               "y": 1.0,
               "z": 1.0

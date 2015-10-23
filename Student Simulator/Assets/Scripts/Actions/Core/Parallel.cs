@@ -1,5 +1,7 @@
+using StudentSimulator.SaveSystem;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Actions.Core
 {
@@ -11,11 +13,15 @@ namespace Actions.Core
 		/// <summary>
 		/// Pool action for parallel processing
 		/// </summary>
-		public GameAction[] actions;
+        [Save]
+        List<GameAction> actions;
 		/// <summary>
 		/// Flags for each action. If true action is end it's work.
 		/// </summary>
-		public bool[] ended;
+        [Save]
+        bool[] ended;
+
+        public Parallel() { }
 
 		/// <summary>
 		/// Creating action with parallel action pool.
@@ -23,8 +29,8 @@ namespace Actions.Core
 		/// <param name="Actions"> Actions for pool. </param>
 		public Parallel (params GameAction[] Actions)
 		{
-			actions = Actions;
-			ended = new bool[actions.Length];
+			this.actions = Actions.ToList();
+            ended = new bool[this.actions.Count];
 		}
 
 		/// <summary>
@@ -32,7 +38,7 @@ namespace Actions.Core
 		/// </summary>
 		public override void Reset ()
 		{
-			for(int i = 0; i<actions.Length; i++)
+			for(int i = 0; i<actions.Count; i++)
 			{
 				actions[i].Reset();
 				ended[i] = false;

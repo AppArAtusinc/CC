@@ -5,15 +5,18 @@ using System.Text;
 using Actions.Core;
 using Entity;
 using UnityEngine;
+using StudentSimulator.SaveSystem;
 
-[Serializable]
 public class Game
 {
-	public ActionManager ActionManager;
-	public GameEntityManager Entites;
+    [Save]
+    public ActionManager ActionManager;
 
-	static Game Instance;
-	public static Game GetInstance(){return Instance;}
+    [Save]
+    public GameEntityManager Entites;
+
+    static Game Instance;
+    public static Game GetInstance() { return Instance; }
 
 	public static void InitInstance (Game game)
 	{

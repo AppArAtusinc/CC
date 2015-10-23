@@ -1,4 +1,7 @@
+using StudentSimulator.SaveSystem;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Actions.Core
 {
@@ -10,19 +13,28 @@ namespace Actions.Core
 		/// <summary>
 		/// Action sequence.
 		/// </summary>
-		public GameAction[] actions;
+        [Save]
+        List<GameAction> actions;
+
 		/// <summary>
 		/// Index of current running action.
 		/// </summary>
-		public int Index;
+        [Save]
+        int index;
+
 		/// <summary>
 		/// Total count for repeating action sequence.
 		/// </summary>
-		public int RepeatCount;
+        [Save]
+        int repeatCount;
+
 		/// <summary>
 		/// Current repeat count.
 		/// </summary>
-		public int CurrentRepeatCount;
+        [Save]
+        int currentRepeatCount;
+
+        public Repeat() { }
 
 		/// <summary>
 		/// Create action sequence wich repeat only one time.
@@ -30,7 +42,7 @@ namespace Actions.Core
 		/// <param name="Actions"> Action sequence. </param>
 		public Repeat (params GameAction[] Actions)
 		{
-			actions = Actions;
+			actions = Actions.ToList();
 		}
 		
 		/// <summary>
@@ -39,9 +51,9 @@ namespace Actions.Core
 		public override void Reset ()
 		{
 			base.Reset();
-			Index = 0;
-			CurrentRepeatCount = 0;
-			actions[Index].Reset();
+			index = 0;
+			currentRepeatCount = 0;
+			actions[index].Reset();
 		}
 
 		/// <summary>
@@ -51,7 +63,7 @@ namespace Actions.Core
 		/// <returns> Return this action. </returns>
 		public Repeat SetRepeatCount(int Count)
 		{
-			RepeatCount = Count;
+			repeatCount = Count;
 			return this;
 		}
 
@@ -65,17 +77,17 @@ namespace Actions.Core
 		/// </returns>
 		public override bool Upadate (float Delta)
 		{
-			if(!actions[Index].Upadate(Delta))
+			if(!actions[index].Upadate(Delta))
 			{
-				Index++;
-				if(Index == actions.Length)
+				index++;
+				if(index == actions.Count)
 				{
-					Index = 0;
-					CurrentRepeatCount++;
-					if(CurrentRepeatCount == RepeatCount)
+					index = 0;
+					currentRepeatCount++;
+					if(currentRepeatCount == repeatCount)
 						return false;
 				}
-				actions[Index].Reset();
+				actions[index].Reset();
 			}
 			
 			return true;

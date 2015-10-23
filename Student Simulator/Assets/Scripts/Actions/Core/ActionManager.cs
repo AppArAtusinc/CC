@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.Serialization.Formatters;
+using StudentSimulator.SaveSystem;
 
 namespace Actions.Core
 {
@@ -14,6 +15,7 @@ namespace Actions.Core
 		/// <summary>
 		/// List of all action.
 		/// </summary>
+        [Save]
 		public List<GameAction> Actions;
          
         public ActionManager()
@@ -53,8 +55,7 @@ namespace Actions.Core
 		/// </returns>
         public bool RemoveByName(string Name)
         {
-            Actions.RemoveAll(o => o.Name == Name);
-            return true;
+            return Actions.RemoveAll(o => o.Name == Name) > 0;
         }
 
 		/// <summary>

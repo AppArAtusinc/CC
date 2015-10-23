@@ -1,13 +1,16 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using StudentSimulator.SaveSystem;
 
 namespace Entity
 {
-	public class LinkToGameEntity
-	{
+    public class LinkToGameEntity
+    {
         GameEntity value;
-		public UInt64 Id;
+
+        [Save]
+        public UInt64 Id;
 
         public LinkToGameEntity()
         {
@@ -24,9 +27,9 @@ namespace Entity
         /// DONT TRY TO CREATE PROPETY!!! IT WILL BROKE SERALIZATION
         /// </remarks>
         public GameEntity GetEntity()
-		{
+        {
             return value;
-		}
+        }
 
         static List<LinkToGameEntity> notInitedLinks = new List<LinkToGameEntity>();
 

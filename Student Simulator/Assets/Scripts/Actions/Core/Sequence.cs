@@ -1,4 +1,7 @@
+using StudentSimulator.SaveSystem;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Actions.Core
 {
@@ -8,21 +11,27 @@ namespace Actions.Core
 	/// </summary>
 	class Sequence : GameAction
 	{
-		/// <summary>
-		/// Action sequence.
-		/// </summary>
-		public GameAction[] Actions;
+        /// <summary>
+        /// Action sequence.
+        /// </summary>
+        [Save]
+        List<GameAction> Actions;
+
 		/// <summary>
 		/// Index of action action.
 		/// </summary>
-		public int Index;
+        [Save]
+        public int Index;
+
+        public Sequence() { }
+
 		/// <summary>
 		/// Creating sequence from actions.
 		/// </summary>
 		/// <param name="Actions"> Actions for sequence. </param>
 		public Sequence (params GameAction[] Actions)
 		{
-			this.Actions = Actions;
+			this.Actions = Actions.ToList();
 			Reset();
 		}
 
@@ -33,7 +42,7 @@ namespace Actions.Core
 		{
 			base.Reset();
 			Index = 0;
-			if(Actions.Length != 0)
+			if(Actions.Count != 0)
 				Actions[Index].Reset();
 		}
 
@@ -47,13 +56,13 @@ namespace Actions.Core
 		/// </returns>
 		public override bool Upadate (float Delta)
 		{
-			if(Index == Actions.Length)
+			if(Index == Actions.Count)
 				return false;
 
 			if(!Actions[Index].Upadate(Delta))
 			{
 				Index++;
-				if(Index == Actions.Length)
+				if(Index == Actions.Count)
 					return false;
 				Actions[Index].Reset();
 			}

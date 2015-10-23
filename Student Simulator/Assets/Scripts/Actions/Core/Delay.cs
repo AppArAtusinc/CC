@@ -1,3 +1,4 @@
+using StudentSimulator.SaveSystem;
 using System;
 
 namespace Actions.Core
@@ -10,11 +11,13 @@ namespace Actions.Core
 		/// <summary>
 		/// Total time for wating.
 		/// </summary>
-		public float TotalDelay;
+        [Save]
+        float totalDelay;
 		/// <summary>
 		/// Current waiting time.
 		/// </summary>
-		public float CurrentDelay;
+        [Save]
+        float currentDelay;
 
 		public Delay(){}
 
@@ -24,8 +27,8 @@ namespace Actions.Core
 		/// <param name="Delay"> Time for waiting. One second == 1.0 </param>
 		public Delay (float Delay)
 		{
-			TotalDelay = Delay;
-			CurrentDelay = 0;
+			totalDelay = Delay;
+			currentDelay = 0;
 		}
 
 		/// <summary>
@@ -33,7 +36,7 @@ namespace Actions.Core
 		/// </summary>
 		public override void Reset ()
 		{
-			CurrentDelay = 0;
+			currentDelay = 0;
 		}
 
 		/// <summary>
@@ -46,10 +49,10 @@ namespace Actions.Core
 		/// </returns>
 		public override bool Upadate (float Delta)
 		{
-			if(CurrentDelay > TotalDelay)
+			if(currentDelay > totalDelay)
 				return false;
 
-			CurrentDelay += Delta;
+			currentDelay += Delta;
 			return true;
 		}
 	}

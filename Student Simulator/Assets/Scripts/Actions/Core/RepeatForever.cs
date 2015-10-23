@@ -1,4 +1,7 @@
+using StudentSimulator.SaveSystem;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Actions.Core
 {
@@ -11,19 +14,24 @@ namespace Actions.Core
 		/// <summary>
 		/// Sequence for repeating
 		/// </summary>
-		public GameAction[] Actions;
+        [Save]
+        List<GameAction> actions;
+
 		/// <summary>
 		/// Index of active action.
 		/// </summary>
-		public int Index;
-		
+        [Save]
+        int index;
+
+        public RepeatForever() { }
+
 		/// <summary>
 		/// Creating sequence which repeating forever.
 		/// </summary>
 		/// <param name="Actions"> Sequence for repeating. </param>
 		public RepeatForever (params GameAction[] Actions)
 		{
-			this.Actions = Actions;
+			this.actions = Actions.ToList();
 		}
 		
 		/// <summary>
@@ -32,8 +40,8 @@ namespace Actions.Core
 		public override void Reset ()
 		{
 			base.Reset();
-			Index = 0;
-			Actions[Index].Reset();
+			index = 0;
+			actions[index].Reset();
 		}
 
 		/// <summary>
@@ -43,12 +51,12 @@ namespace Actions.Core
 		/// <returns></returns>
 		public override bool Upadate (float Delta)
 		{
-			if(!Actions[Index].Upadate(Delta))
+			if(!actions[index].Upadate(Delta))
 			{
-				Index++;
-				if(Index == Actions.Length)
-					Index = 0;
-				Actions[Index].Reset();
+				index++;
+				if(index == actions.Count)
+					index = 0;
+				actions[index].Reset();
 			}
 			
 			return true;

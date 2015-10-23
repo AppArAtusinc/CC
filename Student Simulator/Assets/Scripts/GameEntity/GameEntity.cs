@@ -5,6 +5,7 @@ using System.Text;
 using SimpleGameTypes;
 using UnityEngine;
 using Newtonsoft.Json;
+using StudentSimulator.SaveSystem;
 
 namespace Entity
 {
@@ -13,25 +14,32 @@ namespace Entity
 	/// </summary>
 	public class GameEntity
 	{
+        [Save]
 		static UInt64 NextId = 1;
-		/// <summary>
-		/// Identificator for this entity. Use for work with same entity bettwen save/load operation.
-		/// </summary>
+        /// <summary>
+        /// Identificator for this entity. Use for work with same entity bettwen save/load operation.
+        /// </summary>
+        [Save]
 		public UInt64 Id;
-		/// <summary>
-		/// Name on the scene.
-		/// </summary>
-		public string Name;
-		/// <summary>
-		/// Name of prefab in resource.
-		/// </summary>
-		public string PrefabName;
 
-		GameObject gameObject;
+        /// <summary>
+        /// Name on the scene.
+        /// </summary>
+        [Save]
+        public string Name;
+
+        /// <summary>
+        /// Name of prefab in resource.
+        /// </summary>
+        [Save]
+        public string PrefabName;
+
+        GameObject gameObject;
 
 		/// <summary>
 		/// Transform of entity on the scene.
 		/// </summary>
+        [Save]
 		public SimpleTransform transform;
 
 		/// <summary>

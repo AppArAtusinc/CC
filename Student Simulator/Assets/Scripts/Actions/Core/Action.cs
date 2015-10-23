@@ -1,3 +1,4 @@
+using StudentSimulator.SaveSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace Actions.Core
 		/// Get name of action.
 		/// Many action can have equel name.
 		/// </summary>
+        [Save]
         public string Name
         {
             get;
@@ -30,8 +32,6 @@ namespace Actions.Core
 			this.Name = Name;
 			return this;
 		}
-
-		public GameAction(){}
 
 		/// <summary>
 		/// Call every frame for update action state
@@ -51,5 +51,14 @@ namespace Actions.Core
 
 		}
 
+        public void Run()
+        {
+            Game.GetInstance().ActionManager.Add(this);
+        }
+
+        public static bool Stop(string ActionName)
+        {
+            return Game.GetInstance().ActionManager.RemoveByName(ActionName);
+        }
     }
 }

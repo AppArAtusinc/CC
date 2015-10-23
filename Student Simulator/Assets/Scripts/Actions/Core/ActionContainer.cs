@@ -1,4 +1,5 @@
 
+using StudentSimulator.SaveSystem;
 using System;
 using System.Collections.Generic;
 
@@ -6,6 +7,7 @@ namespace Actions.Core
 {
 	class ActionContainer : GameAction
 	{
+        [Save]
 		protected List<GameAction> actions;
 
 		public ActionContainer()

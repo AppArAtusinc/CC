@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using SimpleGameTypes;
 using UnityEngine;
+using StudentSimulator.SaveSystem;
 
 namespace Entity
 {
@@ -15,9 +16,10 @@ namespace Entity
 		/// <summary>
 		/// All GameEntites.
 		/// </summary>
+        [Save]
 		public List<GameEntity> Actor;
 
-		public GameEntityManager()
+        public GameEntityManager()
 		{
 			Actor = new List<GameEntity>();
 		}

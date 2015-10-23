@@ -8,6 +8,7 @@ using GameSaving.SaveObjects;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
+using StudentSimulator.SaveSystem;
 
 public class TestScript : MonoBehaviour {
 
@@ -59,21 +60,13 @@ public class TestScript : MonoBehaviour {
 		//saving
 		if (Input.GetKeyDown(KeyCode.F5))
 		{
-			StreamWriter fs = new StreamWriter("test.txt");
-			var data = JsonConvert.SerializeObject(Game.GetInstance(), Formatting.Indented, set);
-			fs.Write(data);
-			fs.Close();
+            SaveSystem.Save("test.txt");
 		}
+
+        //loading
 		if (Input.GetKeyDown(KeyCode.F9))
 		{
-            using (StreamReader fs = new StreamReader("test.txt"))
-            {
-                var data = fs.ReadToEnd();
-				Debug.Log (data);
-
-				var game = (Game)JsonConvert.DeserializeObject(data, set);;
-		    	Game.InitInstance(game);
-            }
+            SaveSystem.Load("test.txt");
         }
 	}
 
