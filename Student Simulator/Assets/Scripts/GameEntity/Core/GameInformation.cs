@@ -12,4 +12,6 @@ public class GameInformation : MonoBehaviour
     public string Name;
 
     public string PrefabName;
+
+    public string FullName;
 }

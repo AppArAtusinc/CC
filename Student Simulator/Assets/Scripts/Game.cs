@@ -28,7 +28,7 @@ public class Game
 		GC.Collect();
 		Instance = game;
 		Instance.Entites.Actor.ForEach( o => o.Init());
-        LinkToGameEntity.Link();
+        LinkToGameEntity<GameEntity>.Link();
 	}
 
 	static Game()

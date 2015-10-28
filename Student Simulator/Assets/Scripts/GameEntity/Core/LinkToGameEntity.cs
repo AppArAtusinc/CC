@@ -5,33 +5,34 @@ using StudentSimulator.SaveSystem;
 
 namespace Entity
 {
-    public class LinkToGameEntity
+    public class LinkToGameEntity<T> where T : GameEntity
     {
-        GameEntity value;
+        T value;
 
         [Save]
         public UInt64 Id;
 
         public LinkToGameEntity()
         {
-            notInitedLinks.Add(this);
+            notInitedLinks.Add(this as LinkToGameEntity<GameEntity>);
         }
 
         public LinkToGameEntity(UInt64 Id)
         {
             this.Id = Id;
-            value = Game.GetInstance().Entites.Actor.Find(o => o.Id == Id);
+            value = Game.GetInstance().Entites.Actor.Find(o => o.Id == Id) as T;
         }
 
         /// <remarks>
-        /// DONT TRY TO CREATE PROPETY!!! IT WILL BROKE SERALIZATION
+        /// DONT TRY TO REWRITE AS PROPETY!!! IT WILL BROKE SERALIZATION
         /// </remarks>
-        public GameEntity GetEntity()
+        public T GetEntity()
         {
             return value;
         }
 
-        static List<LinkToGameEntity> notInitedLinks = new List<LinkToGameEntity>();
+
+        static List<LinkToGameEntity<GameEntity>> notInitedLinks = new List<LinkToGameEntity<GameEntity>>();
 
         public static void Link()
         {

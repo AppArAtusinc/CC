@@ -11,7 +11,7 @@ using UnityEngine;
 class MoveTo : GameAction
 {
     [Save]
-    LinkToGameEntity Target;
+    LinkToGameEntity<GameEntityWithTransform> Target;
 
     [Save]
     SimpleVector3 Position;
@@ -28,7 +28,7 @@ class MoveTo : GameAction
 
     public MoveTo(GameObject Target, Vector3 Position)
     {
-        this.Target = new LinkToGameEntity(Target.GetEntityId());
+        this.Target = new LinkToGameEntity<GameEntityWithTransform>(Target.GetEntityId());
         this.Position = new SimpleVector3(Position);
     }
 

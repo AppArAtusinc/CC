@@ -33,10 +33,27 @@ namespace Entity
 
 			foreach (var obj in objs) {
 				GameInformation info = obj.GetComponent<GameInformation>();
-				Actor.Add(new GameEntity(info.name, info.PrefabName, new SimpleTransform(obj.transform)));
+
+                GameEntity entity;
+                if (String.IsNullOrEmpty(info.FullName))
+                    entity = GameEntity.CreateInstance<GameEntityWithTransform>();
+                else
+                    entity = GameEntity.CreateInstance(info.FullName);
+
+                var entityWithTransform = entity as GameEntityWithTransform;
+
+                if (entityWithTransform != null)
+                    entityWithTransform.Transform = new SimpleTransform(obj.transform);
+
+                entity.Name = info.Name;
+                entity.PrefabName = info.PrefabName;
+
+                Actor.Add(entity);
+
 				GameObject.Destroy(obj);
 			}
 
+            Game.GetInstance().Entites.Actor.ForEach(o => o.Init());
 		}
 	}
 }
