@@ -44,14 +44,15 @@ namespace Actions.Core
 
 		public override void Reset ()
 		{
+            base.Reset();
 			foreach(GameAction action in actions)
 				action.Reset();
 		}
 
-		public override bool Upadate (float Delta)
+        protected override bool Tick (float Delta)
 		{
 			foreach(GameAction action in actions)
-				action.Upadate(Delta);
+				action.Update(Delta);
 
 			return true;
 		}

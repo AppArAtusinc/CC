@@ -46,20 +46,20 @@ namespace Actions.Core
 				Actions[Index].Reset();
 		}
 
-		/// <summary>
-		/// Calling each frame for updating sequence.
-		/// </summary>
-		/// <param name="Delta"> Time bettwen two calls. </param>
-		/// <returns>
-		/// true: action active
-		/// false: action finish work. 
-		/// </returns>
-		public override bool Upadate (float Delta)
+        /// <summary>
+        /// Calling each frame for updating sequence.
+        /// </summary>
+        /// <param name="Delta"> Time bettwen two calls. </param>
+        /// <returns>
+        /// true: action active
+        /// false: action finish work. 
+        /// </returns>
+        protected override bool Tick (float Delta)
 		{
 			if(Index == Actions.Count)
 				return false;
 
-			if(!Actions[Index].Upadate(Delta))
+			if(!Actions[Index].Update(Delta))
 			{
 				Index++;
 				if(Index == Actions.Count)

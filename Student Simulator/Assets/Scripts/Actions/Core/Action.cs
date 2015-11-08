@@ -22,16 +22,39 @@ namespace Actions.Core
             private set;
         }
 
-		/// <summary>
-		/// Using for setting name of action.
-		/// </summary>
-		/// <param name="Name"> New name for action. </param>
-		/// <returns> Return this action. </returns>
-		public GameAction SetName(string Name)
+        /// <summary>
+        /// Emit on action start
+        /// </summary>
+        [Save]
+        GameAction onStart;
+
+        /// <summary>
+        /// Emit on action end
+        /// </summary>
+        [Save]
+        GameAction onFinish;
+
+
+        /// <summary>
+        /// Using for setting name of action.
+        /// </summary>
+        /// <param name="Name"> New name for action. </param>
+        /// <returns> Return this action. </returns>
+        public GameAction SetName(string Name)
 		{
 			this.Name = Name;
 			return this;
 		}
+
+        public bool Update(float Delta)
+        {
+            bool result = Tick(Delta);
+
+            if (!result && onFinish != null)
+                onFinish.Run();
+
+            return result;
+        }
 
 		/// <summary>
 		/// Call every frame for update action state
@@ -41,19 +64,32 @@ namespace Actions.Core
 		/// true: action still runnig
 		///	false: action end his work
 		/// </returns>
-		public abstract bool Upadate(float Delta);
+		protected abstract bool Tick(float Delta);
 
 		/// <summary>
 		/// Using for reset action to start state
 		/// </summary>
 		public virtual void Reset()
 		{
-
+            if (onStart != null)
+                onStart.Run();
 		}
 
         public void Run()
         {
             Game.GetInstance().ActionManager.Add(this);
+        }
+
+        public GameAction OnStart(GameAction OnStartAction)
+        {
+            onStart = OnStartAction;
+            return this;
+        }
+
+        public GameAction OnFinish(GameAction OnFinishAction)
+        {
+            onFinish = OnFinishAction;
+            return this;
         }
 
         public static bool Stop(string ActionName)

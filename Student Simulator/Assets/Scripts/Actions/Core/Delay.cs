@@ -36,7 +36,8 @@ namespace Actions.Core
 		/// </summary>
 		public override void Reset ()
 		{
-			currentDelay = 0;
+            base.Reset();
+            currentDelay = 0;
 		}
 
 		/// <summary>
@@ -47,7 +48,7 @@ namespace Actions.Core
 		/// true: current waiting time less that total waiting time
 		/// false: current waiting time greate that total waiting time
 		/// </returns>
-		public override bool Upadate (float Delta)
+		protected override bool Tick (float Delta)
 		{
 			if(currentDelay > totalDelay)
 				return false;

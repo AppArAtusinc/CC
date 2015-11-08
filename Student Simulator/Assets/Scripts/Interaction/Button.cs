@@ -38,7 +38,7 @@ public abstract class Button : Activable
             link = new LinkToGameEntity<GameEntity>(parent.GetEntityId());
         }
 
-        public override bool Upadate(float Delta)
+        protected override bool Tick(float Delta)
         {
             link.GetEntity().GetGameObject().GetComponent<Button>().activated = false;
             return false;

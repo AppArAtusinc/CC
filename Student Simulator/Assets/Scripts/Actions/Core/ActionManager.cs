@@ -67,7 +67,7 @@ namespace Actions.Core
         {
 			//@todo: think about optimization
 			for(int index = 0; index < Actions.Count; index++)
-				if(!Actions[index].Upadate(Delta))
+				if(!Actions[index].Update(Delta))
 					Actions.Remove(Actions[index--]);
 
 			return true;

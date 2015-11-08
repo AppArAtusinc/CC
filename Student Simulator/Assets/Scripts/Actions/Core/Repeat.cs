@@ -67,17 +67,17 @@ namespace Actions.Core
 			return this;
 		}
 
-		/// <summary>
-		/// Calling each frame, update action sequence.
-		/// </summary>
-		/// <param name="Delta"> Time bettwen two calls. </param>
-		/// <returns>
-		/// true: still running
-		/// false: finish running
-		/// </returns>
-		public override bool Upadate (float Delta)
+        /// <summary>
+        /// Calling each frame, update action sequence.
+        /// </summary>
+        /// <param name="Delta"> Time bettwen two calls. </param>
+        /// <returns>
+        /// true: still running
+        /// false: finish running
+        /// </returns>
+        protected override bool Tick (float Delta)
 		{
-			if(!actions[index].Upadate(Delta))
+			if(!actions[index].Update(Delta))
 			{
 				index++;
 				if(index == actions.Count)

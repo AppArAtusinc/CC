@@ -34,6 +34,7 @@ class MoveTo : GameAction
 
     public override void Reset()
     {
+        base.Reset();
         SetDuration(Duration);
     }
 
@@ -45,7 +46,7 @@ class MoveTo : GameAction
         return this;
     }
 
-    public override bool Upadate(float Delta)
+    protected override bool Tick(float Delta)
     {
         var transform = Target.GetEntity().GetGameObject().transform;
         var distance = Vector3.Distance(transform.position, Position);

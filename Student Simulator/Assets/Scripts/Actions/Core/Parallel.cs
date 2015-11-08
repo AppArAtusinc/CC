@@ -38,28 +38,29 @@ namespace Actions.Core
 		/// </summary>
 		public override void Reset ()
 		{
-			for(int i = 0; i<actions.Count; i++)
+            base.Reset();
+            for (int i = 0; i<actions.Count; i++)
 			{
 				actions[i].Reset();
 				ended[i] = false;
 			}
 		}
 
-		/// <summary>
-		/// Calling each frame for updating action pool.
-		/// </summary>
-		/// <param name="Delta"> Time from last call. </param>
-		/// <returns>
-		/// true: not all action end it work.
-		/// false: all action end it work.
-		/// </returns>
-		public override bool Upadate (float Delta)
+        /// <summary>
+        /// Calling each frame for updating action pool.
+        /// </summary>
+        /// <param name="Delta"> Time from last call. </param>
+        /// <returns>
+        /// true: not all action end it work.
+        /// false: all action end it work.
+        /// </returns>
+        protected override bool Tick (float Delta)
 		{
 			bool ok = false;
 			for(int i=0;i<ended.Length; i++)
 				if(!ended[i])
 				{
-					ended[i] = !actions[i].Upadate(Delta);
+					ended[i] = !actions[i].Update(Delta);
 					ok = true;
 					continue;
 				}
