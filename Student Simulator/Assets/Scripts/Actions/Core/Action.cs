@@ -26,13 +26,13 @@ namespace Actions.Core
         /// Emit on action start
         /// </summary>
         [Save]
-        GameAction onStart;
+        List<GameAction> onStartActions = new List<GameAction>();
 
         /// <summary>
         /// Emit on action end
         /// </summary>
         [Save]
-        GameAction onFinish;
+        List<GameAction> onFinishActions = new List<GameAction>();
 
 
         /// <summary>
@@ -50,10 +50,19 @@ namespace Actions.Core
         {
             bool result = Tick(Delta);
 
-            if (!result && onFinish != null)
-                onFinish.Run();
+            if (!result && onFinishActions != null)
+                onFinishActions.ForEach(o => o.Run());
 
             return result;
+        }
+
+
+        /// <summary>
+        /// Use for initialize action after loading operation;
+        /// </summary>
+        public virtual void Init()
+        {
+
         }
 
 		/// <summary>
@@ -71,8 +80,8 @@ namespace Actions.Core
 		/// </summary>
 		public virtual void Reset()
 		{
-            if (onStart != null)
-                onStart.Run();
+            if (onStartActions != null)
+                onStartActions.ForEach(o => o.Run());
 		}
 
         public void Run()
@@ -80,15 +89,15 @@ namespace Actions.Core
             Game.GetInstance().ActionManager.Add(this);
         }
 
-        public GameAction OnStart(GameAction OnStartAction)
+        public GameAction AddOnStartAction(GameAction OnStartAction)
         {
-            onStart = OnStartAction;
+            onStartActions.Add(OnStartAction);
             return this;
         }
 
-        public GameAction OnFinish(GameAction OnFinishAction)
+        public GameAction AddOnFinish(GameAction OnFinishAction)
         {
-            onFinish = OnFinishAction;
+            onFinishActions.Add(OnFinishAction);
             return this;
         }
 
