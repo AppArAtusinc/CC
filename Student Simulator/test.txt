@@ -6,112 +6,20 @@
       "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp]], mscorlib",
       "$values": [
         {
-          "$type": "Actions.Core.Repeat, Assembly-CSharp",
-          "Name": "Test Action",
-          "actions": {
-            "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp]], mscorlib",
-            "$values": [
-              {
-                "$type": "MoveTo, Assembly-CSharp",
-                "Name": null,
-                "Target": {
-                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp",
-                  "Id": 3
-                },
-                "Position": {
-                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
-                  "x": -5.0,
-                  "y": 0.5,
-                  "z": -5.0
-                },
-                "Duration": 2.0,
-                "SpeedPerSecond": 10.5228252
-              },
-              {
-                "$type": "MoveTo, Assembly-CSharp",
-                "Name": null,
-                "Target": {
-                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp",
-                  "Id": 3
-                },
-                "Position": {
-                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
-                  "x": -10.0,
-                  "y": 0.5,
-                  "z": -5.0
-                },
-                "Duration": 1.0,
-                "SpeedPerSecond": 5.0
-              },
-              {
-                "$type": "MoveTo, Assembly-CSharp",
-                "Name": null,
-                "Target": {
-                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp",
-                  "Id": 3
-                },
-                "Position": {
-                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
-                  "x": -10.0,
-                  "y": 0.5,
-                  "z": 5.0
-                },
-                "Duration": 1.0,
-                "SpeedPerSecond": 10.0
-              },
-              {
-                "$type": "MoveTo, Assembly-CSharp",
-                "Name": null,
-                "Target": {
-                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp",
-                  "Id": 3
-                },
-                "Position": {
-                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
-                  "x": -5.0,
-                  "y": 0.5,
-                  "z": 5.0
-                },
-                "Duration": 1.0,
-                "SpeedPerSecond": 5.0
-              },
-              {
-                "$type": "MoveTo, Assembly-CSharp",
-                "Name": null,
-                "Target": {
-                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp",
-                  "Id": 3
-                },
-                "Position": {
-                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
-                  "x": -5.0,
-                  "y": 0.5,
-                  "z": -5.0
-                },
-                "Duration": 1.0,
-                "SpeedPerSecond": 21.04565
-              },
-              {
-                "$type": "MoveTo, Assembly-CSharp",
-                "Name": null,
-                "Target": {
-                  "$type": "Entity.LinkToGameEntity, Assembly-CSharp",
-                  "Id": 3
-                },
-                "Position": {
-                  "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
-                  "x": -20.0,
-                  "y": 0.5,
-                  "z": -20.0
-                },
-                "Duration": 2.0,
-                "SpeedPerSecond": 0.111837454
-              }
-            ]
+          "$type": "MoveTo, Assembly-CSharp",
+          "Name": null,
+          "Target": {
+            "$type": "Entity.LinkToGameEntity`1[[Entity.GameEntityWithTransform, Assembly-CSharp]], Assembly-CSharp",
+            "Id": 6
           },
-          "index": 3,
-          "repeatCount": 2,
-          "currentRepeatCount": 0
+          "Position": {
+            "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
+            "x": 10.0,
+            "y": 1.0,
+            "z": 0.0
+          },
+          "Duration": 1.0,
+          "SpeedPerSecond": 9.056803
         }
       ]
     }
@@ -122,11 +30,8 @@
       "$type": "System.Collections.Generic.List`1[[Entity.GameEntity, Assembly-CSharp]], mscorlib",
       "$values": [
         {
-          "$type": "Entity.GameEntity, Assembly-CSharp",
-          "Id": 1,
-          "Name": "WaterProDaytime",
-          "PrefabName": "Objects/WaterProDaytime",
-          "transform": {
+          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp",
+          "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
@@ -147,14 +52,18 @@
               "y": 1.0,
               "z": 1000.0
             }
+          },
+          "Id": 1,
+          "Name": "Water",
+          "PrefabName": "Objects/WaterProDaytime",
+          "Tags": {
+            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp]], mscorlib",
+            "$values": []
           }
         },
         {
-          "$type": "Entity.GameEntity, Assembly-CSharp",
-          "Id": 2,
-          "Name": "Cube",
-          "PrefabName": "Objects/Cube",
-          "transform": {
+          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp",
+          "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
@@ -175,26 +84,30 @@
               "y": 50.0,
               "z": 50.0
             }
+          },
+          "Id": 2,
+          "Name": "Cube",
+          "PrefabName": "Objects/Cube",
+          "Tags": {
+            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp]], mscorlib",
+            "$values": []
           }
         },
         {
-          "$type": "Entity.GameEntity, Assembly-CSharp",
-          "Id": 3,
-          "Name": "Test Cube 2",
-          "PrefabName": "Objects/Test Cube",
-          "transform": {
+          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp",
+          "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
-              "x": -9.2999973297119141,
+              "x": -19.77679443359375,
               "y": 0.50000005960464478,
-              "z": 5.0
+              "z": -19.985517501831055
             },
             "Rotation": {
               "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp",
-              "x": -1.6507330258264119E-07,
-              "y": 0.0038251483347266912,
-              "z": -1.6117435563955951E-07,
+              "x": -4.0785272403809358E-07,
+              "y": 0.0038300848100334406,
+              "z": 4.7717071538500022E-07,
               "w": 0.9999927282333374
             },
             "Scale": {
@@ -203,14 +116,50 @@
               "y": 1.0,
               "z": 1.0
             }
+          },
+          "Id": 3,
+          "Name": "Test Cube",
+          "PrefabName": "Objects/Test Cube",
+          "Tags": {
+            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp]], mscorlib",
+            "$values": []
           }
         },
         {
-          "$type": "Entity.GameEntity, Assembly-CSharp",
+          "$type": "Entity.Entites.Interaction.NotifyButton, Assembly-CSharp",
+          "Transform": {
+            "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp",
+            "Position": {
+              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
+              "x": -0.095235824584960938,
+              "y": -0.019999999552965164,
+              "z": 0.032902717590332031
+            },
+            "Rotation": {
+              "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp",
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "Scale": {
+              "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          },
           "Id": 4,
-          "Name": "Test Cube 1",
-          "PrefabName": "Objects/Test Cube",
-          "transform": {
+          "Name": "PushButton",
+          "PrefabName": "Objects/PushButton",
+          "Tags": {
+            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp]], mscorlib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp",
+          "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
@@ -231,27 +180,31 @@
               "y": 1.0,
               "z": 1.0
             }
+          },
+          "Id": 5,
+          "Name": "Test Cube",
+          "PrefabName": "Objects/Test Cube",
+          "Tags": {
+            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp]], mscorlib",
+            "$values": []
           }
         },
         {
-          "$type": "Entity.GameEntity, Assembly-CSharp",
-          "Id": 5,
-          "Name": "RigidBodyFPSController",
-          "PrefabName": "Objects/RigidBodyFPSController",
-          "transform": {
+          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp",
+          "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
-              "x": 2.2159335613250732,
-              "y": 0.80000072717666626,
-              "z": -2.0484182834625244
+              "x": -3.5422756671905518,
+              "y": 0.800657331943512,
+              "z": -0.27435317635536194
             },
             "Rotation": {
               "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp",
               "x": 0.0,
-              "y": 0.66444778442382813,
+              "y": 0.71435028314590454,
               "z": 0.0,
-              "w": -0.74733477830886841
+              "w": -0.69978839159011841
             },
             "Scale": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp",
@@ -259,6 +212,13 @@
               "y": 1.0,
               "z": 1.0
             }
+          },
+          "Id": 6,
+          "Name": "Player",
+          "PrefabName": "Objects/RigidBodyFPSController",
+          "Tags": {
+            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp]], mscorlib",
+            "$values": []
           }
         }
       ]

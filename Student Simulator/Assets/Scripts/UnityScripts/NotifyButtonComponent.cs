@@ -9,12 +9,12 @@ public class NotifyButtonComponent : Button
     LinkToGameEntity<GameButton> entity;
 
     void Start () {
-        var info = GetComponent<GameInformation>();
+        var info = GetComponent<EntityInformation>();
         entity = new LinkToGameEntity<GameButton>(info.Id);
 	}
 
     public override void Clicked(GameObject Sender)
     {
-        entity.GetEntity().Push(Sender.ToGameEntity());
+        entity.Entity.Push(Sender.ToGameEntity());
     }
 }

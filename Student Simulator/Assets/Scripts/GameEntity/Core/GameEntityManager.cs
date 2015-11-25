@@ -32,13 +32,9 @@ namespace Entity
 			var objs = GameObject.FindGameObjectsWithTag("TestSaving");
 
 			foreach (var obj in objs) {
-				GameInformation info = obj.GetComponent<GameInformation>();
+				EntityInformation info = obj.GetComponent<EntityInformation>();
 
-                GameEntity entity;
-                if (String.IsNullOrEmpty(info.FullName))
-                    entity = GameEntity.CreateInstance<GameEntityWithTransform>();
-                else
-                    entity = GameEntity.CreateInstance(info.FullName);
+                var entity = GameEntity.CreateInstance(info.FullName);
 
                 var entityWithTransform = entity as GameEntityWithTransform;
 

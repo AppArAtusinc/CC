@@ -41,14 +41,14 @@ class MoveTo : GameAction
     public GameAction SetDuration(float Value)
     {
         Duration = Value;
-        SpeedPerSecond = Vector3.Distance(Target.GetEntity().GetGameObject().transform.position, Position) / Duration;
+        SpeedPerSecond = Vector3.Distance(Target.Entity.GetGameObject().transform.position, Position) / Duration;
 
         return this;
     }
 
     protected override bool Tick(float Delta)
     {
-        var transform = Target.GetEntity().GetGameObject().transform;
+        var transform = Target.Entity.GetGameObject().transform;
         var distance = Vector3.Distance(transform.position, Position);
         var entityPosition = transform.position;
 

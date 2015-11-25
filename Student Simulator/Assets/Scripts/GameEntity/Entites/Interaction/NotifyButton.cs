@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace Entity.Entites.Interaction
 {
+    [Entity]
     public class NotifyButton : GameButton
     {
         public override void Push(GameEntity entity)
@@ -18,7 +19,7 @@ namespace Entity.Entites.Interaction
 
             new MoveTo(gameObject, new Vector3(10,1,0)).
                 SetDuration(1).
-                OnFinish(new NotifyAction()).
+                AddOnFinish(new NotifyAction()).
                 Run();
         }
 

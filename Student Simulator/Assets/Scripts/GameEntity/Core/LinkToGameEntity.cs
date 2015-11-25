@@ -14,7 +14,7 @@ namespace Entity
 
         public LinkToGameEntity()
         {
-            notInitedLinks.Add(this as LinkToGameEntity<GameEntity>);
+            LinkResolver.NewLinks.Add(this as LinkToGameEntity<GameEntity>);
         }
 
         public LinkToGameEntity(UInt64 Id)
@@ -23,24 +23,28 @@ namespace Entity
             value = Game.GetInstance().Entites.Actor.Find(o => o.Id == Id) as T;
         }
 
-        /// <remarks>
-        /// DONT TRY TO REWRITE AS PROPETY!!! IT WILL BROKE SERALIZATION
-        /// </remarks>
-        public T GetEntity()
+        public T Entity
         {
-            return value;
+            get
+            {
+                return value ?? (value = Game.GetInstance().Entites.Actor.Find(o => o.Id == Id) as T);
+            }
         }
 
-
-        static List<LinkToGameEntity<GameEntity>> notInitedLinks = new List<LinkToGameEntity<GameEntity>>();
-
-        public static void Link()
+        public static class LinkResolver
         {
-            foreach (var link in notInitedLinks)
-                link.value = Game.GetInstance().Entites.Actor.Find(o => o.Id == link.Id);
+            static public List<LinkToGameEntity<GameEntity>> NewLinks = new List<LinkToGameEntity<GameEntity>>();
 
-            notInitedLinks.Clear();
+            public static void Link()
+            {
+                foreach (var link in NewLinks)
+                    link.value = Game.GetInstance().Entites.Actor.Find(o => o.Id == link.Id);
+
+                NewLinks.Clear();
+            }
+
         }
-
     }
+
+
 }

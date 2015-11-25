@@ -30,6 +30,9 @@ namespace Entity
     }
 
 
+    public class EntityAttribute : Attribute { }
+
+
     /// <summary>
     /// Need for saving context bettwen save/load operation.
     /// </summary>
@@ -77,7 +80,7 @@ namespace Entity
         {
             gameObject = GameObject.Instantiate(Resources.Load<GameObject>(PrefabName));
 
-            var data = gameObject.GetComponent<GameInformation>();
+            var data = gameObject.GetComponent<EntityInformation>();
             data.Id = this.Id;
             data.Name = this.Name;
             data.PrefabName = this.PrefabName;

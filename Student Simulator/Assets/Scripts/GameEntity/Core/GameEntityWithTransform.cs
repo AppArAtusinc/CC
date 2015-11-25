@@ -10,6 +10,7 @@ namespace Entity
     /// <summary>
     /// Implements enity with transform
     /// </summary>
+    [Entity]
     public class GameEntityWithTransform : GameEntity
     {
         /// <summary>

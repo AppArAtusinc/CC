@@ -40,7 +40,7 @@ public abstract class Button : Activable
 
         protected override bool Tick(float Delta)
         {
-            link.GetEntity().GetGameObject().GetComponent<Button>().activated = false;
+            link.Entity.GetGameObject().GetComponent<Button>().activated = false;
             return false;
         }
     }
