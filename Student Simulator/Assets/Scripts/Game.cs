@@ -6,47 +6,76 @@ using Actions.Core;
 using Entity;
 using UnityEngine;
 using StudentSimulator.SaveSystem;
+using Quest.Core;
 
 public class Game
 {
     [Save]
-    public ActionManager ActionManager;
+    public ActionManager ActionCollection;
 
     [Save]
     public GameEntityManager Entites;
+
+    [Save]
+    public QuestCollection Quests;
 
     static Game Instance;
     public static Game GetInstance() { return Instance; }
 
 	public static void InitInstance (Game game)
 	{
-        Instance.Entites.Actor.ForEach(o => o.Destroy());
-        Instance.Entites.Actor.Clear();
-		Instance.ActionManager.Actions.Clear();
+        foreach (var actor in Instance.Entites.Actors)
+            SaveExecute(() => actor.Destroy());
+
+        Instance.Entites.Actors.Clear();
+		Instance.ActionCollection.Actions.Clear();
 
 		Instance = null;
 		GC.Collect();
 		Instance = game;
-		Instance.Entites.Actor.ForEach( o => o.Init());
-        Instance.ActionManager.Actions.ForEach(o => o.Init());
 
-        LinkToGameEntity<GameEntity>.LinkResolver.Link();
+        foreach (var actor in Instance.Entites.Actors)
+            SaveExecute(() => actor.Init());
+
+        Instance.ActionCollection.Actions.ForEach(o => o.Init());
 	}
 
 	static Game()
 	{
 		Instance = new Game();
-		Json.Json.SetSeralizationType(Json.Json.SeralizationType.Readable);
 	}
 
 	Game()
 	{
-		ActionManager = new ActionManager();
+		ActionCollection = new ActionManager();
 		Entites = new GameEntityManager();
+        Quests = new QuestCollection();
 	}
 
 	public void Update(float Delta)
 	{
-		ActionManager.Update(Delta);
+		ActionCollection.Update(Delta);
 	}
+
+    public void Bind()
+    {
+        Entites.Bind();
+        ActionCollection.Bind();
+        Quests.Bind();
+
+        //SaveSystem.Save("The_Origin");
+        //SaveSystem.Load("The_Origin");
+    }
+
+    public static void SaveExecute(Action action)
+    {
+        try
+        {
+            action();
+        }
+        catch (Exception ex)
+        {
+            Debug.LogException(ex);
+        }
+    }
 }

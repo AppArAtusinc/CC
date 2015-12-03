@@ -37,24 +37,40 @@ namespace StudentSimulator.SaveSystem
             TypeNameHandling = TypeNameHandling.All
         };
 
-        static public void Save(string fileToSave)
+        /// <summary>
+        /// Save game instance to slot.
+        /// </summary>
+        /// <owner>Stanislav Silin</owner>
+        /// <param name="slotName">The name of slot.</param>
+        static public void Save(string slotName)
         {
-            using (StreamWriter fs = new StreamWriter(fileToSave))
+            using (StreamWriter fs = new StreamWriter(slotName.GetFileName()))
             {
                 var data = JsonConvert.SerializeObject(Game.GetInstance(), Formatting.Indented, setting);
                 fs.Write(data);
                 fs.Close();
             }
         }
-        static public void Load(string fileForLoad)
+
+        /// <summary>
+        /// Load game instance from slot.
+        /// </summary>
+        /// <owner>Stanislav Silin</owner>
+        /// <param name="slotName">The Name of slot.</param>
+        static public void Load(string slotName)
         {
-            using (StreamReader fs = new StreamReader(fileForLoad))
+            using (StreamReader fs = new StreamReader(slotName.GetFileName()))
             {
                 var data = fs.ReadToEnd();
 
                 var game = JsonConvert.DeserializeObject<Game>(data, setting);
                 Game.InitInstance(game);
             }
+        }
+
+        static string GetFileName(this string SlotName)
+        {
+            return SlotName + ".txt";
         }
     }
 }

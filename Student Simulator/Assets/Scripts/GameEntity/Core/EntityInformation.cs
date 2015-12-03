@@ -12,7 +12,11 @@ public class EntityInformation : MonoBehaviour
 {
     public UInt64 Id;
 
-    public string Name;
+    public string Name
+    {
+        get { return gameObject.name; }
+        set { gameObject.name = value; }
+    }
 
     public string PrefabName;
 

@@ -20,6 +20,6 @@ static public class GameObjectHelper
         var temp = Target.GetComponent<EntityInformation>();
         if (temp == null)
             throw new InvalidOperationException("Object " + Target.name + " does not have GameInformation component.");
-        return Game.GetInstance().Entites.Actor.Single(o => o.Id == temp.Id);
+        return Game.GetInstance().Entites.Actors.Single(o => o.Id == temp.Id);
     }
 }

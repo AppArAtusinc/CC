@@ -11,6 +11,11 @@ namespace Entity.Entites.Interaction
     [Entity]
     public class NotifyButton : GameButton
     {
+        public NotifyButton(GameObject gameObject)
+            :base(gameObject)
+        {
+        }
+
         public override void Push(GameEntity entity)
         {
             Debug.Log("Cliked");

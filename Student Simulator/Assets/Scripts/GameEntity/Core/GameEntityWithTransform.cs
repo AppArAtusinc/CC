@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Entity
 {
@@ -19,17 +20,26 @@ namespace Entity
         [Save]
         public SimpleTransform Transform;
 
-        public GameEntityWithTransform()
-        {
-            Transform = new SimpleTransform();
-        }
-
         public GameEntityWithTransform(string Name, string PrefabName, SimpleTransform transform)
             : base(Name, PrefabName)
         {
             this.Transform = transform;
 
             Init();
+        }
+
+        public GameEntityWithTransform()
+            :base()
+        {
+        }
+
+        public GameEntityWithTransform(GameObject gameObject)
+            :base(gameObject)
+        {
+            if (gameObject == null)
+                return;
+
+            Transform = new SimpleTransform(gameObject.transform);
         }
 
         public override bool Init()

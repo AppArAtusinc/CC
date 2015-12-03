@@ -45,14 +45,19 @@ namespace Actions.Core
             return query.FirstOrDefault();
         }
 
-		/// <summary>
-		/// Remove action by name.
-		/// </summary>
-		/// <param name="Name"> Name for search. </param>
-		/// <returns> 
-		/// true: action removed.
-		/// false: action not found.
-		/// </returns>
+        public void Bind()
+        {
+
+        }
+
+        /// <summary>
+        /// Remove action by name.
+        /// </summary>
+        /// <param name="Name"> Name for search. </param>
+        /// <returns> 
+        /// true: action removed.
+        /// false: action not found.
+        /// </returns>
         public bool RemoveByName(string Name)
         {
             return Actions.RemoveAll(o => o.Name == Name) > 0;

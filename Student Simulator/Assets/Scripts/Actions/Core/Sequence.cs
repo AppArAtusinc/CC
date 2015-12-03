@@ -9,13 +9,13 @@ namespace Actions.Core
 	/// <summary>
 	/// Using for creating sequence from actions.
 	/// </summary>
-	class Sequence : GameAction
+	public class Sequence : GameAction
 	{
         /// <summary>
         /// Action sequence.
         /// </summary>
         [Save]
-        List<GameAction> Actions;
+        public List<GameAction> Actions = new List<GameAction>();
 
 		/// <summary>
 		/// Index of action action.

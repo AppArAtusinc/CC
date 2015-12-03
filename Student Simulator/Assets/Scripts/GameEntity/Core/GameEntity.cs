@@ -6,6 +6,7 @@ using SimpleGameTypes;
 using UnityEngine;
 using Newtonsoft.Json;
 using StudentSimulator.SaveSystem;
+using System.Reflection;
 
 namespace Entity
 {
@@ -85,7 +86,6 @@ namespace Entity
             data.Name = this.Name;
             data.PrefabName = this.PrefabName;
             data.FullName = this.FullName;
-            gameObject.name = data.Name;
 
             return true;
         }
@@ -94,6 +94,7 @@ namespace Entity
         {
             Id = NextId++;
         }
+
         /// <summary>
         /// Use for creating new entity and GameObject ob scene.
         /// </summary>
@@ -109,6 +110,19 @@ namespace Entity
             Init();
         }
 
+        public GameEntity(GameObject gameObject)
+        {
+            Id = NextId++;
+
+            if (gameObject == null)
+                return;
+
+            var data = gameObject.GetComponent<EntityInformation>();
+            data.Id = this.Id;
+            this.Name = data.Name;
+            this.PrefabName = data.PrefabName;
+        }
+
         /// <summary>
         /// Use for getting inner GameoObject.
         /// </summary>
@@ -121,9 +135,15 @@ namespace Entity
             return gameObject;
         }
 
-        static public GameEntity CreateInstance(string FullName)
+        static public GameEntity CreateInstance(string FullName, GameObject gameObject)
         {
-            return typeof(GameEntity).Assembly.CreateInstance(FullName) as GameEntity;
+            var type = typeof(GameEntity).Assembly.GetType(FullName);
+
+            return type.InvokeMember(type.Name,
+                BindingFlags.Public | BindingFlags.Instance | BindingFlags.CreateInstance | BindingFlags.FlattenHierarchy, 
+                null, 
+                null,
+                new object[] { gameObject }) as GameEntity;
         }
 
         static public T CreateInstance<T>() where T : GameEntity

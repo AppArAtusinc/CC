@@ -17,11 +17,11 @@ namespace Entity
 		/// All GameEntites.
 		/// </summary>
         [Save]
-		public List<GameEntity> Actor;
+		public List<GameEntity> Actors;
 
         public GameEntityManager()
 		{
-			Actor = new List<GameEntity>();
+			Actors = new List<GameEntity>();
 		}
 
 		/// <summary>
@@ -34,22 +34,14 @@ namespace Entity
 			foreach (var obj in objs) {
 				EntityInformation info = obj.GetComponent<EntityInformation>();
 
-                var entity = GameEntity.CreateInstance(info.FullName);
+                var entity = GameEntity.CreateInstance(info.FullName, obj);
 
-                var entityWithTransform = entity as GameEntityWithTransform;
-
-                if (entityWithTransform != null)
-                    entityWithTransform.Transform = new SimpleTransform(obj.transform);
-
-                entity.Name = info.Name;
-                entity.PrefabName = info.PrefabName;
-
-                Actor.Add(entity);
+                Actors.Add(entity);
 
 				GameObject.Destroy(obj);
 			}
 
-            Game.GetInstance().Entites.Actor.ForEach(o => o.Init());
+            Game.GetInstance().Entites.Actors.ForEach(o => o.Init());
 		}
 	}
 }

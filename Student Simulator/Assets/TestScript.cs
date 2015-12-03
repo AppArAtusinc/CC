@@ -28,7 +28,7 @@ public class TestScript : MonoBehaviour {
 			Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit);
 			if(hit.collider != null)
 			{
-				var t = hit.collider.gameObject.GetComponent<Button>();
+				var t = hit.collider.gameObject.GetComponentInChildren<Button>();
 				if(t != null)
 					t.Active(gameObject);
 			}

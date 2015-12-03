@@ -86,7 +86,7 @@ namespace Actions.Core
 
         public void Run()
         {
-            Game.GetInstance().ActionManager.Add(this);
+            Game.GetInstance().ActionCollection.Add(this);
         }
 
         public GameAction AddOnStartAction(GameAction OnStartAction)
@@ -103,7 +103,7 @@ namespace Actions.Core
 
         public static bool Stop(string ActionName)
         {
-            return Game.GetInstance().ActionManager.RemoveByName(ActionName);
+            return Game.GetInstance().ActionCollection.RemoveByName(ActionName);
         }
     }
 }
