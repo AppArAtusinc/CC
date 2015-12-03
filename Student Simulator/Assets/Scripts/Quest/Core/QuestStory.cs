@@ -1,12 +1,25 @@
-﻿using System;
+﻿using Actions.Core;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-namespace Assets.Scripts.Quest.Core
+namespace Quest.Core
 {
-    public class QuestStory
+    public abstract class QuestStory : Sequence
     {
-        internal void Init()
+        public string Name
         {
-            throw new NotImplementedException();
+            get
+            {
+                return this.GetType().FullName;
+            }
+        }
+
+        protected T Add<T>(T action) where T : GameAction
+        {
+            Actions.Add(action);
+            return action;
         }
     }
 }

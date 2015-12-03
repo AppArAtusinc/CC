@@ -43,8 +43,6 @@ namespace Quest.Common
             var questCollider = collider.GetComponent<QuestCollider>();
             questCollider.OnActive += QuestCollider_OnActive;
             questCollider.Radius = this.Radius;
-
-            Debug.Log(gameObject.transform.childCount);
         }
 
         public override void Reset()

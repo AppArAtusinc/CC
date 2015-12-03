@@ -46,6 +46,14 @@ namespace Actions.Core
 				Actions[Index].Reset();
 		}
 
+        public override void Init()
+        {
+            foreach (var action in Actions)
+                action.Init();
+
+            base.Init();
+        }
+
         /// <summary>
         /// Calling each frame for updating sequence.
         /// </summary>

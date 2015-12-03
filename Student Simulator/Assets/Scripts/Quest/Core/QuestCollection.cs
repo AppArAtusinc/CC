@@ -1,25 +1,23 @@
-﻿using StudentSimulator.SaveSystem;
+﻿using Actions.Common;
+using Assets.Scripts.Quest.Common;
+using StudentSimulator.SaveSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Scripts.Quest.Core
+namespace Quest.Core
 {
     public class QuestCollection
     {
-        [Save]
-        List<QuestStory> questStories;
-
         public QuestCollection()
         {
-            questStories = new List<QuestStory>();
+
         }
 
-        public void Init()
+        public void Bind()
         {
-            foreach (var questStory in questStories)
-                questStory.Init();
+            new StartQuest(new BeginStory()).Run();
         }
     }
 }
