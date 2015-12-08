@@ -6,15 +6,19 @@ public class PlayerMenu : MonoBehaviour
 {
 	//public short selectedMenu;
 	public GameObject Map, Relationships, Inventory, Mission, Student;
+
+	Camera mapCamera;
 	// Use this for initialization
 	void Start () 
 	{
-		ChangeMenu (0);
+		SetCamera();
+		ClearPanel ();
 	}
-	
-	// Update is called once per frame
-	void Update () 
+    
+	void SetCamera()
 	{
+		mapCamera = GameObject.FindGameObjectWithTag ("MinimapCamera").GetComponent<Camera>();
+		mapCamera.enabled=false;
 
 	}
 
@@ -39,6 +43,7 @@ public class PlayerMenu : MonoBehaviour
 		{
 			ClearPanel();
 			Map.SetActive(true);
+			mapCamera.enabled=true;
 		}
 		else if(NoMenu==4)
 		{
@@ -49,6 +54,7 @@ public class PlayerMenu : MonoBehaviour
 
 	private void ClearPanel()
 	{
+		mapCamera.enabled=false;
 		Map.SetActive (false);
 		Relationships.SetActive (false);
 		Student.SetActive (false);
