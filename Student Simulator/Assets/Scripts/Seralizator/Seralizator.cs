@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization.Formatters;
 using System.Text;
 
 namespace StudentSimulator.SaveSystem
@@ -34,7 +35,8 @@ namespace StudentSimulator.SaveSystem
         static JsonSerializerSettings setting = new JsonSerializerSettings()
         {
             ContractResolver = new CustomContractResolver(),
-            TypeNameHandling = TypeNameHandling.All
+            TypeNameHandling = TypeNameHandling.All,
+            TypeNameAssemblyFormat = FormatterAssemblyStyle.Full
         };
 
         /// <summary>
