@@ -1,4 +1,5 @@
 ﻿using Actions.Core;
+using StudentSimulator.SaveSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,9 @@ namespace Quest.Core
                 return this.GetType().FullName;
             }
         }
+
+        [Save]
+        public bool Active;
 
         protected T Add<T>(T action) where T : GameAction
         {

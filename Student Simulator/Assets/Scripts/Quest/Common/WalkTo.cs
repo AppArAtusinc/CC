@@ -21,7 +21,7 @@ namespace Quest.Common
 
         [Save]
         public float Radius;
-
+       
         GameObject collider;
 
         public WalkTo() { }
@@ -35,14 +35,17 @@ namespace Quest.Common
 
         public override void Init()
         {
-            var gameObject = First.Entity.GetGameObject();
-            collider = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>("QuestObjects/Collider"));
-            collider.transform.SetParent(gameObject.transform);
-            collider.transform.localPosition = Vector3.zero;
+            if (Active)
+            {
+                var gameObject = First.Entity.GetGameObject();
+                collider = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>("QuestObjects/Collider"));
+                collider.transform.SetParent(gameObject.transform);
+                collider.transform.localPosition = Vector3.zero;
 
-            var questCollider = collider.GetComponent<QuestCollider>();
-            questCollider.OnActive += QuestCollider_OnActive;
-            questCollider.Radius = this.Radius;
+                var questCollider = collider.GetComponent<QuestCollider>();
+                questCollider.OnActive += QuestCollider_OnActive;
+                questCollider.Radius = this.Radius;
+            }
         }
 
         public override void Reset()
@@ -56,8 +59,8 @@ namespace Quest.Common
             if (Second.Entity.GetGameObject().GetInstanceID() != activator.GetInstanceID())
                 return;
 
-            GameObject.Destroy(collider);
             Done();
+            GameObject.Destroy(collider);
         }
     }
 }

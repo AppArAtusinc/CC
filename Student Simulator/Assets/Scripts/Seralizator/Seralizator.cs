@@ -19,22 +19,38 @@ namespace StudentSimulator.SaveSystem
     {
         class CustomContractResolver : DefaultContractResolver
         {
+            public static readonly DefaultContractResolver Instance = new CustomContractResolver();
+
             protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
             {
-                var props = type.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).Where(o => o.GetCustomAttributes(typeof(SaveAttribute), true).Any())
-                                 .Select(p => base.CreateProperty(p, memberSerialization))
-                             .Union(type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).Where(o => o.GetCustomAttributes(typeof(SaveAttribute), true).Any())
-                                        .Select(f => base.CreateProperty(f, memberSerialization)))
-                             .ToList();
+                var props = type.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.).
+                    Where(o => o.GetCustomAttributes(typeof(SaveAttribute), true).Any()).
+                    Select(p => base.CreateProperty(p, memberSerialization)).
 
-                props.ForEach(p => { p.Writable = true; p.Readable = true; });
+                    Union(type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy).
+
+                    Where(o => o.GetCustomAttributes(typeof(SaveAttribute), true).Any()).
+                    Select(f => base.CreateProperty(f, memberSerialization))).
+                    
+                    ToList();
+
+                props.ForEach(p => 
+                {
+                    p.Writable = true;
+                    p.Readable = true;
+                   // p.Required = Required.Always;
+                    p.SetIsSpecified = (a,b) => 
+                    {
+                        var s = "";
+                    };
+                });
                 return props;
             }
         }
 
         static JsonSerializerSettings setting = new JsonSerializerSettings()
         {
-            ContractResolver = new CustomContractResolver(),
+            ContractResolver = CustomContractResolver.Instance,
             TypeNameHandling = TypeNameHandling.All,
             TypeNameAssemblyFormat = FormatterAssemblyStyle.Full
         };

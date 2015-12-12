@@ -9,8 +9,9 @@ namespace Assets.Scripts.Quest.Common
 {
     public class BeginStory : QuestStory
     {
-        public BeginStory()
+        public override void Reset()
         {
+            Actions.Clear();
             Add(new Delay(2));
             Add(new Notify("Hello <username>!"));
 
@@ -38,7 +39,7 @@ namespace Assets.Scripts.Quest.Common
 
             Add(new Delay(1)
                 .AddOnStartAction(new Notify("Now fly to star!")));
-            Add(new Delay(2)
+            Add(new Delay(1)
                 .AddOnStartAction(new Notify("5!")));
             Add(new Delay(1)
                 .AddOnStartAction(new Notify("4!")));
@@ -50,17 +51,7 @@ namespace Assets.Scripts.Quest.Common
                 .AddOnStartAction(new Notify("1!")));
             Add(new Delay(5)
                 .AddOnStartAction(new Notify("It is a joke!")));
-        }
-
-        class Greeting : QuestPoint
-        {
-
-            protected override bool Tick(float Delta)
-            {
-                new Sequence(
-                    ).Run();
-                return base.Tick(Delta);
-            }
+            base.Reset();
         }
     }
 }

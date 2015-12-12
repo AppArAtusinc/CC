@@ -22,17 +22,23 @@ namespace Actions.Core
             private set;
         }
 
+        public GameAction()
+        {
+            OnStartActions= new List<GameAction>();
+            OnFinishActions = new List<GameAction>();
+        }
+
         /// <summary>
         /// Emit on action start
         /// </summary>
         [Save]
-        List<GameAction> onStartActions = new List<GameAction>();
+        public List<GameAction> OnStartActions;
 
         /// <summary>
         /// Emit on action end
         /// </summary>
         [Save]
-        List<GameAction> onFinishActions = new List<GameAction>();
+        public List<GameAction> OnFinishActions;
 
 
         /// <summary>
@@ -50,8 +56,8 @@ namespace Actions.Core
         {
             bool result = Tick(Delta);
 
-            if (!result && onFinishActions != null)
-                onFinishActions.ForEach(o => o.Run());
+            if (!result && OnFinishActions != null)
+                OnFinishActions.ForEach(o => o.Run());
 
             return result;
         }
@@ -80,24 +86,25 @@ namespace Actions.Core
 		/// </summary>
 		public virtual void Reset()
 		{
-            if (onStartActions != null)
-                onStartActions.ForEach(o => o.Run());
+            if (OnStartActions != null)
+                OnStartActions.ForEach(o => o.Run());
 		}
 
         public void Run()
         {
+            Reset();
             Game.GetInstance().ActionCollection.Add(this);
         }
 
         public GameAction AddOnStartAction(GameAction OnStartAction)
         {
-            onStartActions.Add(OnStartAction);
+            OnStartActions.Add(OnStartAction);
             return this;
         }
 
         public GameAction AddOnFinish(GameAction OnFinishAction)
         {
-            onFinishActions.Add(OnFinishAction);
+            OnFinishActions.Add(OnFinishAction);
             return this;
         }
 

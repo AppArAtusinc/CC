@@ -7,6 +7,7 @@
       "$values": [
         {
           "$type": "Assets.Scripts.Quest.Common.BeginStory, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Active": false,
           "Actions": {
             "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
             "$values": [
@@ -14,12 +15,28 @@
                 "$type": "Actions.Core.Delay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Name": null,
                 "totalDelay": 2.0,
-                "currentDelay": 2.01999879
+                "currentDelay": 2.01999879,
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                }
               },
               {
                 "$type": "Actions.UI.Notify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Name": null,
-                "message": "Hello <username>!"
+                "message": "Hello <username>!",
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                }
               },
               {
                 "$type": "Quest.Common.WalkTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -33,13 +50,57 @@
                   "$type": "Entity.LinkToGameEntity`1[[Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                   "Id": 8
                 },
-                "Radius": 2.0
+                "Radius": 2.0,
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": [
+                    {
+                      "$type": "Actions.UI.Notify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "Name": null,
+                      "message": "Move to center of the cube!",
+                      "OnStartActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      },
+                      "OnFinishActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      }
+                    }
+                  ]
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": [
+                    {
+                      "$type": "Actions.UI.Notify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "Name": null,
+                      "message": "Nice work <username>!",
+                      "OnStartActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      },
+                      "OnFinishActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      }
+                    }
+                  ]
+                }
               },
               {
                 "$type": "Actions.Core.Delay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Name": null,
                 "totalDelay": 5.0,
-                "currentDelay": 0.0
+                "currentDelay": 0.0,
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                }
               },
               {
                 "$type": "Quest.Common.WalkTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -53,64 +114,278 @@
                   "$type": "Entity.LinkToGameEntity`1[[Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                   "Id": 8
                 },
-                "Radius": 2.0
+                "Radius": 2.0,
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": [
+                    {
+                      "$type": "Actions.UI.Notify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "Name": null,
+                      "message": "Move back please!",
+                      "OnStartActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      },
+                      "OnFinishActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      }
+                    }
+                  ]
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": [
+                    {
+                      "$type": "Actions.UI.Notify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "Name": null,
+                      "message": "Nice work <username>!",
+                      "OnStartActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      },
+                      "OnFinishActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      }
+                    }
+                  ]
+                }
               },
               {
                 "$type": "Actions.Core.Delay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Name": null,
                 "totalDelay": 2.0,
-                "currentDelay": 0.0
+                "currentDelay": 0.0,
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                }
               },
               {
                 "$type": "Actions.UI.Notify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Name": null,
-                "message": "You done your first quest!"
+                "message": "You done your first quest!",
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                }
               },
               {
                 "$type": "Actions.Core.Delay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Name": null,
                 "totalDelay": 1.0,
-                "currentDelay": 0.0
-              },
-              {
-                "$type": "Actions.Core.Delay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "Name": null,
-                "totalDelay": 2.0,
-                "currentDelay": 0.0
+                "currentDelay": 0.0,
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": [
+                    {
+                      "$type": "Actions.UI.Notify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "Name": null,
+                      "message": "Now fly to star!",
+                      "OnStartActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      },
+                      "OnFinishActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      }
+                    }
+                  ]
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                }
               },
               {
                 "$type": "Actions.Core.Delay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Name": null,
                 "totalDelay": 1.0,
-                "currentDelay": 0.0
+                "currentDelay": 0.0,
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": [
+                    {
+                      "$type": "Actions.UI.Notify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "Name": null,
+                      "message": "5!",
+                      "OnStartActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      },
+                      "OnFinishActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      }
+                    }
+                  ]
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                }
               },
               {
                 "$type": "Actions.Core.Delay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Name": null,
                 "totalDelay": 1.0,
-                "currentDelay": 0.0
+                "currentDelay": 0.0,
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": [
+                    {
+                      "$type": "Actions.UI.Notify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "Name": null,
+                      "message": "4!",
+                      "OnStartActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      },
+                      "OnFinishActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      }
+                    }
+                  ]
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                }
               },
               {
                 "$type": "Actions.Core.Delay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Name": null,
                 "totalDelay": 1.0,
-                "currentDelay": 0.0
+                "currentDelay": 0.0,
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": [
+                    {
+                      "$type": "Actions.UI.Notify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "Name": null,
+                      "message": "3!",
+                      "OnStartActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      },
+                      "OnFinishActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      }
+                    }
+                  ]
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                }
               },
               {
                 "$type": "Actions.Core.Delay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Name": null,
                 "totalDelay": 1.0,
-                "currentDelay": 0.0
+                "currentDelay": 0.0,
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": [
+                    {
+                      "$type": "Actions.UI.Notify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "Name": null,
+                      "message": "2!",
+                      "OnStartActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      },
+                      "OnFinishActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      }
+                    }
+                  ]
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                }
+              },
+              {
+                "$type": "Actions.Core.Delay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "Name": null,
+                "totalDelay": 1.0,
+                "currentDelay": 0.0,
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": [
+                    {
+                      "$type": "Actions.UI.Notify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "Name": null,
+                      "message": "1!",
+                      "OnStartActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      },
+                      "OnFinishActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      }
+                    }
+                  ]
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                }
               },
               {
                 "$type": "Actions.Core.Delay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Name": null,
                 "totalDelay": 5.0,
-                "currentDelay": 0.0
+                "currentDelay": 0.0,
+                "OnStartActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": [
+                    {
+                      "$type": "Actions.UI.Notify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                      "Name": null,
+                      "message": "It is a joke!",
+                      "OnStartActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      },
+                      "OnFinishActions": {
+                        "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                        "$values": []
+                      }
+                    }
+                  ]
+                },
+                "OnFinishActions": {
+                  "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                  "$values": []
+                }
               }
             ]
           },
-          "Index": 2
+          "Index": 2,
+          "OnStartActions": {
+            "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+            "$values": []
+          },
+          "OnFinishActions": {
+            "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+            "$values": []
+          }
         }
       ]
     }
@@ -281,7 +556,7 @@
           }
         },
         {
-          "$type": "Entity.Entites.Interaction.NotifyButton, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
           "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
@@ -350,16 +625,16 @@
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": 12.245879173278809,
-              "y": 0.80000072717666626,
-              "z": -0.783327043056488
+              "x": 13.608858108520508,
+              "y": 0.800000011920929,
+              "z": 14.859066009521484
             },
             "Rotation": {
               "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
               "x": 0.0,
-              "y": 0.70760005712509155,
+              "y": 0.88531231880187988,
               "z": 0.0,
-              "w": -0.70661318302154541
+              "w": -0.46499696373939514
             },
             "Scale": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
