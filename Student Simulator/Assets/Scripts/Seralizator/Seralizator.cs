@@ -23,11 +23,11 @@ namespace StudentSimulator.SaveSystem
 
             protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
             {
-                var props = type.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.).
+                var props = type.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).
                     Where(o => o.GetCustomAttributes(typeof(SaveAttribute), true).Any()).
                     Select(p => base.CreateProperty(p, memberSerialization)).
 
-                    Union(type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy).
+                    Union(type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).
 
                     Where(o => o.GetCustomAttributes(typeof(SaveAttribute), true).Any()).
                     Select(f => base.CreateProperty(f, memberSerialization))).

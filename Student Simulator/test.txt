@@ -625,16 +625,16 @@
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": 13.608858108520508,
-              "y": 0.800000011920929,
-              "z": 14.859066009521484
+              "x": -0.951196014881134,
+              "y": 0.79999935626983643,
+              "z": 15.635926246643066
             },
             "Rotation": {
               "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
               "x": 0.0,
-              "y": 0.88531231880187988,
+              "y": 0.98182648420333862,
               "z": 0.0,
-              "w": -0.46499696373939514
+              "w": 0.18978078663349152
             },
             "Scale": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
