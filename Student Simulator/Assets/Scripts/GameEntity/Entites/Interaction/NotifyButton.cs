@@ -18,14 +18,8 @@ namespace Entity.Entites.Interaction
 
         public override void Push(GameEntity entity)
         {
-            Debug.Log("Cliked");
+            Debug.Log("Clicked");
 
-            var gameObject = entity.GetGameObject();
-
-            new MoveTo(gameObject, new Vector3(10,1,0)).
-                SetDuration(1).
-                AddOnFinish(new NotifyAction()).
-                Run();
         }
 
         class NotifyAction : GameAction

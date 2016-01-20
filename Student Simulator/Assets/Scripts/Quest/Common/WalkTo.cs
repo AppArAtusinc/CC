@@ -14,10 +14,10 @@ namespace Quest.Common
     {
 
         [Save]
-        public LinkToGameEntity<GameEntityWithTransform> First;
+        public LinkToGameEntity<Actor> First;
 
         [Save]
-        public LinkToGameEntity<GameEntityWithTransform> Second;
+        public LinkToGameEntity<Actor> Second;
 
         [Save]
         public float Radius;
@@ -28,8 +28,8 @@ namespace Quest.Common
 
         public WalkTo(GameObject firstGameObject, GameObject secondGameObject, float radius)
         {
-            this.First = new LinkToGameEntity<GameEntityWithTransform>(firstGameObject.ToGameEntity().Id);
-            this.Second = new LinkToGameEntity<GameEntityWithTransform>(secondGameObject.ToGameEntity().Id);
+            this.First = new LinkToGameEntity<Actor>(firstGameObject.ToGameEntity().Id);
+            this.Second = new LinkToGameEntity<Actor>(secondGameObject.ToGameEntity().Id);
             this.Radius = radius;
         }
 
@@ -37,7 +37,7 @@ namespace Quest.Common
         {
             if (Active)
             {
-                var gameObject = First.Entity.GetGameObject();
+                var gameObject = First.Entity.GameObject;
                 collider = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>("QuestObjects/Collider"));
                 collider.transform.SetParent(gameObject.transform);
                 collider.transform.localPosition = Vector3.zero;
@@ -56,7 +56,7 @@ namespace Quest.Common
 
         private void QuestCollider_OnActive(GameObject sender, GameObject activator)
         {
-            if (Second.Entity.GetGameObject().GetInstanceID() != activator.GetInstanceID())
+            if (Second.Entity.GameObject.GetInstanceID() != activator.GetInstanceID())
                 return;
 
             Done();

@@ -40,15 +40,15 @@
               },
               {
                 "$type": "Quest.Common.WalkTo, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "Active": true,
+                "Active": false,
                 "Name": null,
                 "First": {
-                  "$type": "Entity.LinkToGameEntity`1[[Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                  "Id": 3
+                  "$type": "Entity.LinkToGameEntity`1[[Entity.Actor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Id": "df059bf8-9b1c-45f4-b1f8-92c61cad52f3"
                 },
                 "Second": {
-                  "$type": "Entity.LinkToGameEntity`1[[Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                  "Id": 8
+                  "$type": "Entity.LinkToGameEntity`1[[Entity.Actor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Id": "5657b227-ff89-46f1-ac6c-88f980ff512b"
                 },
                 "Radius": 2.0,
                 "OnStartActions": {
@@ -92,7 +92,7 @@
                 "$type": "Actions.Core.Delay, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Name": null,
                 "totalDelay": 5.0,
-                "currentDelay": 0.0,
+                "currentDelay": 1.639999,
                 "OnStartActions": {
                   "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                   "$values": []
@@ -107,12 +107,12 @@
                 "Active": false,
                 "Name": null,
                 "First": {
-                  "$type": "Entity.LinkToGameEntity`1[[Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                  "Id": 2
+                  "$type": "Entity.LinkToGameEntity`1[[Entity.Actor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Id": "4c07af8b-10e4-43e2-b7f3-99fcc12a1e0b"
                 },
                 "Second": {
-                  "$type": "Entity.LinkToGameEntity`1[[Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-                  "Id": 8
+                  "$type": "Entity.LinkToGameEntity`1[[Entity.Actor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Id": "5657b227-ff89-46f1-ac6c-88f980ff512b"
                 },
                 "Radius": 2.0,
                 "OnStartActions": {
@@ -377,7 +377,7 @@
               }
             ]
           },
-          "Index": 2,
+          "Index": 3,
           "OnStartActions": {
             "$type": "System.Collections.Generic.List`1[[Actions.Core.GameAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
             "$values": []
@@ -390,13 +390,14 @@
       ]
     }
   },
-  "Entites": {
-    "$type": "Entity.GameEntityManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+  "EntityCollection": {
+    "$type": "Entity.GameEntityCollection, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
     "Actors": {
       "$type": "System.Collections.Generic.List`1[[Entity.GameEntity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
       "$values": [
         {
-          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.Actor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Id": "f21536d1-5b7c-493e-bc4b-fad822751f5a",
           "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
@@ -419,16 +420,16 @@
               "z": 1000.0
             }
           },
-          "Id": 1,
-          "Name": "WaterProDaytime",
           "PrefabName": "Objects/WaterProDaytime",
+          "Name": null,
           "Tags": {
-            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+            "$type": "System.Collections.Generic.List`1[[Entity.EntityTag, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
             "$values": []
           }
         },
         {
-          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.Actor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Id": "4c07af8b-10e4-43e2-b7f3-99fcc12a1e0b",
           "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
@@ -451,16 +452,16 @@
               "z": 1.0
             }
           },
-          "Id": 2,
-          "Name": "Start",
           "PrefabName": "Objects/Marker",
+          "Name": null,
           "Tags": {
-            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+            "$type": "System.Collections.Generic.List`1[[Entity.EntityTag, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
             "$values": []
           }
         },
         {
-          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.Actor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Id": "df059bf8-9b1c-45f4-b1f8-92c61cad52f3",
           "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
@@ -483,16 +484,16 @@
               "z": 1.0
             }
           },
-          "Id": 3,
-          "Name": "Center",
           "PrefabName": "Objects/Marker",
+          "Name": null,
           "Tags": {
-            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+            "$type": "System.Collections.Generic.List`1[[Entity.EntityTag, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
             "$values": []
           }
         },
         {
-          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.Actor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Id": "b7173ce7-9a15-45c8-aa41-4492681dd8a5",
           "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
@@ -515,30 +516,30 @@
               "z": 50.0
             }
           },
-          "Id": 4,
-          "Name": "Cube",
           "PrefabName": "Objects/Cube",
+          "Name": null,
           "Tags": {
-            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+            "$type": "System.Collections.Generic.List`1[[Entity.EntityTag, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
             "$values": []
           }
         },
         {
-          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.Actor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Id": "2d60cc93-d0a3-4c5d-b52e-2a55a87b2f67",
           "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": -19.77679443359375,
-              "y": 0.50000005960464478,
-              "z": -19.985517501831055
+              "x": -19.338192,
+              "y": 0.50000006,
+              "z": -19.9820385
             },
             "Rotation": {
               "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": -4.0785272403809358E-07,
-              "y": 0.0038300848100334406,
-              "z": 4.7717071538500022E-07,
-              "w": 0.9999927282333374
+              "x": -1.43668558E-07,
+              "y": -3.99196722E-07,
+              "z": -1.9995413E-07,
+              "w": 1.0
             },
             "Scale": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -547,23 +548,23 @@
               "z": 1.0
             }
           },
-          "Id": 5,
-          "Name": "Test Cube 2",
           "PrefabName": "Objects/Test Cube",
+          "Name": null,
           "Tags": {
-            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+            "$type": "System.Collections.Generic.List`1[[Entity.EntityTag, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
             "$values": []
           }
         },
         {
-          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.Actor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Id": "e66e5cd6-3591-4c38-9b2f-0ae7578403f3",
           "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": -0.095235824584960938,
-              "y": -0.019999999552965164,
-              "z": 0.032902717590332031
+              "x": -0.0952358246,
+              "y": -0.02,
+              "z": 0.0329027176
             },
             "Rotation": {
               "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -579,30 +580,30 @@
               "z": 1.0
             }
           },
-          "Id": 6,
-          "Name": "PushButton (1)",
           "PrefabName": "Objects/PushButton",
+          "Name": null,
           "Tags": {
-            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+            "$type": "System.Collections.Generic.List`1[[Entity.EntityTag, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
             "$values": []
           }
         },
         {
-          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.Actor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Id": "1c0a4c27-aa62-4c4c-b378-86ebf0de9252",
           "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": -18.62083625793457,
-              "y": 0.50000005960464478,
-              "z": 18.697198867797852
+              "x": -18.1822338,
+              "y": 0.50000006,
+              "z": 18.7006779
             },
             "Rotation": {
               "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": -4.1854073629110644E-07,
-              "y": 0.0038300862070173025,
-              "z": 4.6514986706824857E-07,
-              "w": 0.9999927282333374
+              "x": -1.43668558E-07,
+              "y": -3.99196722E-07,
+              "z": -1.9995413E-07,
+              "w": 1.0
             },
             "Scale": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -611,30 +612,30 @@
               "z": 1.0
             }
           },
-          "Id": 7,
-          "Name": "Test Cube 1",
           "PrefabName": "Objects/Test Cube",
+          "Name": null,
           "Tags": {
-            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+            "$type": "System.Collections.Generic.List`1[[Entity.EntityTag, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
             "$values": []
           }
         },
         {
-          "$type": "Entity.GameEntityWithTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "$type": "Entity.Actor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "Id": "5657b227-ff89-46f1-ac6c-88f980ff512b",
           "Transform": {
             "$type": "SimpleGameTypes.SimpleTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Position": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": -0.951196014881134,
-              "y": 0.79999935626983643,
-              "z": 15.635926246643066
+              "x": 0.8577956,
+              "y": 0.878396153,
+              "z": -0.16475144
             },
             "Rotation": {
               "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
               "x": 0.0,
-              "y": 0.98182648420333862,
+              "y": 0.7155706,
               "z": 0.0,
-              "w": 0.18978078663349152
+              "w": -0.6985404
             },
             "Scale": {
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -643,11 +644,10 @@
               "z": 1.0
             }
           },
-          "Id": 8,
-          "Name": "RigidBodyFPSController",
           "PrefabName": "Objects/RigidBodyFPSController",
+          "Name": null,
           "Tags": {
-            "$type": "System.Collections.Generic.List`1[[Entity.EntitesTags, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+            "$type": "System.Collections.Generic.List`1[[Entity.EntityTag, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
             "$values": []
           }
         }

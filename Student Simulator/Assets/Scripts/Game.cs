@@ -14,28 +14,28 @@ public class Game
     public ActionManager ActionCollection;
 
     [Save]
-    public GameEntityManager Entites;
+    public GameEntityCollection EntityCollection;
 
     [Save]
     public QuestCollection Quests;
 
     static Game Instance;
-    public static Game GetInstance() { return Instance; }
+    public static Game GetInstance() 
+    { 
+        return Instance; 
+    }
 
-	public static void InitInstance (Game game)
+	public static void Load (Game game)
 	{
-        foreach (var actor in Instance.Entites.Actors)
+        foreach (var actor in Instance.EntityCollection.Actors)
             SaveExecute(() => actor.Destroy());
 
-        Instance.Entites.Actors.Clear();
+        Instance.EntityCollection.Actors.Clear();
 		Instance.ActionCollection.Actions.Clear();
 
 		Instance = null;
 		GC.Collect();
 		Instance = game;
-
-        foreach (var actor in Instance.Entites.Actors)
-            SaveExecute(() => actor.Init());
 
         Instance.ActionCollection.Actions.ForEach(o => o.Init());
 	}
@@ -48,7 +48,7 @@ public class Game
 	Game()
 	{
 		ActionCollection = new ActionManager();
-		Entites = new GameEntityManager();
+		EntityCollection = new GameEntityCollection();
         Quests = new QuestCollection();
 	}
 
@@ -59,7 +59,7 @@ public class Game
 
     public void Bind()
     {
-        Entites.Bind();
+        EntityCollection.Bind();
         ActionCollection.Bind();
         Quests.Bind();
 

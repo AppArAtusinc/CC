@@ -7,10 +7,11 @@ using UnityEngine;
 using Newtonsoft.Json;
 using StudentSimulator.SaveSystem;
 using System.Reflection;
+using Seralizator.Core;
 
 namespace Entity
 {
-    public enum EntitesTags
+    public enum EntityTag
     {
         Player,
         Student,
@@ -35,31 +36,21 @@ namespace Entity
 
 
     /// <summary>
-    /// Need for saving context bettwen save/load operation.
+    /// Need for saving context between save/load operation.
     /// </summary>
-    public abstract class GameEntity
+    public abstract class GameEntity : Saveable
     {
-        [Save]
-        static UInt64 NextId = 1;
-
         /// <summary>
-        /// Identificator for this entity. Use for work with same entity bettwen save/load operation.
+        /// Holds name of GameEntity
         /// </summary>
-        [Save]
-        public UInt64 Id;
-
-        /// <summary>
-        /// Name on the scene.
-        /// </summary>
+        /// <owner>Stanislav Silin</owner>
         [Save]
         public string Name;
 
         /// <summary>
-        /// Name of prefab in resource.
+        /// Holds full name of entity.
         /// </summary>
-        [Save]
-        public string PrefabName;
-
+        /// <owner>Stanislav Silin</owner>
         public string FullName
         {
             get
@@ -68,97 +59,12 @@ namespace Entity
             }
         }
 
+        /// <summary>
+        /// Holds all tags associated with entity.
+        /// </summary>
         [Save]
-        public List<EntitesTags> Tags = new List<EntitesTags>();
+        public List<EntityTag> Tags = new List<EntityTag>();
 
-        protected GameObject gameObject;
+    }        
 
-        /// <summary>
-        /// Use for initing GameObject in scene. Calling automaticly.
-        /// </summary>
-        /// <returns></returns>
-        public virtual bool Init()
-        {
-            gameObject = GameObject.Instantiate(Resources.Load<GameObject>(PrefabName));
-
-            var data = gameObject.GetComponent<EntityInformation>();
-            data.Id = this.Id;
-            data.Name = this.Name;
-            data.PrefabName = this.PrefabName;
-            data.FullName = this.FullName;
-
-            return true;
-        }
-
-        public GameEntity()
-        {
-            Id = NextId++;
-        }
-
-        /// <summary>
-        /// Use for creating new entity and GameObject ob scene.
-        /// </summary>
-        /// <param name="Name"> Name of entity and GameObject. </param>
-        /// <param name="PrefabName"> Name of prefab of loading. </param>
-        /// <param name="transform"> Transform for GameObject on scene. </param>
-        public GameEntity(string Name, string PrefabName)
-        {
-            Id = NextId++;
-            this.Name = Name;
-            this.PrefabName = PrefabName;
-
-            Init();
-        }
-
-        public GameEntity(GameObject gameObject)
-        {
-            Id = NextId++;
-
-            if (gameObject == null)
-                return;
-
-            var data = gameObject.GetComponent<EntityInformation>();
-            data.Id = this.Id;
-            this.Name = data.Name;
-            this.PrefabName = data.PrefabName;
-        }
-
-        /// <summary>
-        /// Use for getting inner GameoObject.
-        /// </summary>
-        /// <remarks>
-        /// DONT TRY TO CREATE PROPETY!!! IT WILL BROKE SERALIZATION
-        /// </remarks>
-        /// <returns></returns>
-        public GameObject GetGameObject()
-        {
-            return gameObject;
-        }
-
-        static public GameEntity CreateInstance(string FullName, GameObject gameObject)
-        {
-            var type = typeof(GameEntity).Assembly.GetType(FullName);
-
-            return type.InvokeMember(type.Name,
-                BindingFlags.Public | BindingFlags.Instance | BindingFlags.CreateInstance | BindingFlags.FlattenHierarchy, 
-                null, 
-                null,
-                new object[] { gameObject }) as GameEntity;
-        }
-
-        static public T CreateInstance<T>() where T : GameEntity
-        {
-            var type = typeof(T);
-            return type.Assembly.CreateInstance(type.FullName) as T;
-        }
-
-        /// <summary>
-        /// Use for destroing entity and GameObject.
-        /// </summary>
-        public virtual void Destroy()
-        {
-            //Game.GetInstance().Entites.Actor.Remove(this);
-            GameObject.Destroy(gameObject);
-        }
-    }
 }

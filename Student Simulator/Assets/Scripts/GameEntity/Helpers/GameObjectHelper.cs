@@ -7,7 +7,7 @@ using UnityEngine;
 
 static public class GameObjectHelper
 {
-    static public UInt64 GetEntityId(this GameObject Target)
+    static public Guid GetEntityId(this GameObject Target)
     {
         var temp = Target.GetComponent<EntityInformation>();
         if (temp == null)
@@ -20,6 +20,6 @@ static public class GameObjectHelper
         var temp = Target.GetComponent<EntityInformation>();
         if (temp == null)
             throw new InvalidOperationException("Object " + Target.name + " does not have GameInformation component.");
-        return Game.GetInstance().Entites.Actors.Single(o => o.Id == temp.Id);
+        return Game.GetInstance().EntityCollection.Actors.Single(o => o.Id == temp.Id);
     }
 }

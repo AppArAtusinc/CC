@@ -10,11 +10,11 @@ namespace SimpleGameTypes
     public struct SimpleVector3
     {
         [Save]
-        public double x;
+        public float x;
         [Save]
-        public double y;
+        public float y;
         [Save]
-        public double z;
+        public float z;
 
         public SimpleVector3(Vector3 vector)
         {
@@ -30,24 +30,27 @@ namespace SimpleGameTypes
 
         public Vector3 ToVector3()
         {
-            return new Vector3((float)x, (float)y, (float)z);
+            return new Vector3(x, y, z);
         }
         public Quaternion ToQuaternion()
         {
-            return Quaternion.EulerAngles(new Vector3((float)x, (float)y, (float)z));
+            return Quaternion.Euler(new Vector3(x, y, z));
         }
-
+        public override string ToString()
+        {
+            return string.Format("({0}, {1}, {2})", x, y, z);
+        }
     }
     public struct SimpleQuaternion
     {
         [Save]
-        public double x;
+        public float x;
         [Save]
-        public double y;
+        public float y;
         [Save]
-        public double z;
+        public float z;
         [Save]
-        public double w;
+        public float w;
 
         public SimpleQuaternion(Quaternion quaternion)
         {
@@ -59,7 +62,12 @@ namespace SimpleGameTypes
 
         public Quaternion ToQuaterion()
         {
-            return new Quaternion((float)x, (float)y, (float)z, (float)w);
+            return new Quaternion(x, y, z, w);
+        }
+
+        public override string ToString()
+        {
+            return string.Format("({0},{1},{2},{3})", x, y, z, w);
         }
     }
 
@@ -81,8 +89,7 @@ namespace SimpleGameTypes
             {
                 if (data != null)
                     data.position = value.ToVector3();
-                else
-                    position = value;
+                position = value;
             }
         }
 
@@ -99,9 +106,8 @@ namespace SimpleGameTypes
             set
             {
                 if (data != null)
-                    data.rotation.Set((float)value.x, (float)value.y, (float)value.z, (float)value.w);
-                else
-                    rotation = value;
+                    data.rotation = new Quaternion(value.x, value.y, value.z, value.w);
+                rotation = value;
             }
         }
 
@@ -119,8 +125,7 @@ namespace SimpleGameTypes
             {
                 if (data != null)
                     data.localScale = value.ToVector3();
-                else
-                    scale = value;
+                scale = value;
             }
         }
 

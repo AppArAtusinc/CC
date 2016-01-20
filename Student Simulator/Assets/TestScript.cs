@@ -41,13 +41,13 @@ public class TestScript : MonoBehaviour {
 		//saving
 		if (Input.GetKeyDown(KeyCode.F5))
 		{
-            SaveSystem.Save("test");
+            LoadManager.Save("test");
 		}
 
         //loading
 		if (Input.GetKeyDown(KeyCode.F9))
 		{
-            SaveSystem.Load("test");
+            LoadManager.Load("test");
         }
 	}
 }

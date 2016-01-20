@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using StudentSimulator.SaveSystem;
 
@@ -10,23 +11,26 @@ namespace Entity
         T value;
 
         [Save]
-        public UInt64 Id;
+        public Guid Id;
 
         public LinkToGameEntity()
         {
         }
 
-        public LinkToGameEntity(UInt64 Id)
+        public LinkToGameEntity(Guid Id)
         {
             this.Id = Id;
-            value = Game.GetInstance().Entites.Actors.Find(o => o.Id == Id) as T;
+            value = Game.GetInstance().EntityCollection.Actors.Single(o => o.Id == Id) as T;
         }
 
         public T Entity
         {
             get
             {
-                return value ?? (value = Game.GetInstance().Entites.Actors.Find(o => o.Id == Id) as T);
+                if (value == null)
+                    value = Game.GetInstance().EntityCollection.Actors.SingleOrDefault(o => o.Id == this.Id) as T;
+
+                return value;
             }
         }
     }

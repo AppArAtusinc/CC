@@ -31,16 +31,16 @@ public abstract class Button : Activable
 
     class RestoreStateInternal : GameAction
     {
-        LinkToGameEntity<GameEntity> link;
+        LinkToGameEntity<Actor> link;
 
         public RestoreStateInternal(GameObject parent)
         {
-            link = new LinkToGameEntity<GameEntity>(parent.GetEntityId());
+            link = new LinkToGameEntity<Actor>(parent.GetEntityId());
         }
 
         protected override bool Tick(float Delta)
         {
-            link.Entity.GetGameObject().GetComponent<Button>().activated = false;
+            link.Entity.GameObject.GetComponent<Button>().activated = false;
             return false;
         }
     }

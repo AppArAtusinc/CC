@@ -11,7 +11,7 @@ namespace Entity
 	/// <summary>
 	/// Using for controlling PoolEntites.
 	/// </summary>
-	public class GameEntityManager
+	public class GameEntityCollection
 	{
 		/// <summary>
 		/// All GameEntites.
@@ -19,29 +19,22 @@ namespace Entity
         [Save]
 		public List<GameEntity> Actors;
 
-        public GameEntityManager()
+        public GameEntityCollection()
 		{
 			Actors = new List<GameEntity>();
 		}
 
 		/// <summary>
-		/// Bind all GameObject in scene, while launching from Unity Editor. Calling automaticly.
+		/// Bind all GameObject in scene, while launching from Unity Editor. Calling automatically.
 		/// </summary>
 		public void Bind()
 		{
 			var objs = GameObject.FindGameObjectsWithTag("TestSaving");
 
 			foreach (var obj in objs) {
-				EntityInformation info = obj.GetComponent<EntityInformation>();
-
-                var entity = GameEntity.CreateInstance(info.FullName, obj);
-
-                Actors.Add(entity);
-
-				GameObject.Destroy(obj);
+                Actors.Add(Actor.Create(obj));
 			}
-
-            Game.GetInstance().Entites.Actors.ForEach(o => o.Init());
+           // Game.GetInstance().EntityCollection.Actors.ForEach(o => o.Load());
 		}
 	}
 }

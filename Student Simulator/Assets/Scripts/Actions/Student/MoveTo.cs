@@ -11,7 +11,7 @@ using UnityEngine;
 class MoveTo : GameAction
 {
     [Save]
-    LinkToGameEntity<GameEntityWithTransform> Target;
+    LinkToGameEntity<Actor> Target;
 
     [Save]
     SimpleVector3 Position;
@@ -28,7 +28,7 @@ class MoveTo : GameAction
 
     public MoveTo(GameObject Target, Vector3 Position)
     {
-        this.Target = new LinkToGameEntity<GameEntityWithTransform>(Target.GetEntityId());
+        this.Target = new LinkToGameEntity<Actor>(Target.GetEntityId());
         this.Position = new SimpleVector3(Position);
     }
 
@@ -41,14 +41,14 @@ class MoveTo : GameAction
     public GameAction SetDuration(float Value)
     {
         Duration = Value;
-        SpeedPerSecond = Vector3.Distance(Target.Entity.GetGameObject().transform.position, Position) / Duration;
+        SpeedPerSecond = Vector3.Distance(Target.Entity.GameObject.transform.position, Position) / Duration;
 
         return this;
     }
 
     protected override bool Tick(float Delta)
     {
-        var transform = Target.Entity.GetGameObject().transform;
+        var transform = Target.Entity.GameObject.transform;
         var distance = Vector3.Distance(transform.position, Position);
         var entityPosition = transform.position;
 

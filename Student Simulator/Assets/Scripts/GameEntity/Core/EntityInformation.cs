@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class EntityInformation : MonoBehaviour
 {
-    public UInt64 Id;
+    public Guid Id;
 
     public string Name
     {

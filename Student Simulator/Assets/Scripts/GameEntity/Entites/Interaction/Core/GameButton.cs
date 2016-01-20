@@ -7,22 +7,11 @@ using UnityEngine;
 
 namespace Entity.Interaction.Core
 {
-    public abstract class GameButton : GameEntityWithTransform
+    public abstract class GameButton : Actor
     {
         public GameButton(GameObject gameObject)
             :base(gameObject)
         {
-        }
-
-        public GameButton():
-            base("TestButton", "Objects/PushButton", new SimpleTransform())
-        {
-        }
-
-        public GameButton(SimpleTransform Transform) 
-            : base("GameButton","Objects/PushButton", Transform)
-        {
-
         }
 
         public abstract void Push(GameEntity entity);
