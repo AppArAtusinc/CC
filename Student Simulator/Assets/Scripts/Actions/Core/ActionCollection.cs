@@ -4,21 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization.Formatters;
 using StudentSimulator.SaveSystem;
+using Assets.Scripts.Quest.Common;
 
 namespace Actions.Core
 {
 	/// <summary>
 	/// Manager for action. Using for adding and removing action in runtime.
 	/// </summary>
-    public class ActionManager
+    public class ActionCollection
     {
-		/// <summary>
-		/// List of all action.
-		/// </summary>
+        /// <summary>
+        /// List of all action.
+        /// </summary>
         [Save]
-		public List<GameAction> Actions;
+        public List<GameAction> Actions;
          
-        public ActionManager()
+        public ActionCollection()
         {
             Actions = new List<GameAction>();
         }
@@ -47,7 +48,7 @@ namespace Actions.Core
 
         public void Bind()
         {
-
+            new BeginStory().Start();
         }
 
         /// <summary>
@@ -70,10 +71,9 @@ namespace Actions.Core
 		/// <returns> </returns>
 		public bool Update(float Delta)
         {
-			//@todo: think about optimization
-			for(int index = 0; index < Actions.Count; index++)
-				if(!Actions[index].Update(Delta))
-					Actions.Remove(Actions[index--]);
+            //@todo: think about optimization
+            for (int index = 0; index < Actions.Count; index++)
+                Actions[index].Update(Delta);
 
 			return true;
         }

@@ -1,15 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Seralizator.Core;
 using StudentSimulator.SaveSystem;
 
 namespace Seralizator.Core
 {
-
     public abstract class Saveable
     {
+        public virtual int LoadPriority
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
+        public SaveableEvent OnDestroy;
+
+        [Save]
+        public bool IsDestroed = false;
+
+        protected Saveable()
+        {
+            Id = Guid.NewGuid();
+            LoadManager.Instances.Add(this);
+        }
+
         public delegate void SaveableEvent(Saveable sender);
+
 
         /// <summary>
         /// Holds Id for object.
@@ -21,11 +38,16 @@ namespace Seralizator.Core
             get;
             private set;
         }
-
-        protected Saveable()
+        /// <summary>
+        /// Destroy the instance.
+        /// </summary>
+        /// <owner>Stanislav Silin</owner>
+        public virtual void Destroy()
         {
-            Id = Guid.NewGuid();
-            LoadManager.Inctances.Add(this);
+            if(!IsDestroed)
+                OnDestroy.Emit(this);
+
+            OnDestroy = null;
         }
 
         /// <summary>
@@ -45,17 +67,15 @@ namespace Seralizator.Core
         {
 
         }
+    }
 
-        public SaveableEvent OnDestroy;
+}
 
-        /// <summary>
-        /// Destroy the instance.
-        /// </summary>
-        /// <owner>Stanislav Silin</owner>
-        public virtual void Destroy()
-        {
-            if (OnDestroy != null)
-                OnDestroy(this);
-        }
+public static class SaveableExtention
+{
+    public static void Emit(this Saveable.SaveableEvent func, Saveable action)
+    {
+        if (func != null)
+            func(action);
     }
 }

@@ -6,77 +6,114 @@ using System.Linq;
 namespace Actions.Core
 {
 
-	/// <summary>
-	/// Using for creating sequence from actions.
-	/// </summary>
-	public class Sequence : GameAction
-	{
+    /// <summary>
+    /// Using for creating sequence from actions.
+    /// </summary>
+    public class Sequence : GameAction
+    {
         /// <summary>
         /// Action sequence.
         /// </summary>
         [Save]
-        public List<GameAction> Actions = new List<GameAction>();
+        public List<GameAction> Actions;
 
-		/// <summary>
-		/// Index of action action.
-		/// </summary>
         [Save]
-        public int Index;
-
-        public Sequence() { }
-
-		/// <summary>
-		/// Creating sequence from actions.
-		/// </summary>
-		/// <param name="Actions"> Actions for sequence. </param>
-		public Sequence (params GameAction[] Actions)
-		{
-			this.Actions = Actions.ToList();
-			Reset();
-		}
-
-		/// <summary>
-		/// Reset action to start state.
-		/// </summary>
-		public override void Reset ()
-		{
-			base.Reset();
-			Index = 0;
-			if(Actions.Count != 0)
-				Actions[Index].Reset();
-		}
-
-        public override void Init()
+        int index;
+        /// <summary>
+        /// Index of action.
+        /// </summary>
+        public int Index
         {
-            foreach (var action in Actions)
-                action.Init();
+            get
+            {
+                return index;
+            }
+            set
+            {
+                UnBind();
+                index = value;
+                Bind();
+            }
+        }
 
-            base.Init();
+        public Sequence()
+        {
         }
 
         /// <summary>
-        /// Calling each frame for updating sequence.
+        /// Creating sequence from actions.
         /// </summary>
-        /// <param name="Delta"> Time bettwen two calls. </param>
-        /// <returns>
-        /// true: action active
-        /// false: action finish work. 
-        /// </returns>
-        protected override bool Tick (float Delta)
-		{
-			if(Index == Actions.Count)
-				return false;
+        /// <param name="Actions"> Actions for sequence. </param>
+        public Sequence(params GameAction[] Actions)
+        {
+            this.Actions = Actions.ToList();
+            Start();
+            Bind();
+        }
 
-			if(!Actions[Index].Update(Delta))
-			{
-				Index++;
-				if(Index == Actions.Count)
-					return false;
-				Actions[Index].Reset();
-			}
+        private void Bind()
+        {
+            if (Index < Actions.Count)
+                Actions[Index].OnFinish += nextAction;
+        }
 
-			return true;
-		}
-	}
+        private void UnBind()
+        {
+            if (Index < Actions.Count)
+                Actions[Index].OnFinish -= nextAction;
+        }
+
+        private void nextAction(GameAction action)
+        {
+            Index++;
+            if (this.Index == Actions.Count)
+            {
+                Finish();
+                return;
+            }
+            Actions[Index].Start();
+        }
+
+        /// <summary>
+        /// Reset action to start state.
+        /// </summary>
+        public override void Start()
+        {
+            base.Start();
+            Actions[Index].Stop();
+            Index = 0;
+            Actions[Index].Start();
+        }
+
+        public override void Finish()
+        {
+            if (Index < Actions.Count)
+            {
+                Actions[Index].OnFinish -= nextAction;
+                Actions[Index].Finish();
+            }
+            base.Finish();
+        }
+
+        public override void Load()
+        {
+            base.Load();
+            Bind();
+        }
+
+        public override bool Stop()
+        {
+            return base.Stop() && Actions[Index].Stop();
+        }
+
+        public override void Destroy()
+        {
+            foreach (var action in this.Actions)
+                action.Destroy();
+
+            base.Destroy();
+        }
+
+    }
 }
 

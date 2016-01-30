@@ -1,23 +1,22 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
+using Seralizator.Core;
 using StudentSimulator.SaveSystem;
 
 namespace Entity
 {
-    public class LinkToGameEntity<T> where T : GameEntity
+    public class Link<T> where T : Saveable
     {
         T value;
 
         [Save]
         public Guid Id;
 
-        public LinkToGameEntity()
+        public Link()
         {
         }
 
-        public LinkToGameEntity(Guid Id)
+        public Link(Guid Id)
         {
             this.Id = Id;
             value = Game.GetInstance().EntityCollection.Actors.Single(o => o.Id == Id) as T;

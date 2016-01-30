@@ -9,52 +9,53 @@ namespace Actions.Core
 	class Delay : GameAction
 	{
 		/// <summary>
-		/// Total time for wating.
+		/// Total time for waiting.
 		/// </summary>
+        /// <owner>Stanislav Silin</owner>
         [Save]
-        float totalDelay;
+        public float totalDelay;
+
 		/// <summary>
 		/// Current waiting time.
 		/// </summary>
+        /// <owner>Stanislav Silin</owner>
         [Save]
-        float currentDelay;
+        public float currentDelay;
 
 		public Delay(){}
 
-		/// <summary>
-		/// Creating action which stop action sequence for somr time. 
-		/// </summary>
-		/// <param name="Delay"> Time for waiting. One second == 1.0 </param>
-		public Delay (float Delay)
+        /// <summary>
+        /// Creating action which stop action sequence for some time. 
+        /// </summary>
+        /// <owner>Stanislav Silin</owner>
+        /// <param name="Delay"> Time for waiting. One second == 1.0 </param>
+        public Delay (float Delay)
 		{
 			totalDelay = Delay;
 			currentDelay = 0;
 		}
 
-		/// <summary>
-		/// Reset current time to zero.
-		/// </summary>
-		public override void Reset ()
+        /// <summary>
+        /// Reset current time to zero.
+        /// <owner>Stanislav Silin</owner>
+        /// </summary>
+        public override void Start()
 		{
-            base.Reset();
+            base.Start();
             currentDelay = 0;
 		}
 
-		/// <summary>
-		/// Calling each frame.
-		/// </summary>
-		/// <param name="Delta"> Time from last call.</param>
-		/// <returns>
-		/// true: current waiting time less that total waiting time
-		/// false: current waiting time greate that total waiting time
-		/// </returns>
-		protected override bool Tick (float Delta)
+        /// <summary>
+        /// Calling each frame.
+        /// </summary>
+        /// <owner>Stanislav Silin</owner>
+        /// <param name="delta"> Time from last call.</param>
+        protected override void Tick(float delta)
 		{
-			if(currentDelay > totalDelay)
-				return false;
+            if (currentDelay > totalDelay)
+                Finish();
 
-			currentDelay += Delta;
-			return true;
+			currentDelay += delta;
 		}
 	}
 }

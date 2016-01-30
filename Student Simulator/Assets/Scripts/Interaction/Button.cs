@@ -26,22 +26,21 @@ public abstract class Button : Activable
             new Delay(0.5f),
             new MoveTo(gameObject, startPos).SetDuration(0.1f),
             new RestoreStateInternal(gameObject)
-        ).Run();
+        ).Start();
     }
 
     class RestoreStateInternal : GameAction
     {
-        LinkToGameEntity<Actor> link;
+        Link<Actor> link;
 
         public RestoreStateInternal(GameObject parent)
         {
-            link = new LinkToGameEntity<Actor>(parent.GetEntityId());
+            link = new Link<Actor>(parent.GetEntityId());
         }
 
-        protected override bool Tick(float Delta)
+        protected override void Tick(float Delta)
         {
             link.Entity.GameObject.GetComponent<Button>().activated = false;
-            return false;
         }
     }
 }

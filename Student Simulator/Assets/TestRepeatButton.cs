@@ -22,6 +22,6 @@ public class TestRepeatButton : Button
         ).
         SetRepeatCount(2).
         SetName("Test Action").
-        Run();
+        Start();
     }
 }

@@ -6,11 +6,11 @@ using System;
 
 public class NotifyButtonComponent : Button
 {
-    LinkToGameEntity<GameButton> entity;
+    Link<GameButton> entity;
 
     void Start () {
         var info = GetComponent<EntityInformation>();
-        entity = new LinkToGameEntity<GameButton>(info.Id);
+        entity = new Link<GameButton>(info.Id);
 	}
 
     public override void Clicked(GameObject Sender)

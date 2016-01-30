@@ -37,61 +37,84 @@ namespace Actions.Core
         public Repeat() { }
 
 		/// <summary>
-		/// Create action sequence wich repeat only one time.
+		/// Create action sequence which repeat only one time.
 		/// </summary>
 		/// <param name="Actions"> Action sequence. </param>
 		public Repeat (params GameAction[] Actions)
 		{
 			actions = Actions.ToList();
-		}
-		
-		/// <summary>
-		/// Reset all action to start state.
-		/// </summary>
-		public override void Reset ()
-		{
-			base.Reset();
-			index = 0;
-			currentRepeatCount = 0;
-			actions[index].Reset();
+            index = currentRepeatCount = 0;
+            repeatCount = 1;
+            Bind();
 		}
 
-		/// <summary>
-		/// Set total repeat count.
-		/// </summary>
-		/// <param name="Count"> Value for repeat count. </param>
-		/// <returns> Return this action. </returns>
-		public Repeat SetRepeatCount(int Count)
+        private void Bind()
+        {
+            actions[index].OnStopOrFinish += nextAction;
+        }
+
+        private void nextAction(GameAction action)
+        {
+            index++;
+            if (index == actions.Count)
+            {
+                currentRepeatCount++;
+                if (currentRepeatCount == repeatCount)
+                {
+                    Finish();
+                    return;
+                }
+                index = 0;
+            }
+            actions[index].Start();
+        }
+
+        /// <summary>
+        /// Reset all action to start state.
+        /// </summary>
+        public override void Start ()
+		{
+			base.Start();
+            actions[index].Stop();
+			index = currentRepeatCount = 0;
+			actions[index].Start();
+		}
+
+        public override void Finish()
+        {
+            actions[index].Finish();
+            base.Finish();
+        }
+
+        public override void Load()
+        {
+            base.Load();
+            Bind();
+        }
+
+        public override bool Stop()
+        {
+            return base.Stop() && actions[index].Stop();
+        }
+
+        /// <summary>
+        /// Set total repeat count.
+        /// </summary>
+        /// <param name="Count"> Value for repeat count. </param>
+        /// <returns> Return this action. </returns>
+        public Repeat SetRepeatCount(int Count)
 		{
 			repeatCount = Count;
 			return this;
 		}
 
-        /// <summary>
-        /// Calling each frame, update action sequence.
-        /// </summary>
-        /// <param name="Delta"> Time bettwen two calls. </param>
-        /// <returns>
-        /// true: still running
-        /// false: finish running
-        /// </returns>
-        protected override bool Tick (float Delta)
-		{
-			if(!actions[index].Update(Delta))
-			{
-				index++;
-				if(index == actions.Count)
-				{
-					index = 0;
-					currentRepeatCount++;
-					if(currentRepeatCount == repeatCount)
-						return false;
-				}
-				actions[index].Reset();
-			}
-			
-			return true;
-		}
-	}
+        public override void Destroy()
+        {
+            foreach (var action in this.actions)
+                action.Destroy();
+
+            base.Destroy();
+        }
+    }
 }
 

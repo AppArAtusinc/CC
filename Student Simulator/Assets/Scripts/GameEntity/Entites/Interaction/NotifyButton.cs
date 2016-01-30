@@ -24,10 +24,10 @@ namespace Entity.Entites.Interaction
 
         class NotifyAction : GameAction
         {
-            protected override bool Tick(float Delta)
+            protected override void Tick(float Delta)
             {
                 Debug.Log("Done");
-                return false;
+                Finish();
             }
         }
     }

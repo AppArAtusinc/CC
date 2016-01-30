@@ -6,18 +6,14 @@ using Actions.Core;
 using Entity;
 using UnityEngine;
 using StudentSimulator.SaveSystem;
-using Quest.Core;
 
 public class Game
 {
     [Save]
-    public ActionManager ActionCollection;
+    public ActionCollection ActionCollection;
 
     [Save]
     public GameEntityCollection EntityCollection;
-
-    [Save]
-    public QuestCollection Quests;
 
     static Game Instance;
     public static Game GetInstance() 
@@ -36,8 +32,6 @@ public class Game
 		Instance = null;
 		GC.Collect();
 		Instance = game;
-
-        Instance.ActionCollection.Actions.ForEach(o => o.Init());
 	}
 
 	static Game()
@@ -47,9 +41,8 @@ public class Game
 
 	Game()
 	{
-		ActionCollection = new ActionManager();
+		ActionCollection = new ActionCollection();
 		EntityCollection = new GameEntityCollection();
-        Quests = new QuestCollection();
 	}
 
 	public void Update(float Delta)
@@ -61,7 +54,6 @@ public class Game
     {
         EntityCollection.Bind();
         ActionCollection.Bind();
-        Quests.Bind();
 
         //SaveSystem.Save("The_Origin");
         //SaveSystem.Load("The_Origin");

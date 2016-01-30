@@ -1,5 +1,4 @@
 ﻿using Entity;
-using Quest.Core;
 using SimpleGameTypes;
 using StudentSimulator.SaveSystem;
 using System;
@@ -7,17 +6,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using Actions.Core;
 
 namespace Quest.Common
 {
-    public class WalkTo : QuestPoint
+    public class WalkTo : GameAction
     {
 
         [Save]
-        public LinkToGameEntity<Actor> First;
+        public Link<Actor> First;
 
         [Save]
-        public LinkToGameEntity<Actor> Second;
+        public Link<Actor> Second;
 
         [Save]
         public float Radius;
@@ -28,30 +28,37 @@ namespace Quest.Common
 
         public WalkTo(GameObject firstGameObject, GameObject secondGameObject, float radius)
         {
-            this.First = new LinkToGameEntity<Actor>(firstGameObject.ToGameEntity().Id);
-            this.Second = new LinkToGameEntity<Actor>(secondGameObject.ToGameEntity().Id);
+            this.First = new Link<Actor>(firstGameObject.ToGameEntity().Id);
+            this.Second = new Link<Actor>(secondGameObject.ToGameEntity().Id);
             this.Radius = radius;
         }
 
-        public override void Init()
+        public override void Load()
         {
-            if (Active)
+            if (IsRunning)
             {
-                var gameObject = First.Entity.GameObject;
-                collider = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>("QuestObjects/Collider"));
-                collider.transform.SetParent(gameObject.transform);
-                collider.transform.localPosition = Vector3.zero;
-
-                var questCollider = collider.GetComponent<QuestCollider>();
-                questCollider.OnActive += QuestCollider_OnActive;
-                questCollider.Radius = this.Radius;
+                Restore();
             }
         }
 
-        public override void Reset()
+        private void Restore()
         {
-            base.Reset();
-            Init();
+            var gameObject = First.Entity.GameObject;
+            collider = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>("QuestObjects/Collider"));
+            collider.transform.SetParent(gameObject.transform);
+            collider.transform.localPosition = Vector3.zero;
+
+            var questCollider = collider.GetComponent<QuestCollider>();
+            questCollider.OnActive += QuestCollider_OnActive;
+            questCollider.Radius = this.Radius;
+
+            this.OnStopOrFinish += (action) => Clear();
+        }
+
+        public override void Start()
+        {
+            base.Start();
+            Restore();
         }
 
         private void QuestCollider_OnActive(GameObject sender, GameObject activator)
@@ -59,8 +66,18 @@ namespace Quest.Common
             if (Second.Entity.GameObject.GetInstanceID() != activator.GetInstanceID())
                 return;
 
-            Done();
+            Finish();
+        }
+
+        private void Clear()
+        {
             GameObject.Destroy(collider);
+        }
+
+        public override void Destroy()
+        {
+            Clear();
+            base.Destroy();
         }
     }
 }

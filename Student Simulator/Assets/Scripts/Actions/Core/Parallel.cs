@@ -6,66 +6,87 @@ using System.Linq;
 namespace Actions.Core
 {
 	/// <summary>
-	/// Using for creating action pool, where action will work parallel
+	/// Using for creating action pool, where action will work parallel.
+    /// When first action finish work, than all other stop they work.
 	/// </summary>
+    /// <owner>Stanislav Silin</owner>
 	class Parallel : GameAction
-	{
+    {
 		/// <summary>
 		/// Pool action for parallel processing
 		/// </summary>
+        /// <owner>Stanislav Silin</owner>
         [Save]
-        List<GameAction> actions;
-		/// <summary>
-		/// Flags for each action. If true action is end it's work.
-		/// </summary>
-        [Save]
-        bool[] ended;
+        public GameAction[] Actions;
+
 
         public Parallel() { }
 
-		/// <summary>
-		/// Creating action with parallel action pool.
-		/// </summary>
-		/// <param name="Actions"> Actions for pool. </param>
-		public Parallel (params GameAction[] Actions)
-		{
-			this.actions = Actions.ToList();
-            ended = new bool[this.actions.Count];
-		}
-
-		/// <summary>
-		/// Reset all action to start state.
-		/// </summary>
-		public override void Reset ()
-		{
-            base.Reset();
-            for (int i = 0; i<actions.Count; i++)
-			{
-				actions[i].Reset();
-				ended[i] = false;
-			}
-		}
-
         /// <summary>
-        /// Calling each frame for updating action pool.
+        /// Creating action with parallel action pool.
         /// </summary>
-        /// <param name="Delta"> Time from last call. </param>
-        /// <returns>
-        /// true: not all action end it work.
-        /// false: all action end it work.
-        /// </returns>
-        protected override bool Tick (float Delta)
+        /// <owner>Stanislav Silin</owner>
+        /// <param name="Actions"> Actions for pool. </param>
+        public Parallel (params GameAction[] Actions)
 		{
-			bool ok = false;
-			for(int i=0;i<ended.Length; i++)
-				if(!ended[i])
-				{
-					ended[i] = !actions[i].Update(Delta);
-					ok = true;
-					continue;
-				}
-			return ok;
+			this.Actions = Actions;
+            this.Bind();
 		}
-	}
+
+        void Bind()
+        {
+            foreach (var action in Actions)
+                action.OnFinish += Done;
+        }
+
+        private void Done(GameAction action)
+        {
+            Finish();
+        }
+
+        public override void Load()
+        {
+            base.Load();
+            Bind();
+        }
+        
+        /// <summary>
+        /// Reset all action to start state.
+        /// </summary>
+        /// <owner>Stanislav Silin</owner>
+        public override void Start ()
+        {
+            base.Start();
+            foreach (var action in this.Actions)
+                action.Start();
+		}
+
+        public override bool Stop()
+        {
+            foreach (var action in this.Actions)
+                action.Stop();
+
+            return Actions.All(o => !o.IsRunning) && base.Stop();
+        }
+
+        public override void Finish()
+        {
+            foreach (var action in this.Actions)
+            {
+                action.OnFinish -= Done;
+                action.Finish();
+            }
+
+            base.Finish();
+        }
+
+        public override void Destroy()
+        {
+            foreach (var action in this.Actions)
+                action.Destroy();
+
+            base.Destroy();
+        }
+    }
 }
 

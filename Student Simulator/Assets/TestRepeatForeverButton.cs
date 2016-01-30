@@ -17,7 +17,7 @@ public class TestRepeatForeverButton : Button
         {
             run = false;
             GameAction.Stop("Test Action");
-            new MoveTo(cube1, new Vector3(-20, 0.5f, 20)).SetDuration(2).Run();
+            new MoveTo(cube1, new Vector3(-20, 0.5f, 20)).SetDuration(2).Start();
         }
         else
         {
@@ -31,7 +31,7 @@ public class TestRepeatForeverButton : Button
                     new MoveTo(cube1, new Vector3(-5, 0.5f, -5)).SetDuration(1)
             )).
             SetName("Test Action").
-            Run();
+            Start();
 
         }
     }

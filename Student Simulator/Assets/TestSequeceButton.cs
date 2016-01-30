@@ -22,6 +22,6 @@ public class TestSequeceButton : Button
             new MoveTo(cube1, new Vector3(-20, 0.5f, 20)).SetDuration(2)
         ).
         SetName("Test Action").
-        Run();
+        Start();
     }
 }

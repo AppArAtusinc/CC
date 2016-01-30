@@ -68,6 +68,7 @@ namespace Entity
 
             var info = this.GameObject.GetComponent<EntityInformation>();
             info.Id = this.Id;
+            info.Name = this.Name;
         }
 
         public override void Destroy()
@@ -87,6 +88,8 @@ namespace Entity
                 null,
                 new object[] { gameObject }) as Actor;
 
+            actor.Name = entityInformation.Name;
+            
             return actor;
         } 
     }

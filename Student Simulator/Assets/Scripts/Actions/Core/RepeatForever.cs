@@ -32,35 +32,58 @@ namespace Actions.Core
 		public RepeatForever (params GameAction[] Actions)
 		{
 			this.actions = Actions.ToList();
-		}
-		
-		/// <summary>
-		/// Repeeating sequence to start state.
-		/// </summary>
-		public override void Reset ()
-		{
-			base.Reset();
-			index = 0;
-			actions[index].Reset();
+            Bind();
 		}
 
+        private void Bind()
+        {
+            actions[index].OnStopOrFinish += nextAction;
+        }
+
+        private void nextAction(GameAction action)
+        {
+            index++;
+            if (index == actions.Count)
+                index = 0;
+
+            actions[index].Start();
+        }
+
         /// <summary>
-        /// Calling each frame for updating action in sequence.
+        /// Repeating sequence to start state.
         /// </summary>
-        /// <param name="Delta"> Time bettwen two calls. </param>
-        /// <returns></returns>
-        protected override bool Tick (float Delta)
+        public override void Start ()
 		{
-			if(!actions[index].Update(Delta))
-			{
-				index++;
-				if(index == actions.Count)
-					index = 0;
-				actions[index].Reset();
-			}
-			
-			return true;
+			base.Start();
+			actions[index].Stop();
+			index = 0;
+            actions[index].Start();
 		}
-	}
+
+        public override void Finish()
+        {
+            actions[index].Finish();
+            base.Finish();
+        }
+
+        public override void Load()
+        {
+            base.Load();
+            Bind();
+        }
+
+        public override bool Stop()
+        {
+            return base.Stop() && actions[index].Stop();
+        }
+
+        public override void Destroy()
+        {
+            foreach (var action in this.actions)
+                action.Destroy();
+
+            base.Destroy();
+        }
+    }
 }
 

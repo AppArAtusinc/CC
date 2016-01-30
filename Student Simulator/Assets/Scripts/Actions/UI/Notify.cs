@@ -18,10 +18,10 @@ namespace Actions.UI
             this.message = message;
         }
 
-        protected override bool Tick(float Delta)
+        protected override void Tick(float Delta)
         {
             Debug.Log(message);
-            return false;
+            Finish();
         }
     }
 }

@@ -40,6 +40,14 @@ namespace Entity
     /// </summary>
     public abstract class GameEntity : Saveable
     {
+        public override int LoadPriority
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
         /// <summary>
         /// Holds name of GameEntity
         /// </summary>
@@ -64,7 +72,6 @@ namespace Entity
         /// </summary>
         [Save]
         public List<EntityTag> Tags = new List<EntityTag>();
-
     }        
 
 }
