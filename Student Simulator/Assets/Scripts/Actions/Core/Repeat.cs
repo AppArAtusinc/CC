@@ -14,25 +14,39 @@ namespace Actions.Core
 		/// Action sequence.
 		/// </summary>
         [Save]
-        List<GameAction> actions;
-
-		/// <summary>
-		/// Index of current running action.
-		/// </summary>
+        public List<GameAction> Actions;
+        
         [Save]
         int index;
+
+        /// <summary>
+        /// Index of current running action.
+        /// </summary>
+        public int Index
+        {
+            get
+            {
+                return this.index;
+            }
+            set
+            {
+                UnBind();
+                index = value;
+                Bind();                
+            }
+        }
 
 		/// <summary>
 		/// Total count for repeating action sequence.
 		/// </summary>
         [Save]
-        int repeatCount;
+        public int RepeatCount;
 
 		/// <summary>
 		/// Current repeat count.
 		/// </summary>
         [Save]
-        int currentRepeatCount;
+        public int CurrentRepeatCount;
 
         public Repeat() { }
 
@@ -42,31 +56,38 @@ namespace Actions.Core
 		/// <param name="Actions"> Action sequence. </param>
 		public Repeat (params GameAction[] Actions)
 		{
-			actions = Actions.ToList();
-            index = currentRepeatCount = 0;
-            repeatCount = 1;
+			this.Actions = Actions.ToList();
+            Index = CurrentRepeatCount = 0;
+            RepeatCount = 1;
             Bind();
 		}
 
         private void Bind()
         {
-            actions[index].OnStopOrFinish += nextAction;
+            if(Index < Actions.Count)
+                Actions[Index].OnFinish += nextAction;
+        }
+        
+        private void UnBind()
+        {
+            if(Index < Actions.Count)
+                Actions[Index].OnFinish -= nextAction;
         }
 
         private void nextAction(GameAction action)
         {
-            index++;
-            if (index == actions.Count)
+            Index++;
+            if (Index >= Actions.Count)
             {
-                currentRepeatCount++;
-                if (currentRepeatCount == repeatCount)
+                CurrentRepeatCount++;
+                if (CurrentRepeatCount >= RepeatCount)
                 {
                     Finish();
                     return;
                 }
-                index = 0;
+                Index = 0;
             }
-            actions[index].Start();
+            Actions[Index].Start();
         }
 
         /// <summary>
@@ -75,14 +96,16 @@ namespace Actions.Core
         public override void Start ()
 		{
 			base.Start();
-            actions[index].Stop();
-			index = currentRepeatCount = 0;
-			actions[index].Start();
+            Actions[Index].Stop();
+			Index = CurrentRepeatCount = 0;
+			Actions[Index].Start();
 		}
 
         public override void Finish()
         {
-            actions[index].Finish();
+            if(Index < Actions.Count)
+                Actions[Index].Finish();
+                
             base.Finish();
         }
 
@@ -94,7 +117,7 @@ namespace Actions.Core
 
         public override bool Stop()
         {
-            return base.Stop() && actions[index].Stop();
+            return base.Stop() && Actions[Index].Stop();
         }
 
         /// <summary>
@@ -104,13 +127,13 @@ namespace Actions.Core
         /// <returns> Return this action. </returns>
         public Repeat SetRepeatCount(int Count)
 		{
-			repeatCount = Count;
+			RepeatCount = Count;
 			return this;
 		}
 
         public override void Destroy()
         {
-            foreach (var action in this.actions)
+            foreach (var action in this.Actions)
                 action.Destroy();
 
             base.Destroy();

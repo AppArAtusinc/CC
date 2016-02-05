@@ -23,6 +23,20 @@ namespace Actions.Core
         [Save]
         int index;
 
+        public int Index
+        {
+            get
+            {
+                return index;
+            }
+            set
+            {
+                UnBind();
+                index = value;
+                Bind();
+            }
+        }
+
         public RepeatForever() { }
 
 		/// <summary>
@@ -37,32 +51,39 @@ namespace Actions.Core
 
         private void Bind()
         {
-            actions[index].OnStopOrFinish += nextAction;
+            if(index < actions.Count)
+                actions[index].OnStopOrFinish += nextAction;
+        }
+
+        private void UnBind()
+        {
+            if(index < actions.Count)
+                actions[index].OnStopOrFinish -= nextAction;
         }
 
         private void nextAction(GameAction action)
         {
-            index++;
-            if (index == actions.Count)
-                index = 0;
+            Index++;
+            if (Index >= actions.Count)
+                Index = 0;
 
-            actions[index].Start();
+            actions[Index].Start();
         }
 
         /// <summary>
-        /// Repeating sequence to start state.
+        /// 
         /// </summary>
         public override void Start ()
 		{
 			base.Start();
-			actions[index].Stop();
-			index = 0;
-            actions[index].Start();
+			actions[Index].Stop();
+            Index = 0;
+            actions[Index].Start();
 		}
 
         public override void Finish()
         {
-            actions[index].Finish();
+            actions[Index].Finish();
             base.Finish();
         }
 
@@ -74,7 +95,7 @@ namespace Actions.Core
 
         public override bool Stop()
         {
-            return base.Stop() && actions[index].Stop();
+            return base.Stop() && actions[Index].Stop();
         }
 
         public override void Destroy()

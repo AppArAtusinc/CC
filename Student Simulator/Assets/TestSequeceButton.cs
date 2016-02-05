@@ -13,13 +13,13 @@ public class TestSequeceButton : Button
         var cube1 = GameObject.Find("Test Cube 1");
 
         new Sequence(
-            new MoveTo(cube1, new Vector3(-5, 0.5f, -5)).SetDuration(2),
-            new MoveTo(cube1, new Vector3(-10, 0.5f, -5)).SetDuration(1),
-            new MoveTo(cube1, new Vector3(-10, 0.5f, 5)).SetDuration(1),
-            new MoveTo(cube1, new Vector3(-5, 0.5f, 5)).SetDuration(1),
-            new MoveTo(cube1, new Vector3(-5, 0.5f, -5)).SetDuration(1),
+            new MoveTo(cube1, new Vector3(-5, 0.5f, -5), 2),
+            new MoveTo(cube1, new Vector3(-10, 0.5f, -5), 1),
+            new MoveTo(cube1, new Vector3(-10, 0.5f, 5), 1),
+            new MoveTo(cube1, new Vector3(-5, 0.5f, 5), 1),
+            new MoveTo(cube1, new Vector3(-5, 0.5f, -5), 1),
             new Delay(2),
-            new MoveTo(cube1, new Vector3(-20, 0.5f, 20)).SetDuration(2)
+            new MoveTo(cube1, new Vector3(-20, 0.5f, 20), 2)
         ).
         SetName("Test Action").
         Start();

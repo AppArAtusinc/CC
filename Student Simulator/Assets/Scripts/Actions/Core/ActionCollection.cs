@@ -67,15 +67,15 @@ namespace Actions.Core
 		/// <summary>
 		/// Call every frame for updating action.
 		/// </summary>
-		/// <param name="Delta"> Time from last call. </param>
+		/// <param name="delta"> Time from last call. </param>
 		/// <returns> </returns>
-		public bool Update(float Delta)
+		public bool Update(float delta)
         {
             //@todo: think about optimization
             for (int index = 0; index < Actions.Count; index++)
-                Actions[index].Update(Delta);
+                Actions[index].Update(delta);
 
-			return true;
+            return true;
         }
 
     }

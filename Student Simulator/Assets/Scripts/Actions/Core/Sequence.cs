@@ -47,7 +47,6 @@ namespace Actions.Core
         public Sequence(params GameAction[] Actions)
         {
             this.Actions = Actions.ToList();
-            Start();
             Bind();
         }
 
@@ -80,7 +79,9 @@ namespace Actions.Core
         public override void Start()
         {
             base.Start();
-            Actions[Index].Stop();
+            if(Index < Actions.Count)
+                Actions[Index].Stop();
+
             Index = 0;
             Actions[Index].Start();
         }

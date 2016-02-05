@@ -43,9 +43,45 @@ namespace Assets.Scripts.Quest.Common
                 new Notify("1!"),
                 new Delay(2),
                 new Notify("It is joke!")
-            ).SelfDestroy();
-            quest.OnDestroy += (action) => new Notify("Destroy").SelfDestroy().Start();
-            quest.Start();
+            );//.SelfDestroy().Start();
+            
+            GameObject cube1 = GameObject.Find("Test Cube 1");
+            GameObject cube2 = GameObject.Find("Test Cube 2");
+            GameObject cube3 = GameObject.Find("Test Cube 3");
+            GameObject cube4 = GameObject.Find("Test Cube 4");
+            GameObject cube5 = GameObject.Find("Test Cube 5");
+
+            float speed = 10;
+
+            var repeatForever = new RepeatForever(
+                new MoveTo(cube5, new Vector3(-15,1,0), speed),
+                new MoveTo(cube5, new Vector3(15,1,0), speed));
+
+            repeatForever.Start();
+
+            var parallel = new Parallel(
+                new Sequence(
+                    new MoveTo(cube1, new Vector3(20, 1, -20), speed),
+                    new MoveTo(cube1, new Vector3(-20, 1, -20), speed)),
+                new Sequence(
+                    new MoveTo(cube2, new Vector3(20, 1, 20), speed),
+                    new MoveTo(cube2, new Vector3(-20, 1, 20), speed))
+            );
+
+            parallel.Start();
+
+            var parallel2 = new Parallel(
+                new Sequence(
+                    new MoveTo(cube3, new Vector3(20, 1, -15), speed),
+                    new MoveTo(cube3, new Vector3(-20, 1, -15), speed)),                                            
+                new Sequence(
+                    new MoveTo(cube4, new Vector3(20, 1, 15), speed),
+                    new MoveTo(cube4, new Vector3(-20, 1, 15), speed))                                            
+            );
+
+            var repeat = new Repeat(parallel2).SetRepeatCount(2);
+            
+            repeat.Start();
 
             base.Start();
         }

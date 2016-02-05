@@ -22,9 +22,9 @@ public abstract class Button : Activable
         Vector3 startPos = gameObject.transform.position;
 
         new Sequence(
-            new MoveTo(gameObject, (gameObject.transform.position - (gameObject.transform.up*Shift))).SetDuration(0.1f),
+            new MoveTo(gameObject, (gameObject.transform.position - (gameObject.transform.up*Shift)), 0.1f),
             new Delay(0.5f),
-            new MoveTo(gameObject, startPos).SetDuration(0.1f),
+            new MoveTo(gameObject, startPos, 0.1f),
             new RestoreStateInternal(gameObject)
         ).Start();
     }

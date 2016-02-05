@@ -17,7 +17,7 @@ namespace Actions.Core
 		/// </summary>
         /// <owner>Stanislav Silin</owner>
         [Save]
-        public GameAction[] Actions;
+        public List<GameAction> Actions;
 
 
         public Parallel() { }
@@ -29,7 +29,7 @@ namespace Actions.Core
         /// <param name="Actions"> Actions for pool. </param>
         public Parallel (params GameAction[] Actions)
 		{
-			this.Actions = Actions;
+			this.Actions = Actions.ToList();
             this.Bind();
 		}
 
