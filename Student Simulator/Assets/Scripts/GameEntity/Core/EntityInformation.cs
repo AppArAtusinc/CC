@@ -1,9 +1,13 @@
-﻿using Entity;
+﻿using Entites;
 using System;
 using System.Linq;
 using System.Reflection;
-using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class EntityInformation : MonoBehaviour
 {
@@ -20,18 +24,19 @@ public class EntityInformation : MonoBehaviour
     [HideInInspector]
     public string FullName;
 }
+#if UNITY_EDITOR
 
 [CustomEditor(typeof(EntityInformation))]
 public class EntityInformationEditor : Editor
 {
-    string[] EntityTypes
+    List<string> EntityTypes
     {
         get
         {
             return Assembly.GetAssembly(typeof(GameEntity)).
                 GetTypes().
                 Where(type => type.GetCustomAttributes(typeof(EntityAttribute), false).Any()).
-                Select(type => type.FullName).ToArray();
+                Select(type => type.FullName).ToList();
         }
     }
     int selectedItem = 0;
@@ -40,10 +45,13 @@ public class EntityInformationEditor : Editor
     {
         // Draw the default inspector
         DrawDefaultInspector();
-        selectedItem = EditorGUILayout.Popup(selectedItem, EntityTypes);
         var someClass = target as EntityInformation;
+
+        selectedItem = this.EntityTypes.IndexOf(someClass.FullName);
+        selectedItem = EditorGUILayout.Popup(selectedItem, EntityTypes.ToArray());
 
         someClass.FullName = EntityTypes[selectedItem];
         EditorUtility.SetDirty(target);
     }
 }
+#endif

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Entity;
-using Entity.Interaction.Core;
+using Entites;
+using Entites.Interaction.Core;
 using System;
 
 public class NotifyButtonComponent : Button

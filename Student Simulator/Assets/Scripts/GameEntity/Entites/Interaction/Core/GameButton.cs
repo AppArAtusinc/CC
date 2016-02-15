@@ -1,11 +1,7 @@
-﻿using SimpleGameTypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Entites.Common;
 using UnityEngine;
 
-namespace Entity.Interaction.Core
+namespace Entites.Interaction.Core
 {
     public abstract class GameButton : Actor
     {

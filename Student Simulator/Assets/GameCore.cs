@@ -9,15 +9,15 @@ public class GameCore : MonoBehaviour {
 #if UNITY_EDITOR
 		Game.GetInstance().Bind();
 #else
-        try
-        {
-            SaveSystem.Load("The_Origin");
-        }
-        catch (Exception ex)
-        {
-            Debug.LogException(ex);
-            Application.Quit();
-        }
+//        try
+//        {
+//            SaveSystem.Load("The_Origin");
+//        }
+//        catch (Exception ex)
+//        {
+//            Debug.LogException(ex);
+//            Application.Quit();
+//        }
 #endif
     }
 

@@ -1,12 +1,12 @@
 ﻿using Actions.Core;
-using Entity.Interaction.Core;
+using Entites.Interaction.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace Entity.Entites.Interaction
+namespace Entites.Entites.Interaction
 {
     [Entity]
     public class NotifyButton : GameButton

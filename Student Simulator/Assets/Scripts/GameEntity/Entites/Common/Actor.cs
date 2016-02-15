@@ -1,13 +1,9 @@
 ﻿using SimpleGameTypes;
 using StudentSimulator.SaveSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 using System.Reflection;
 
-namespace Entity
+namespace Entites.Common
 {
     /// <summary>
     /// Implements entity with transform
@@ -35,7 +31,7 @@ namespace Entity
         public GameObject GameObject
         {
             get;
-            private set;
+            protected set;
         }
 
         protected Actor() 

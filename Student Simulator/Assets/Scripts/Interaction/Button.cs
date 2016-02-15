@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
-using System;
-using System.Collections;
 using Actions.Core;
-using Actions;
-using Entity;
+using Entites;
+using Entites.Common;
 
 public abstract class Button : Activable
 {

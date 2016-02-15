@@ -1,4 +1,4 @@
-﻿using Entity;
+﻿using Entites;
 using SimpleGameTypes;
 using StudentSimulator.SaveSystem;
 using System;
@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using Actions.Core;
+using Entites.Common;
 
 namespace Quest.Common
 {

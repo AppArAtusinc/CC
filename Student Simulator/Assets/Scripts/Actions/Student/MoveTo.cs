@@ -1,11 +1,8 @@
 ﻿using Actions.Core;
-using Entity;
+using Entites;
+using Entites.Common;
 using SimpleGameTypes;
 using StudentSimulator.SaveSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 class MoveTo : GameAction

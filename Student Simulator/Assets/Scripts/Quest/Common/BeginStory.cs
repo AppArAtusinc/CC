@@ -16,6 +16,9 @@ namespace Assets.Scripts.Quest.Common
             var startPosition = GameObject.Find("Start");
             var player = GameObject.Find("RigidBodyFPSController");
 
+            if (center == null || startPosition == null || player == null)
+                return;
+
             var quest = new Sequence(
                 new Delay(2),
                 new Notify("Hello <username>!"),

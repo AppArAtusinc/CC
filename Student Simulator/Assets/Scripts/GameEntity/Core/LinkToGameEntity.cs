@@ -3,7 +3,7 @@ using System.Linq;
 using Seralizator.Core;
 using StudentSimulator.SaveSystem;
 
-namespace Entity
+namespace Entites
 {
     public class Link<T> where T : Saveable
     {

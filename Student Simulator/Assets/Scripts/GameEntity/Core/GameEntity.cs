@@ -9,7 +9,7 @@ using StudentSimulator.SaveSystem;
 using System.Reflection;
 using Seralizator.Core;
 
-namespace Entity
+namespace Entites
 {
     public enum EntityTag
     {

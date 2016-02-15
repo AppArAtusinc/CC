@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Actions.Core;
-using Entity;
+using Entites;
 using UnityEngine;
 using StudentSimulator.SaveSystem;
 

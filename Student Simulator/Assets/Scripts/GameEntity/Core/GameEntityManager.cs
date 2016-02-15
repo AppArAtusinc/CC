@@ -5,8 +5,9 @@ using System.Text;
 using SimpleGameTypes;
 using UnityEngine;
 using StudentSimulator.SaveSystem;
+using Entites.Common;
 
-namespace Entity
+namespace Entites
 {
 	/// <summary>
 	/// Using for controlling PoolEntites.
