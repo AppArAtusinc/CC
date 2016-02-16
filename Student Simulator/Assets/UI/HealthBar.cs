@@ -13,7 +13,6 @@ public class HealthBar : MonoBehaviour
     {
         StartCoroutine(Init());
         img = GetComponent<Image>();
-        img.type = Image.Type.Filled;
     }
 
     IEnumerator Init()

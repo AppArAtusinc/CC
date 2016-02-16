@@ -27,7 +27,7 @@ namespace Entites
             get
             {
                 if (value == null)
-                    value = Game.GetInstance().EntityCollection.Actors.SingleOrDefault(o => o.Id == this.Id) as T;
+                    value = Game.GetInstance().EntityCollection.Actors.FirstOrDefault(o => o.Id == this.Id) as T;
 
                 return value;
             }
