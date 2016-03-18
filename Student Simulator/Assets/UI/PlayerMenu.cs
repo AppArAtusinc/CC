@@ -11,7 +11,7 @@ public class PlayerMenu : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		SetCamera();
+		//SetCamera();
 		ClearPanel ();
 	}
     
@@ -43,7 +43,6 @@ public class PlayerMenu : MonoBehaviour
 		{
 			ClearPanel();
 			Map.SetActive(true);
-			mapCamera.enabled=true;
 		}
 		else if(NoMenu==4)
 		{
@@ -54,7 +53,7 @@ public class PlayerMenu : MonoBehaviour
 
 	private void ClearPanel()
 	{
-		mapCamera.enabled=false;
+//		mapCamera.enabled=false;
 		Map.SetActive (false);
 		Relationships.SetActive (false);
 		Student.SetActive (false);

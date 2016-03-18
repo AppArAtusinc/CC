@@ -9,7 +9,7 @@ public class Dialogues : MonoBehaviour
 	public class Dialogue : MonoBehaviour 
 	{
 		
-		string question;
+		public string question;
 		public Answer [] answers;
 		
 		public Dialogue(string question, Answer [] newAnswers)
@@ -22,6 +22,8 @@ public class Dialogues : MonoBehaviour
 			}
 		}
 
+
+
 		public override string ToString ()
 		{
 			return string.Format ("Question: {0}. Answers: {1}, {2}, {3}",question,answers[0],answers[1],answers[2]);
@@ -32,7 +34,7 @@ public class Dialogues : MonoBehaviour
 	public class Answer : MonoBehaviour
 	{
 		string textAnswer;
-		public Dialogue nextDialogue;
+		public int nextDialogue=-1;
 		
 		public Answer(string textAnswer)
 		{
@@ -42,10 +44,10 @@ public class Dialogues : MonoBehaviour
 		public override string ToString ()
 		{
 			string ret=textAnswer;
-			if(nextDialogue)
-			{
-				ret+=" (Leads to "+nextDialogue.ToString()+")";
-			}
+//			if(nextDialogue)
+//			{
+//				ret+=" (Leads to "+nextDialogue.ToString()+")";
+//			}
 			return string.Format (ret);
 		}
 		
@@ -59,7 +61,7 @@ public class Dialogues : MonoBehaviour
 		allDialogues = new Dialogue[10];
 		allDialogues[0]=new Dialogue("Привет, как дела?", new Answer[]{new Answer("Отлично, а у тебя?"),new Answer("Так себе"),new Answer("Мне некогда")});
 		allDialogues[1]=new Dialogue("И у меня всё хорошо. Куда идешь?", new Answer[]{new Answer("К комендантше, заселиться надо"),new Answer("Да вот, медосмотр прохожу"),new Answer("Не твоё дело")});
-		allDialogues[0].answers[0].nextDialogue=allDialogues[1];
+		allDialogues[0].answers[0].nextDialogue=1;
 		Debug.Log(allDialogues[0].ToString());
 		Debug.Log(allDialogues[1].ToString());
 	}
