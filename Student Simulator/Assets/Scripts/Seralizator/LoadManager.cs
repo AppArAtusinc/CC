@@ -7,6 +7,8 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters;
 using Seralizator.Core;
+using UnityEditor.VersionControl;
+using System.Threading;
 
 namespace StudentSimulator.SaveSystem
 {
@@ -31,7 +33,7 @@ namespace StudentSimulator.SaveSystem
 
                     Where(o => o.GetCustomAttributes(typeof(SaveAttribute), true).Any()).
                     Select(f => base.CreateProperty(f, memberSerialization))).
-                    
+
                     ToList();
 
                 props.ForEach(p =>
@@ -46,13 +48,13 @@ namespace StudentSimulator.SaveSystem
 
         static JsonSerializerSettings setting = new JsonSerializerSettings()
         {
-                TypeNameAssemblyFormat = FormatterAssemblyStyle.Full,
-                ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
-                ObjectCreationHandling = ObjectCreationHandling.Replace,
-                PreserveReferencesHandling = PreserveReferencesHandling.All,
-                TypeNameHandling = TypeNameHandling.All,
-                Formatting = Formatting.Indented,
-                ContractResolver = CustomContractResolver.Instance
+            TypeNameAssemblyFormat = FormatterAssemblyStyle.Full,
+            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+            ObjectCreationHandling = ObjectCreationHandling.Replace,
+            PreserveReferencesHandling = PreserveReferencesHandling.All,
+            TypeNameHandling = TypeNameHandling.All,
+            Formatting = Formatting.Indented,
+            ContractResolver = CustomContractResolver.Instance
         };
 
         static public List<Saveable> Instances = new List<Saveable>();
@@ -64,12 +66,16 @@ namespace StudentSimulator.SaveSystem
         /// <param name="slotName">The name of slot.</param>
         static public void Save(string slotName)
         {
-            using (StreamWriter fs = new StreamWriter(slotName.GetFileName()))
+            var data = JsonConvert.SerializeObject(Game.GetInstance(), Formatting.Indented, setting);
+
+            new Thread(() =>
             {
-                var data = JsonConvert.SerializeObject(Game.GetInstance(), Formatting.Indented, setting);
-                fs.Write(data);
-                fs.Close();
-            }
+                using (StreamWriter fs = new StreamWriter(slotName.GetFileName()))
+                {
+                    fs.Write(data);
+                    fs.Close();
+                }
+            }).Start();
         }
 
         /// <summary>
@@ -90,7 +96,7 @@ namespace StudentSimulator.SaveSystem
                 throw new NullReferenceException("Game couldn't load form file " + slotName.GetFileName());
 
             var prioties = Instances.Select(o => o.LoadPriority).Distinct().OrderBy(o => o);
-            
+
             Game.Load(game);
 
             foreach (var priority in prioties)
