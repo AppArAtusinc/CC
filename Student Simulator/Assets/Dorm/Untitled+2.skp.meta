@@ -1,0 +1,294 @@
+fileFormatVersion: 2
+guid: 7a5e29b3821cbe141b5551b3601dc953
+timeCreated: 1458657866
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f00000050000000510000005200000053000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 2d65e8b5470e85a164b583600cc5a77c
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 6.9853673, y: 2.3439054, z: 7.2870936}
+      lookAt: {x: 2.28279, y: 0.69074905, z: 4.914046}
+      up: {x: -0.2673351, y: 0.95411354, z: -0.13490456}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: 100 PGS
+    100002: A variegated cultivar of Epipremnum aureum
+    100004: 'Galet, le tapis Maisons du monde. Rf. 117.242 Prix: 239'
+    100006: green
+    100008: Group 43
+    100010: Group 45
+    100012: Group 47
+    100014: Group 60
+    100016: Group 62
+    100018: Group 64
+    100020: Group 66
+    100022: Group 68
+    100024: Group 70
+    100026: Group 72
+    100028: Group 74
+    100030: Group 76
+    100032: Group 78
+    100034: Group 80
+    100036: Group 82
+    100038: iMac
+    100040: Levira Air table
+    100042: Levira Air table 1
+    100044: Levira Air table#1
+    100046: Levira Air table#1 1
+    100048: Mag.April
+    100050: Mag.August
+    100052: Mag.Dec
+    100054: Mag.Feb
+    100056: Mag.Jan
+    100058: Mag.July
+    100060: Mag.June
+    100062: Mag.March
+    100064: Mag.May
+    100066: Mag.Nov
+    100068: Mag.Oct
+    100070: Mag.Sept
+    100072: magasine home
+    100074: Magazine Home
+    100076: Modern waiting area chair
+    100078: modern waiting area sofa
+    100080: Office chair
+    100082: pot
+    100084: ske224
+    100086: SPIRAL NOTEBOOK
+    100088: Stack of Architectural Digest Magazines
+    100090: //RootNode
+    400000: 100 PGS
+    400002: A variegated cultivar of Epipremnum aureum
+    400004: 'Galet, le tapis Maisons du monde. Rf. 117.242 Prix: 239'
+    400006: green
+    400008: Group 43
+    400010: Group 45
+    400012: Group 47
+    400014: Group 60
+    400016: Group 62
+    400018: Group 64
+    400020: Group 66
+    400022: Group 68
+    400024: Group 70
+    400026: Group 72
+    400028: Group 74
+    400030: Group 76
+    400032: Group 78
+    400034: Group 80
+    400036: Group 82
+    400038: iMac
+    400040: Levira Air table
+    400042: Levira Air table 1
+    400044: Levira Air table#1
+    400046: Levira Air table#1 1
+    400048: Mag.April
+    400050: Mag.August
+    400052: Mag.Dec
+    400054: Mag.Feb
+    400056: Mag.Jan
+    400058: Mag.July
+    400060: Mag.June
+    400062: Mag.March
+    400064: Mag.May
+    400066: Mag.Nov
+    400068: Mag.Oct
+    400070: Mag.Sept
+    400072: magasine home
+    400074: Magazine Home
+    400076: Modern waiting area chair
+    400078: modern waiting area sofa
+    400080: Office chair
+    400082: pot
+    400084: ske224
+    400086: SPIRAL NOTEBOOK
+    400088: Stack of Architectural Digest Magazines
+    400090: //RootNode
+    2300000: 100 PGS
+    2300002: 'Galet, le tapis Maisons du monde. Rf. 117.242 Prix: 239'
+    2300004: green
+    2300006: Group 45
+    2300008: Group 47
+    2300010: Group 60
+    2300012: Group 62
+    2300014: Group 64
+    2300016: Group 66
+    2300018: Group 68
+    2300020: Group 70
+    2300022: Group 72
+    2300024: Group 74
+    2300026: Group 76
+    2300028: Group 78
+    2300030: Group 80
+    2300032: Group 82
+    2300034: Levira Air table#1
+    2300036: Levira Air table#1 1
+    2300038: Mag.April
+    2300040: Mag.August
+    2300042: Mag.Dec
+    2300044: Mag.Feb
+    2300046: Mag.Jan
+    2300048: Mag.July
+    2300050: Mag.June
+    2300052: Mag.March
+    2300054: Mag.May
+    2300056: Mag.Nov
+    2300058: Mag.Oct
+    2300060: Mag.Sept
+    2300062: magasine home
+    2300064: Modern waiting area chair
+    2300066: modern waiting area sofa
+    2300068: Office chair
+    2300070: ske224
+    2300072: SPIRAL NOTEBOOK
+    2300074: //RootNode
+    3300000: 100 PGS
+    3300002: 'Galet, le tapis Maisons du monde. Rf. 117.242 Prix: 239'
+    3300004: green
+    3300006: Group 45
+    3300008: Group 47
+    3300010: Group 60
+    3300012: Group 62
+    3300014: Group 64
+    3300016: Group 66
+    3300018: Group 68
+    3300020: Group 70
+    3300022: Group 72
+    3300024: Group 74
+    3300026: Group 76
+    3300028: Group 78
+    3300030: Group 80
+    3300032: Group 82
+    3300034: Levira Air table#1
+    3300036: Levira Air table#1 1
+    3300038: Mag.April
+    3300040: Mag.August
+    3300042: Mag.Dec
+    3300044: Mag.Feb
+    3300046: Mag.Jan
+    3300048: Mag.July
+    3300050: Mag.June
+    3300052: Mag.March
+    3300054: Mag.May
+    3300056: Mag.Nov
+    3300058: Mag.Oct
+    3300060: Mag.Sept
+    3300062: magasine home
+    3300064: Modern waiting area chair
+    3300066: modern waiting area sofa
+    3300068: Office chair
+    3300070: ske224
+    3300072: SPIRAL NOTEBOOK
+    3300074: //RootNode
+    4300000: Mesh Untitled+2
+    4300002: Mesh magasine home
+    4300004: Mesh Mag.Jan
+    4300006: Mesh Mag.Feb
+    4300008: Mesh Mag.March
+    4300010: Mesh Mag.April
+    4300012: Mesh Mag.May
+    4300014: Mesh Mag.June
+    4300016: Mesh Mag.July
+    4300018: Mesh Mag.August
+    4300020: Mesh Mag.Sept
+    4300022: Mesh Mag.Oct
+    4300024: Mesh Mag.Nov
+    4300026: Mesh Mag.Dec
+    4300028: Mesh Modern waiting area chair
+    4300030: Mesh Levira Air table#1
+    4300032: Mesh modern waiting area sofa
+    4300034: 'Mesh Galet, le tapis Maisons du monde. Rf. 117.242 Prix: 239'
+    4300036: Mesh Group 45
+    4300038: Mesh Group 47
+    4300040: Mesh green
+    4300042: Mesh ske224
+    4300044: Mesh SPIRAL NOTEBOOK
+    4300046: Mesh 100 PGS
+    4300048: Mesh Office chair
+    4300050: Mesh Group 60
+    4300052: Mesh Group 62
+    4300054: Mesh Group 64
+    4300056: Mesh Group 66
+    4300058: Mesh Group 68
+    4300060: Mesh Group 70
+    4300062: Mesh Group 72
+    4300064: Mesh Group 74
+    4300066: Mesh Group 80
+    4300068: Mesh Group 82
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

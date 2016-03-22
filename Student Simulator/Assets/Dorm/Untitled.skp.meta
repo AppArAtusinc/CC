@@ -1,0 +1,713 @@
+fileFormatVersion: 2
+guid: 5a53940ed94fed945b48d4c7f4ed9cba
+timeCreated: 1458658541
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a0000007b0000007c0000007d0000007e0000007f000000800000008100000082000000830000008400000085000000860000008700000088000000890000008a0000008b0000008c0000008d0000008e0000008f000000900000009100000092000000930000009400000095000000960000009700000098000000990000009a0000009b0000009c0000009d0000009e0000009f000000a0000000a1000000a2000000a3000000a4000000a5000000a6000000a7000000a8000000a9000000aa000000ab000000ac000000ad000000ae000000af000000b0000000b1000000b2000000b3000000b4000000b5000000b6000000b7000000b8000000b9000000ba000000bb000000bc000000bd000000be000000bf000000c0000000c1000000c2000000c3000000c4000000c5000000c6000000c7000000c8000000c9000000ca000000cb000000cc000000cd000000ce000000cf000000d0000000d1000000d2000000d3000000d4000000d5000000d6000000d7000000d8000000d9000000da000000db000000dc000000dd000000de000000df000000e0000000e1000000e2000000e3000000e4000000e5000000e6000000e7000000e8000000e9000000ea000000eb000000ec000000ed000000ee000000ef000000f0000000f1000000f2000000f3000000f4000000f5000000f6000000f7000000f8000000f9000000fa000000fb000000fc000000fd000000fe000000ff000000000100000101000002010000030100000401000005010000060100000701000008010000090100000a0100000b0100000c0100000d0100000e0100000f010000100100001101000012010000130100001401000015010000160100001701000018010000190100001a0100001b0100001c0100001d0100001e0100001f010000200100002101000022010000230100002401000025010000260100002701000028010000290100002a010000
+  assetHash:
+    serializedVersion: 2
+    Hash: 005cdd55cf3c56150a0786d7ab5e465a
+  longitude: -105.283
+  latitude: 40.017
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 11.705957, y: 3.8390667, z: -3.9522943}
+      lookAt: {x: -6.4051123, y: -2.2814171, z: -19.337666}
+      up: {x: -0.19008578, y: 0.9683967, z: -0.16147806}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bamboo Shoot
+    100002: Bamboo Shoot 1
+    100004: Component#1
+    100006: Component#1 1
+    100008: Component#1 2
+    100010: Component#1 3
+    100012: Component#1 4
+    100014: Component#1 5
+    100016: Component#2
+    100018: Component#2 1
+    100020: Component#2 2
+    100022: Component#3
+    100024: Component#3 1
+    100026: Component#3 2
+    100028: Component#3 3
+    100030: couch_half
+    100032: couch_half 1
+    100034: glass
+    100036: glass 1
+    100038: glass 2
+    100040: glass 3
+    100042: Group 262
+    100044: half
+    100046: half 1
+    100048: leg
+    100050: leg 1
+    100052: leg 2
+    100054: leg 3
+    100056: leg#1
+    100058: leg#1 1
+    100060: leg#1 2
+    100062: leg#1 3
+    100064: petal
+    100066: petal 1
+    100068: petal 10
+    100070: petal 11
+    100072: petal 12
+    100074: petal 13
+    100076: petal 14
+    100078: petal 15
+    100080: petal 16
+    100082: petal 17
+    100084: petal 18
+    100086: petal 19
+    100088: petal 2
+    100090: petal 20
+    100092: petal 21
+    100094: petal 22
+    100096: petal 23
+    100098: petal 24
+    100100: petal 25
+    100102: petal 26
+    100104: petal 27
+    100106: petal 28
+    100108: petal 29
+    100110: petal 3
+    100112: petal 30
+    100114: petal 31
+    100116: petal 32
+    100118: petal 33
+    100120: petal 34
+    100122: petal 35
+    100124: petal 36
+    100126: petal 37
+    100128: petal 38
+    100130: petal 39
+    100132: petal 4
+    100134: petal 40
+    100136: petal 41
+    100138: petal 42
+    100140: petal 43
+    100142: petal 44
+    100144: petal 45
+    100146: petal 46
+    100148: petal 47
+    100150: petal 48
+    100152: petal 49
+    100154: petal 5
+    100156: petal 50
+    100158: petal 51
+    100160: petal 52
+    100162: petal 53
+    100164: petal 54
+    100166: petal 55
+    100168: petal 56
+    100170: petal 57
+    100172: petal 58
+    100174: petal 59
+    100176: petal 6
+    100178: petal 60
+    100180: petal 61
+    100182: petal 62
+    100184: petal 63
+    100186: petal 64
+    100188: petal 65
+    100190: petal 66
+    100192: petal 67
+    100194: petal 68
+    100196: petal 69
+    100198: petal 7
+    100200: petal 70
+    100202: petal 71
+    100204: petal 72
+    100206: petal 73
+    100208: petal 74
+    100210: petal 75
+    100212: petal 76
+    100214: petal 77
+    100216: petal 78
+    100218: petal 79
+    100220: petal 8
+    100222: petal 80
+    100224: petal 81
+    100226: petal 82
+    100228: petal 83
+    100230: petal 84
+    100232: petal 85
+    100234: petal 86
+    100236: petal 87
+    100238: petal 88
+    100240: petal 89
+    100242: petal 9
+    100244: petal 90
+    100246: petal 91
+    100248: petal 92
+    100250: petal 93
+    100252: petal 94
+    100254: petal 95
+    100256: petal cluster
+    100258: petal cluster 1
+    100260: petal cluster 2
+    100262: petal cluster 3
+    100264: petal cluster 4
+    100266: petal cluster 5
+    100268: petal cluster 6
+    100270: petal cluster 7
+    100272: Plant_sunflower
+    100274: Plant_sunflower 1
+    100276: ske4
+    100278: ske5
+    100280: ske6
+    100282: ske7
+    100284: ske8
+    100286: skeA
+    100288: skeB
+    100290: skeC
+    100292: skeC 1
+    100294: sunflower leaf
+    100296: sunflower leaf 1
+    100298: sunflower leaf 2
+    100300: sunflower leaf 3
+    100302: //RootNode
+    100304: Vase_Quarter
+    100306: Vase_Quarter 1
+    100308: Vase_Quarter 2
+    100310: Vase_Quarter 3
+    100312: vase_thin
+    400000: Bamboo Shoot
+    400002: Bamboo Shoot 1
+    400004: Component#1
+    400006: Component#1 1
+    400008: Component#1 2
+    400010: Component#1 3
+    400012: Component#1 4
+    400014: Component#1 5
+    400016: Component#2
+    400018: Component#2 1
+    400020: Component#2 2
+    400022: Component#3
+    400024: Component#3 1
+    400026: Component#3 2
+    400028: Component#3 3
+    400030: couch_half
+    400032: couch_half 1
+    400034: glass
+    400036: glass 1
+    400038: glass 2
+    400040: glass 3
+    400042: Group 262
+    400044: half
+    400046: half 1
+    400048: leg
+    400050: leg 1
+    400052: leg 2
+    400054: leg 3
+    400056: leg#1
+    400058: leg#1 1
+    400060: leg#1 2
+    400062: leg#1 3
+    400064: petal
+    400066: petal 1
+    400068: petal 10
+    400070: petal 11
+    400072: petal 12
+    400074: petal 13
+    400076: petal 14
+    400078: petal 15
+    400080: petal 16
+    400082: petal 17
+    400084: petal 18
+    400086: petal 19
+    400088: petal 2
+    400090: petal 20
+    400092: petal 21
+    400094: petal 22
+    400096: petal 23
+    400098: petal 24
+    400100: petal 25
+    400102: petal 26
+    400104: petal 27
+    400106: petal 28
+    400108: petal 29
+    400110: petal 3
+    400112: petal 30
+    400114: petal 31
+    400116: petal 32
+    400118: petal 33
+    400120: petal 34
+    400122: petal 35
+    400124: petal 36
+    400126: petal 37
+    400128: petal 38
+    400130: petal 39
+    400132: petal 4
+    400134: petal 40
+    400136: petal 41
+    400138: petal 42
+    400140: petal 43
+    400142: petal 44
+    400144: petal 45
+    400146: petal 46
+    400148: petal 47
+    400150: petal 48
+    400152: petal 49
+    400154: petal 5
+    400156: petal 50
+    400158: petal 51
+    400160: petal 52
+    400162: petal 53
+    400164: petal 54
+    400166: petal 55
+    400168: petal 56
+    400170: petal 57
+    400172: petal 58
+    400174: petal 59
+    400176: petal 6
+    400178: petal 60
+    400180: petal 61
+    400182: petal 62
+    400184: petal 63
+    400186: petal 64
+    400188: petal 65
+    400190: petal 66
+    400192: petal 67
+    400194: petal 68
+    400196: petal 69
+    400198: petal 7
+    400200: petal 70
+    400202: petal 71
+    400204: petal 72
+    400206: petal 73
+    400208: petal 74
+    400210: petal 75
+    400212: petal 76
+    400214: petal 77
+    400216: petal 78
+    400218: petal 79
+    400220: petal 8
+    400222: petal 80
+    400224: petal 81
+    400226: petal 82
+    400228: petal 83
+    400230: petal 84
+    400232: petal 85
+    400234: petal 86
+    400236: petal 87
+    400238: petal 88
+    400240: petal 89
+    400242: petal 9
+    400244: petal 90
+    400246: petal 91
+    400248: petal 92
+    400250: petal 93
+    400252: petal 94
+    400254: petal 95
+    400256: petal cluster
+    400258: petal cluster 1
+    400260: petal cluster 2
+    400262: petal cluster 3
+    400264: petal cluster 4
+    400266: petal cluster 5
+    400268: petal cluster 6
+    400270: petal cluster 7
+    400272: Plant_sunflower
+    400274: Plant_sunflower 1
+    400276: ske4
+    400278: ske5
+    400280: ske6
+    400282: ske7
+    400284: ske8
+    400286: skeA
+    400288: skeB
+    400290: skeC
+    400292: skeC 1
+    400294: sunflower leaf
+    400296: sunflower leaf 1
+    400298: sunflower leaf 2
+    400300: sunflower leaf 3
+    400302: //RootNode
+    400304: Vase_Quarter
+    400306: Vase_Quarter 1
+    400308: Vase_Quarter 2
+    400310: Vase_Quarter 3
+    400312: vase_thin
+    2300000: Bamboo Shoot
+    2300002: Bamboo Shoot 1
+    2300004: Component#1
+    2300006: Component#1 1
+    2300008: Component#1 2
+    2300010: Component#1 3
+    2300012: Component#1 4
+    2300014: Component#1 5
+    2300016: Component#3
+    2300018: Component#3 1
+    2300020: Component#3 2
+    2300022: Component#3 3
+    2300024: couch_half
+    2300026: couch_half 1
+    2300028: glass
+    2300030: glass 1
+    2300032: glass 2
+    2300034: glass 3
+    2300036: Group 262
+    2300038: half
+    2300040: half 1
+    2300042: leg
+    2300044: leg 1
+    2300046: leg 2
+    2300048: leg 3
+    2300050: leg#1
+    2300052: leg#1 1
+    2300054: leg#1 2
+    2300056: leg#1 3
+    2300058: petal
+    2300060: petal 1
+    2300062: petal 10
+    2300064: petal 11
+    2300066: petal 12
+    2300068: petal 13
+    2300070: petal 14
+    2300072: petal 15
+    2300074: petal 16
+    2300076: petal 17
+    2300078: petal 18
+    2300080: petal 19
+    2300082: petal 2
+    2300084: petal 20
+    2300086: petal 21
+    2300088: petal 22
+    2300090: petal 23
+    2300092: petal 24
+    2300094: petal 25
+    2300096: petal 26
+    2300098: petal 27
+    2300100: petal 28
+    2300102: petal 29
+    2300104: petal 3
+    2300106: petal 30
+    2300108: petal 31
+    2300110: petal 32
+    2300112: petal 33
+    2300114: petal 34
+    2300116: petal 35
+    2300118: petal 36
+    2300120: petal 37
+    2300122: petal 38
+    2300124: petal 39
+    2300126: petal 4
+    2300128: petal 40
+    2300130: petal 41
+    2300132: petal 42
+    2300134: petal 43
+    2300136: petal 44
+    2300138: petal 45
+    2300140: petal 46
+    2300142: petal 47
+    2300144: petal 48
+    2300146: petal 49
+    2300148: petal 5
+    2300150: petal 50
+    2300152: petal 51
+    2300154: petal 52
+    2300156: petal 53
+    2300158: petal 54
+    2300160: petal 55
+    2300162: petal 56
+    2300164: petal 57
+    2300166: petal 58
+    2300168: petal 59
+    2300170: petal 6
+    2300172: petal 60
+    2300174: petal 61
+    2300176: petal 62
+    2300178: petal 63
+    2300180: petal 64
+    2300182: petal 65
+    2300184: petal 66
+    2300186: petal 67
+    2300188: petal 68
+    2300190: petal 69
+    2300192: petal 7
+    2300194: petal 70
+    2300196: petal 71
+    2300198: petal 72
+    2300200: petal 73
+    2300202: petal 74
+    2300204: petal 75
+    2300206: petal 76
+    2300208: petal 77
+    2300210: petal 78
+    2300212: petal 79
+    2300214: petal 8
+    2300216: petal 80
+    2300218: petal 81
+    2300220: petal 82
+    2300222: petal 83
+    2300224: petal 84
+    2300226: petal 85
+    2300228: petal 86
+    2300230: petal 87
+    2300232: petal 88
+    2300234: petal 89
+    2300236: petal 9
+    2300238: petal 90
+    2300240: petal 91
+    2300242: petal 92
+    2300244: petal 93
+    2300246: petal 94
+    2300248: petal 95
+    2300250: Plant_sunflower
+    2300252: Plant_sunflower 1
+    2300254: ske6
+    2300256: ske7
+    2300258: ske8
+    2300260: skeB
+    2300262: skeC
+    2300264: skeC 1
+    2300266: sunflower leaf
+    2300268: sunflower leaf 1
+    2300270: sunflower leaf 2
+    2300272: sunflower leaf 3
+    2300274: //RootNode
+    2300276: Vase_Quarter
+    2300278: Vase_Quarter 1
+    2300280: Vase_Quarter 2
+    2300282: Vase_Quarter 3
+    3300000: Bamboo Shoot
+    3300002: Bamboo Shoot 1
+    3300004: Component#1
+    3300006: Component#1 1
+    3300008: Component#1 2
+    3300010: Component#1 3
+    3300012: Component#1 4
+    3300014: Component#1 5
+    3300016: Component#3
+    3300018: Component#3 1
+    3300020: Component#3 2
+    3300022: Component#3 3
+    3300024: couch_half
+    3300026: couch_half 1
+    3300028: glass
+    3300030: glass 1
+    3300032: glass 2
+    3300034: glass 3
+    3300036: Group 262
+    3300038: half
+    3300040: half 1
+    3300042: leg
+    3300044: leg 1
+    3300046: leg 2
+    3300048: leg 3
+    3300050: leg#1
+    3300052: leg#1 1
+    3300054: leg#1 2
+    3300056: leg#1 3
+    3300058: petal
+    3300060: petal 1
+    3300062: petal 10
+    3300064: petal 11
+    3300066: petal 12
+    3300068: petal 13
+    3300070: petal 14
+    3300072: petal 15
+    3300074: petal 16
+    3300076: petal 17
+    3300078: petal 18
+    3300080: petal 19
+    3300082: petal 2
+    3300084: petal 20
+    3300086: petal 21
+    3300088: petal 22
+    3300090: petal 23
+    3300092: petal 24
+    3300094: petal 25
+    3300096: petal 26
+    3300098: petal 27
+    3300100: petal 28
+    3300102: petal 29
+    3300104: petal 3
+    3300106: petal 30
+    3300108: petal 31
+    3300110: petal 32
+    3300112: petal 33
+    3300114: petal 34
+    3300116: petal 35
+    3300118: petal 36
+    3300120: petal 37
+    3300122: petal 38
+    3300124: petal 39
+    3300126: petal 4
+    3300128: petal 40
+    3300130: petal 41
+    3300132: petal 42
+    3300134: petal 43
+    3300136: petal 44
+    3300138: petal 45
+    3300140: petal 46
+    3300142: petal 47
+    3300144: petal 48
+    3300146: petal 49
+    3300148: petal 5
+    3300150: petal 50
+    3300152: petal 51
+    3300154: petal 52
+    3300156: petal 53
+    3300158: petal 54
+    3300160: petal 55
+    3300162: petal 56
+    3300164: petal 57
+    3300166: petal 58
+    3300168: petal 59
+    3300170: petal 6
+    3300172: petal 60
+    3300174: petal 61
+    3300176: petal 62
+    3300178: petal 63
+    3300180: petal 64
+    3300182: petal 65
+    3300184: petal 66
+    3300186: petal 67
+    3300188: petal 68
+    3300190: petal 69
+    3300192: petal 7
+    3300194: petal 70
+    3300196: petal 71
+    3300198: petal 72
+    3300200: petal 73
+    3300202: petal 74
+    3300204: petal 75
+    3300206: petal 76
+    3300208: petal 77
+    3300210: petal 78
+    3300212: petal 79
+    3300214: petal 8
+    3300216: petal 80
+    3300218: petal 81
+    3300220: petal 82
+    3300222: petal 83
+    3300224: petal 84
+    3300226: petal 85
+    3300228: petal 86
+    3300230: petal 87
+    3300232: petal 88
+    3300234: petal 89
+    3300236: petal 9
+    3300238: petal 90
+    3300240: petal 91
+    3300242: petal 92
+    3300244: petal 93
+    3300246: petal 94
+    3300248: petal 95
+    3300250: Plant_sunflower
+    3300252: Plant_sunflower 1
+    3300254: ske6
+    3300256: ske7
+    3300258: ske8
+    3300260: skeB
+    3300262: skeC
+    3300264: skeC 1
+    3300266: sunflower leaf
+    3300268: sunflower leaf 1
+    3300270: sunflower leaf 2
+    3300272: sunflower leaf 3
+    3300274: //RootNode
+    3300276: Vase_Quarter
+    3300278: Vase_Quarter 1
+    3300280: Vase_Quarter 2
+    3300282: Vase_Quarter 3
+    4300000: Mesh Untitled
+    4300002: Mesh Vase_Quarter
+    4300004: Mesh Vase_Quarter
+    4300006: Mesh Plant_sunflower
+    4300008: Mesh petal
+    4300010: Mesh Bamboo Shoot
+    4300012: Mesh sunflower leaf
+    4300014: Mesh couch_half
+    4300016: Mesh leg
+    4300018: Mesh couch_half
+    4300020: Mesh leg
+    4300022: Mesh ske6
+    4300024: Mesh ske7
+    4300026: Mesh ske8
+    4300028: Mesh half
+    4300030: Mesh half
+    4300032: Mesh leg#1
+    4300034: Mesh skeB
+    4300036: Mesh Group 262
+    4300038: Mesh Component#1
+    4300040: Mesh Component#3
+    4300042: Mesh skeC
+    4300044: Mesh glass
+    4300046: Mesh glass
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
