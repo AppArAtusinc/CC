@@ -147,8 +147,23 @@ public class uiManager : MonoBehaviour {
 		}
 		if(Input.GetKeyDown(KeyCode.E))
 		{
-			GetDialogueToUI();
-			ShowHideMenu (dialogueMenu, !dialogueMenu.activeSelf);
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			Debug.Log(1);
+			if (Physics.Raycast(ray, out hit)) 
+			{
+				Debug.Log(2);
+				Debug.Log(hit.collider.gameObject.tag);
+				if(hit.collider.gameObject.tag=="OpenableDoor")
+				{
+					Debug.Log(3);
+					hit.collider.gameObject.GetComponent<DoorOpen>().UseDoor();
+				}
+				// Do something with the object that was hit by the raycast.
+			}
+
+//			GetDialogueToUI();
+//			ShowHideMenu (dialogueMenu, !dialogueMenu.activeSelf);
 		}
 	}
 
