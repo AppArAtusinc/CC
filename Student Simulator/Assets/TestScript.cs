@@ -1,13 +1,4 @@
 ﻿using UnityEngine;
-using Actions.Core;
-using Actions;
-using System.Collections;
-using System.IO;
-using GameSaving;
-using GameSaving.SaveObjects;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-using Newtonsoft.Json;
 using StudentSimulator.SaveSystem;
 
 public class TestScript : MonoBehaviour {

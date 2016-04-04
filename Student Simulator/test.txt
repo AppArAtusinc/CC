@@ -11,7 +11,7 @@
         {
           "$id": "4",
           "$type": "Assets.Scripts.Quest.Common.BeginStory, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Id": "70c628f5-0699-429c-b1f5-52bae07919fa",
+          "Id": "8588e348-9f6c-4a61-b928-064e51d0289c",
           "IsRunning": true,
           "Name": null,
           "IsNeedDestory": false,
@@ -30,7 +30,7 @@
         {
           "$id": "7",
           "$type": "Entites.Player, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "Id": "05f98df3-9f9a-48d6-a653-5fd972fcf390",
+          "Id": "9aa7488e-d6eb-465a-a269-ae5bbdb89b8e",
           "Addiction": {
             "$id": "8",
             "$type": "Assets.Scripts.Common.Observer`1[[System.Single, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -59,7 +59,7 @@
           "Health": {
             "$id": "13",
             "$type": "Assets.Scripts.Common.Observer`1[[System.Single, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "value": 0.74999994
+            "value": 1.0
           },
           "Diligent": {
             "$id": "14",
@@ -102,17 +102,17 @@
             "Position": {
               "$id": "22",
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-              "x": 0.0694374442,
+              "x": -0.06284026,
               "y": 0.8000001,
-              "z": 0.9469267
+              "z": -1.25132954
             },
             "Rotation": {
               "$id": "23",
               "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
               "x": 0.0,
-              "y": -0.00366526144,
+              "y": -0.005410767,
               "z": 0.0,
-              "w": -0.9999933
+              "w": -0.9999854
             },
             "Scale": {
               "$id": "24",
