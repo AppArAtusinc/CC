@@ -41,31 +41,23 @@ public class Walk : GameAction
 
     protected override void Tick(float delta)
     {
-        base.Tick(delta);
-
-        if (this.navAgent.velocity.sqrMagnitude == 0.0f && this.isMoving)
-        {            
-            this.Finish();
-            this.isMoving = false;
-        }
-        else
+        if (Vector3.Distance(this.navAgent.destination, this.Target.Entity.Transform.Position) <= navAgent.stoppingDistance)
         {
-            this.isMoving = true;
+            this.Finish();
         }
     }
 
     private void InternalStart()
     {
         this.navAgent = this.Target.Entity.GameObject.GetComponent<NavMeshAgent>();
-        this.navAgent.velocity = Vector3.zero;
 
         if (this.navAgent)
         {
-            this.navAgent.SetDestination(this.Position.ToVector3());
+            this.navAgent.destination = this.Position.ToVector3();
         }
         else
         {
-            this.OnFinish(this);
+            this.Finish();
         }
     }
 }

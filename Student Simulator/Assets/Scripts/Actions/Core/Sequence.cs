@@ -88,6 +88,9 @@ namespace Actions.Core
 
         public override void Finish()
         {
+            if (Index == Actions.Count)
+                Index--;
+
             if (Index < Actions.Count)
             {
                 Actions[Index].OnFinish -= nextAction;

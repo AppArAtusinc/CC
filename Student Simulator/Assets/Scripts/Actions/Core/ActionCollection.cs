@@ -49,6 +49,8 @@ namespace Actions.Core
         public void Bind()
         {
             new BeginStory().Start();
+
+            //new WalkTest().Start();
         }
 
         /// <summary>
