@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof (MeshCollider))]
+[RequireComponent (typeof (Collider))]
 public class DoorOpen : MonoBehaviour {
 
 
 	public Vector3 rotateToOpen;
+
+	public bool isLocked;
 
 
 	bool isOpened=false,isOpening=false;
@@ -21,7 +23,7 @@ public class DoorOpen : MonoBehaviour {
 
 	public void UseDoor()
 	{
-		if(!isOpening)StartCoroutine(SmoothDoorOpen());
+		if(!isOpening&&!isLocked)StartCoroutine(SmoothDoorOpen());
 	}
 
 	IEnumerator SmoothDoorOpen()

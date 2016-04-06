@@ -18,6 +18,8 @@ public class uiManager : MonoBehaviour {
 
 	int currentDialogue;
 
+	NpcDialogue currentNpc;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -150,13 +152,14 @@ public class uiManager : MonoBehaviour {
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			Debug.Log(1);
-			if (Physics.Raycast(ray, out hit)) 
+			if (Physics.Raycast(ray, out hit,3)) 
 			{
 				Debug.Log(2);
 				Debug.Log(hit.collider.gameObject.tag);
 				if(hit.collider.gameObject.layer==8)
 				{
-					GetDialogueToUI();
+					currentNpc = hit.collider.gameObject.GetComponent<NpcDialogue>();
+					GetDialogueToUI(currentNpc.dialogueNum);
 					ShowHideMenu (dialogueMenu, !dialogueMenu.activeSelf);
 				}
 				else if(hit.collider.gameObject.tag=="OpenableDoor")
@@ -185,6 +188,7 @@ public class uiManager : MonoBehaviour {
 		int nextDialogue = Dialogues.allDialogues[currentDialogue].answers[buttonNumber].nextDialogue;
 		if(nextDialogue!=-1)
 		{
+			currentNpc.dialogueNum=nextDialogue;
 			GetDialogueToUI(nextDialogue);
 		}
 		else
