@@ -154,16 +154,19 @@ public class uiManager : MonoBehaviour {
 			{
 				Debug.Log(2);
 				Debug.Log(hit.collider.gameObject.tag);
-				if(hit.collider.gameObject.tag=="OpenableDoor")
+				if(hit.collider.gameObject.layer==8)
 				{
-					Debug.Log(3);
+					GetDialogueToUI();
+					ShowHideMenu (dialogueMenu, !dialogueMenu.activeSelf);
+				}
+				else if(hit.collider.gameObject.tag=="OpenableDoor")
+				{
 					hit.collider.gameObject.GetComponent<DoorOpen>().UseDoor();
 				}
 				// Do something with the object that was hit by the raycast.
 			}
 
-//			GetDialogueToUI();
-//			ShowHideMenu (dialogueMenu, !dialogueMenu.activeSelf);
+
 		}
 	}
 

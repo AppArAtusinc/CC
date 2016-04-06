@@ -8,7 +8,7 @@ public class DoorOpen : MonoBehaviour {
 	public Vector3 rotateToOpen;
 
 
-	bool isOpened=false;
+	bool isOpened=false,isOpening=false;
 
 	Transform TR;
 
@@ -21,8 +21,18 @@ public class DoorOpen : MonoBehaviour {
 
 	public void UseDoor()
 	{
-		Debug.Log(4);
-		TR.Rotate(isOpened?-rotateToOpen:rotateToOpen);
+		if(!isOpening)StartCoroutine(SmoothDoorOpen());
+	}
+
+	IEnumerator SmoothDoorOpen()
+	{
+		isOpening=true;
+		for(int i=0;i<20;i++)
+		{
+			TR.Rotate((isOpened?-rotateToOpen:rotateToOpen)/20f);
+			yield return new WaitForSeconds(.02f);
+		}
 		isOpened=!isOpened;
+		isOpening=false;
 	}
 }
