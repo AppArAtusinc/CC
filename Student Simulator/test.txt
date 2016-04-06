@@ -11,7 +11,11 @@
         {
           "$id": "4",
           "$type": "Assets.Scripts.Quest.Common.BeginStory, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+<<<<<<< HEAD
           "Id": "f3045623-191c-4176-966d-6ef87b7d6fe2",
+=======
+          "Id": "8588e348-9f6c-4a61-b928-064e51d0289c",
+>>>>>>> 02de3630f7678b35a50abf88091c043de4480cb8
           "IsRunning": true,
           "Name": null,
           "IsNeedDestory": false,
@@ -137,7 +141,11 @@
         {
           "$id": "21",
           "$type": "Entites.Player, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+<<<<<<< HEAD
           "Id": "851f35a3-e435-4ee0-9a78-54543cc8c7b6",
+=======
+          "Id": "9aa7488e-d6eb-465a-a269-ae5bbdb89b8e",
+>>>>>>> 02de3630f7678b35a50abf88091c043de4480cb8
           "Addiction": {
             "$id": "22",
             "$type": "Assets.Scripts.Common.Observer`1[[System.Single, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -209,17 +217,29 @@
             "Position": {
               "$id": "36",
               "$type": "SimpleGameTypes.SimpleVector3, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+<<<<<<< HEAD
               "x": 58.03,
               "y": 2.08,
               "z": 35.89
+=======
+              "x": -0.06284026,
+              "y": 0.8000001,
+              "z": -1.25132954
+>>>>>>> 02de3630f7678b35a50abf88091c043de4480cb8
             },
             "Rotation": {
               "$id": "37",
               "$type": "SimpleGameTypes.SimpleQuaternion, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
               "x": 0.0,
+<<<<<<< HEAD
               "y": 0.7336111,
               "z": 0.0,
               "w": -0.679569662
+=======
+              "y": -0.005410767,
+              "z": 0.0,
+              "w": -0.9999854
+>>>>>>> 02de3630f7678b35a50abf88091c043de4480cb8
             },
             "Scale": {
               "$id": "38",
