@@ -39,6 +39,7 @@ public class EntityInformationEditor : Editor
                 Select(type => type.FullName).ToList();
         }
     }
+
     int selectedItem = 0;
 
     public override void OnInspectorGUI()
