@@ -97,11 +97,13 @@ namespace StudentSimulator.SaveSystem
 
             var prioties = Instances.Select(o => o.LoadPriority).Distinct().OrderBy(o => o);
 
-            Game.Load(game);
+            Game.ReplaceInstance(game);
 
             foreach (var priority in prioties)
                 foreach (var item in Instances.Where(o => o.LoadPriority == priority))
                     item.Load();
+
+            game.IsLoaded = true;
         }
 
         static string GetFileName(this string SlotName)

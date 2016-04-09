@@ -6,9 +6,9 @@ using Quest.Common;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Assets.Scripts.Quest.Common
+namespace Quest.Common
 {
-    public class BeginStory : GameAction
+    public class BeginStory : Core.Quest
     {
         List<string> npcNames = new List<string>();
 
@@ -114,7 +114,8 @@ namespace Assets.Scripts.Quest.Common
 
             var repeatForever = new RepeatForever(parallel);
 
-            repeatForever.Start();            
+            this.Entry = repeatForever;
+            base.Start();    
         }
 
         //public override void Start()

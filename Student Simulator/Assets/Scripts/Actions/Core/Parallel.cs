@@ -30,8 +30,10 @@ namespace Actions.Core
         public Parallel (params GameAction[] Actions)
 		{
 			this.Actions = Actions.ToList();
+            this.Actions.ForEach(o => o.IsNeedDestory = false);
+
             this.Bind();
-		}
+        }
 
         void Bind()
         {

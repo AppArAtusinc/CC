@@ -46,8 +46,10 @@ namespace Actions.Core
 		public RepeatForever (params GameAction[] Actions)
 		{
 			this.actions = Actions.ToList();
+            this.actions.ForEach(o => o.IsNeedDestory = false);
+
             Bind();
-		}
+        }
 
         private void Bind()
         {

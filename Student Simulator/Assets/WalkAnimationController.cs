@@ -3,6 +3,9 @@ using System.Collections;
 
 public class WalkAnimationController : MonoBehaviour {
 
+
+    public float Speed;
+
     Animator animator;
     private NavMeshAgent navAgent;
 
@@ -11,9 +14,12 @@ public class WalkAnimationController : MonoBehaviour {
         this.animator = this.GetComponent<Animator>();
         this.navAgent = this.GetComponent<NavMeshAgent>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        animator.SetFloat("Speed", navAgent.velocity.magnitude);
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+        float velosity = navAgent.velocity.magnitude;
+        animator.SetFloat("Speed", velosity);
+        Speed = velosity;
+    }
 }

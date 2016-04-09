@@ -35,7 +35,11 @@ namespace Entites
 			foreach (var obj in objs) {
                 Actors.Add(Actor.Create(obj));
 			}
-           // Game.GetInstance().EntityCollection.Actors.ForEach(o => o.Load());
 		}
+
+        public void Clear()
+        {
+            this.Actors.Clear();
+        }
 	}
 }

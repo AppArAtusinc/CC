@@ -50,6 +50,7 @@ namespace Actions.Core
 
         protected GameAction()
         {
+            this.IsNeedDestory = true;
         }
 
         public delegate void GameActionDelegate(GameAction action);
@@ -139,7 +140,6 @@ namespace Actions.Core
             IsNeedDestory = true;
             return this;
         }
-
     }
 }
 

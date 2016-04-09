@@ -1,35 +1,64 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Actions.Core;
 using Entites;
 using UnityEngine;
 using StudentSimulator.SaveSystem;
+using Quest.Common.Core;
 
 public class Game
 {
+    /// <summary>
+    /// Holds collection with actions.
+    /// </summary>
+    /// <owner>Stanislav Silin</owner>
     [Save]
     public ActionCollection ActionCollection;
 
+    /// <summary>
+    /// Holds collection with entities.
+    /// </summary>
+    /// <owner>Stanislav Silin</owner>
     [Save]
     public GameEntityCollection EntityCollection;
 
-    static Game Instance;
+    /// <summary>
+    /// Holds collection with quest.
+    /// </summary>
+    /// <owner>Stanislav Silin</owner>
+    [Save]
+    public QuestCollection QuestCollection;
+
+    /// <summary>
+    /// Indicates is game already loaded.
+    /// </summary>
+    /// <owner>Stanislav Silin</owner>
+    public bool IsLoaded
+    {
+        get;
+        set;
+    }
+
+    public static Game Instance;
     public static Game GetInstance() 
     { 
         return Instance; 
     }
 
-	public static void Load (Game game)
+    /// <summary>
+    /// Loads game.
+    /// </summary>
+    /// <owner>Stanislav Silin</owner>
+    /// <param name="game">The new game.</param>
+	public static void ReplaceInstance (Game game)
 	{
         foreach (var actor in Instance.EntityCollection.Actors)
             SaveExecute(() => actor.Destroy());
 
-        Instance.EntityCollection.Actors.Clear();
-		Instance.ActionCollection.Actions.Clear();
+        Instance.EntityCollection.Clear();
+		Instance.ActionCollection.Clear();
+		Instance.QuestCollection.Clear();
 
-		Instance = null;
+        Instance = null;
 		GC.Collect();
 		Instance = game;
 	}
@@ -41,8 +70,10 @@ public class Game
 
 	Game()
 	{
-		ActionCollection = new ActionCollection();
-		EntityCollection = new GameEntityCollection();
+		this.ActionCollection = new ActionCollection();
+		this.EntityCollection = new GameEntityCollection();
+        this.QuestCollection = new QuestCollection();
+        this.IsLoaded = false;
 	}
 
 	public void Update(float Delta)
@@ -54,6 +85,8 @@ public class Game
     {
         EntityCollection.Bind();
         ActionCollection.Bind();
+
+        IsLoaded = true;
 
         //SaveSystem.Save("The_Origin");
         //SaveSystem.Load("The_Origin");

@@ -47,6 +47,8 @@ namespace Actions.Core
         public Sequence(params GameAction[] Actions)
         {
             this.Actions = Actions.ToList();
+            this.Actions.ForEach(o => o.IsNeedDestory = false);
+
             Bind();
         }
 

@@ -27,7 +27,7 @@ namespace Actions.Core
 		/// <summary>
 		/// Using for adding new action to action pool.
 		/// </summary>
-		/// <param name="NewAction"> New action for action pool. </param>
+		/// <param name="NewAction"> New action for action pool.</param>
 		/// <returns> Return just added action. </returns>
         public GameAction Add(GameAction NewAction)
         {
@@ -39,7 +39,7 @@ namespace Actions.Core
 		/// Using for getting action by name.
 		/// </summary>
 		/// <param name="Name"> Name action for search. </param>
-		/// <returns> Action which finded. If not find any action return null. </returns>
+		/// <returns> Action which finded. If not find any action return null.</returns>
         public GameAction GetActionsByName(string Name)
         {
             var query = Actions.FindAll(o => o.Name == Name);
@@ -48,7 +48,7 @@ namespace Actions.Core
 
         public void Bind()
         {
-            new BeginStory().Start();
+            //new BeginStory().Start();
 
             //new WalkTest().Start();
         }
@@ -80,5 +80,9 @@ namespace Actions.Core
             return true;
         }
 
+        public void Clear()
+        {
+            this.Actions.Clear();
+        }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using UnityEngine;
 using Actions.Core;
 using Entites.Common;
+using Quest.Common.Core;
 
 namespace Quest.Common
 {
@@ -27,10 +28,10 @@ namespace Quest.Common
 
         public WalkTo() { }
 
-        public WalkTo(GameObject firstGameObject, GameObject secondGameObject, float radius)
+        public WalkTo(GameObject marker, GameObject walkable, float radius)
         {
-            this.First = new Link<Actor>(firstGameObject.ToGameEntity().Id);
-            this.Second = new Link<Actor>(secondGameObject.ToGameEntity().Id);
+            this.First = new Link<Actor>(marker.ToGameEntity().Id);
+            this.Second = new Link<Actor>(walkable.ToGameEntity().Id);
             this.Radius = radius;
         }
 
@@ -58,8 +59,8 @@ namespace Quest.Common
 
         public override void Start()
         {
-            base.Start();
             Restore();
+            base.Start();
         }
 
         private void QuestCollider_OnActive(GameObject sender, GameObject activator)

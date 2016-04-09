@@ -57,10 +57,12 @@ namespace Actions.Core
 		public Repeat (params GameAction[] Actions)
 		{
 			this.Actions = Actions.ToList();
+            this.Actions.ForEach(o => o.IsNeedDestory = false);
+
             Index = CurrentRepeatCount = 0;
             RepeatCount = 1;
             Bind();
-		}
+        }
 
         private void Bind()
         {
