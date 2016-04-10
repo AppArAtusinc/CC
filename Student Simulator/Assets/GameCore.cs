@@ -1,27 +1,26 @@
 ﻿using UnityEngine;
 using StudentSimulator.SaveSystem;
 using System;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameCore : MonoBehaviour {
 
-	// Use this for initialization
 	void Start () {
 #if UNITY_EDITOR
-		Game.GetInstance().Bind();
+        Game.GetInstance().Bind();
 #else
-//        try
-//        {
-//            SaveSystem.Load("The_Origin");
-//        }
-//        catch (Exception ex)
-//        {
-//            Debug.LogException(ex);
-//            Application.Quit();
-//        }
+        SceneManager.LoadScene("poligon1", LoadSceneMode.Additive);
+        StartCoroutine(bindEnities());
 #endif
     }
 
-    // Update is called once per frame
+    private IEnumerator bindEnities()
+    {
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("TestSaving").Length > 0);
+        Game.GetInstance().Bind();
+    }
+
     void FixedUpdate () {
 		Game.GetInstance().Update(Time.fixedDeltaTime);
 	}

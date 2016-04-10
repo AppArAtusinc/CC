@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Quest.Common
 {
-    public class BeginStory : Core.Quest
+    public class BeginStory : GameAction
     {
         List<string> npcNames = new List<string>();
 
@@ -113,8 +113,8 @@ namespace Quest.Common
             var parallel = new Parallel(sequenceForBot1, sequenceForBot2, sequenceForBot3);
 
             var repeatForever = new RepeatForever(parallel);
+            repeatForever.Start();
 
-            this.Entry = repeatForever;
             base.Start();    
         }
 

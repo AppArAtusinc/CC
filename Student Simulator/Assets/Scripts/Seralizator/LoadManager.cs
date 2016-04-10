@@ -7,7 +7,6 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters;
 using Seralizator.Core;
-using UnityEditor.VersionControl;
 using System.Threading;
 
 namespace StudentSimulator.SaveSystem
@@ -62,7 +61,7 @@ namespace StudentSimulator.SaveSystem
         /// <summary>
         /// Save game instance to slot.
         /// </summary>
-        /// <owner>Stanislav Silin</owner>
+        /// <owner>Stanislav Silin</owner>,
         /// <param name="slotName">The name of slot.</param>
         static public void Save(string slotName)
         {

@@ -17,6 +17,7 @@ public class LaunchQuest : MonoBehaviour {
         string questname = "Test quest";
         yield return new WaitUntil(() => Game.Instance.IsLoaded);
         new TestQuest(questname).Start();
+
         yield return new WaitUntil(() => QuestHelper.IsActive(questname));
         new Notify("Quest " + questname + " is active!").Start();
 
