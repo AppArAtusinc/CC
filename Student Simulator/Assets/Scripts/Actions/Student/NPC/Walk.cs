@@ -13,9 +13,6 @@ public class Walk : GameAction
     [Save]
     SimpleVector3 Position;
 
-    [Save]
-    bool isMoving = false;
-
     NavMeshAgent navAgent;
 
     public Walk(NPC gameObject, Vector3 position)

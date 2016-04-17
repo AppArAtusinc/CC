@@ -5,6 +5,7 @@ using Actions.UI;
 using Quest.Common;
 using System.Linq;
 using System.Collections.Generic;
+using Entites;
 
 namespace Quest.Common
 {
@@ -33,6 +34,8 @@ namespace Quest.Common
         // start NPC animations
         public override void Start()
         {
+            Debug.Log("BeginStory");
+
             base.Start();
 
             List<NPC> bots = new List<NPC>();
@@ -63,10 +66,7 @@ namespace Quest.Common
 
             // =============== temporary logic ==================
             // TODO: add animation template for all npc
-            var bot1 = Game.GetInstance().EntityCollection.Actors.Find(o =>
-            {
-                return o.Name == "bad_guy";
-            }) as NPC;
+            var bot1 = Game.GetInstance().EntityCollection.Actors.Find(o => o.Name == "bad_guy") as NPC;
 
             var bot2 = Game.GetInstance().EntityCollection.Actors.Find(o =>
             {
@@ -78,22 +78,53 @@ namespace Quest.Common
                 return o.Name == "boy1";
             }) as NPC;
 
+            var bot4 = Game.GetInstance().EntityCollection.Actors.Find(o =>
+            {
+                return o.Name == "boy3";
+            }) as NPC;
+
             var marker1 = GameObject.Find("Marker (2)");
             var marker2 = GameObject.Find("Marker (3)");
             var marker3 = GameObject.Find("Marker (4)");
             var marker4 = GameObject.Find("Marker (20)");
+            var marker5 = GameObject.Find("Marker (1)");
+            var marker6 = GameObject.Find("Marker");
+            var marker7 = GameObject.Find("Marker (7)");
+            var marker8 = GameObject.Find("Marker (18)");
+            var marker9 = GameObject.Find("Marker (9)");
+            var marker10 = GameObject.Find("Marker (21)");
 
             var sequenceForBot1 = new Sequence(
-                new Delay(4),
+                new Delay(3),
                 new Walk(bot1, marker1.transform.position), 
-                new Delay(4),
-                new Walk(bot1, marker2.transform.position)
+                new Delay(3),
+                new Walk(bot1, marker2.transform.position),
+                new Delay(3),
+                new Walk(bot1, marker3.transform.position),
+                new Delay(3),
+                new Walk(bot1, marker4.transform.position),
+                new Delay(3),
+                new Walk(bot1, marker8.transform.position),
+                new Delay(3),
+                new Walk(bot1, marker3.transform.position),
+                new Delay(3),
+                new Walk(bot1, marker1.transform.position)
             );
 
             var sequenceForBot2 = new Sequence(
-                new Delay(4),
+                new Delay(3),
                 new Walk(bot2, marker2.transform.position),
-                new Delay(4),
+                new Delay(3),
+                new Walk(bot2, marker1.transform.position),
+                new Delay(3),
+                new Walk(bot2, marker6.transform.position),
+                new Delay(3),
+                new Walk(bot2, marker8.transform.position),
+                new Delay(3),
+                new Walk(bot2, marker2.transform.position),
+                new Delay(3),
+                new Walk(bot2, marker7.transform.position),
+                new Delay(3),
                 new Walk(bot2, marker1.transform.position)
             );
 
@@ -107,14 +138,32 @@ namespace Quest.Common
                 new Delay(3),
                 new Walk(bot3, marker1.transform.position),
                 new Delay(3),
-                new Walk(bot3, marker4.transform.position)
+                new Walk(bot3, marker4.transform.position),
+                new Delay(3),
+                new Walk(bot3, marker9.transform.position),
+                new Delay(3),
+                new Walk(bot3, marker2.transform.position),
+                new Delay(3),
+                new Walk(bot3, marker3.transform.position)
             );
 
-            var parallel = new Parallel(sequenceForBot1, sequenceForBot2, sequenceForBot3);
+            var sequenceForBot4 = new Sequence(
+                new Delay(3),
+                new Walk(bot4, marker6.transform.position),
+                new Delay(3),
+                new Walk(bot4, marker10.transform.position),
+                new Delay(3),
+                new Walk(bot4, marker5.transform.position),
+                new Delay(3),
+                new Walk(bot4, marker6.transform.position),
+                new Delay(5)
+            );
+
+            Parallel parallel = new Parallel(sequenceForBot1, sequenceForBot2, sequenceForBot3, sequenceForBot4);
 
             var repeatForever = new RepeatForever(parallel);
-            repeatForever.Start();
 
+            repeatForever.Start();
             base.Start();    
         }
 
