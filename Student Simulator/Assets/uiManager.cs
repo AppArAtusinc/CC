@@ -14,7 +14,7 @@ public class uiManager : MonoBehaviour
     public Text UiQuestion;
     public Text[] UiAnswers;
 
-    bool isPlaying;
+    public static bool isPlaying;
 
     int currentDialogue;
 
@@ -69,27 +69,7 @@ public class uiManager : MonoBehaviour
         gameUI.SetActive(true);
         GameMouse();
     }
-
-    //	void ShowPauseMenu(bool show)
-    //	{
-    //		pauseMenu.SetActive (show);
-    //		if(show)
-    //		{
-    //			MenuMouse ();
-    //		}
-    //		else GameMouse ();
-    //	}
-    //
-    //	void ShowPlayerMenu(bool show)
-    //	{
-    //		playerMenu.SetActive (show);
-    //		if(show)
-    //		{
-    //			MenuMouse ();
-    //		}
-    //		else GameMouse ();
-    //	}
-
+		
     void ShowHideMenu(GameObject menu, bool show)
     {
         menu.SetActive(show);

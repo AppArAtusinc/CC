@@ -225,6 +225,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             //avoids the mouse looking if the game is effectively paused
             if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
 
+
             // get the rotation before it's changed
             float oldYRotation = transform.eulerAngles.y;
 
