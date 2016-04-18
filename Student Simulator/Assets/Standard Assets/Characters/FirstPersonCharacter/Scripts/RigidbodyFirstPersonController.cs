@@ -2,8 +2,8 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-namespace UnityStandardAssets.Characters.FirstPerson
-{
+//namespace UnityStandardAssets.Characters.FirstPerson
+//{
     [RequireComponent(typeof (Rigidbody))]
     [RequireComponent(typeof (CapsuleCollider))]
     public class RigidbodyFirstPersonController : MonoBehaviour
@@ -77,7 +77,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public Camera cam;
         public MovementSettings movementSettings = new MovementSettings();
-        public MouseLook mouseLook = new MouseLook();
+	public UnityStandardAssets.Characters.FirstPerson.MouseLook mouseLook = new UnityStandardAssets.Characters.FirstPerson.MouseLook();
         public AdvancedSettings advancedSettings = new AdvancedSettings();
 
 
@@ -262,4 +262,4 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
     }
-}
+//}

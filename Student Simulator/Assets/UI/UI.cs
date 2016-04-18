@@ -4,13 +4,13 @@ using System.Collections;
 public class UI : MonoBehaviour
 {
 	public GameObject uiPrefab;
-	uiManager uiMng;
 
 	void Start () 
 	{
-		uiMng = Instantiate<GameObject>(uiPrefab).GetComponent<uiManager>();
-		uiMng.HideAllMenus ();
-		uiMng.ShowGameUI ();
+		uiManager UM = Instantiate<GameObject>(uiPrefab).GetComponent<uiManager>();
+		UM.playerController=this.GetComponent<RigidbodyFirstPersonController>();
+		UM.ToMainMenuBTN();
+
 	}
 
 }

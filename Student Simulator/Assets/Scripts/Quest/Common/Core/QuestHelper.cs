@@ -1,46 +1,57 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Quest.Common.Core
 {
     public static class QuestHelper
     {
-        public static IEnumerable<Quest> Completed
+//		public static IEnumerable<string> Completed
+//        {
+//			get;
+//			set;
+//        }
+
+		public static List<string> Active
         {
-            get
-            {
-                return Game.Instance.QuestCollection.CompletedQuests;
-            }
+			get;
+			set;
         }
 
-        public static IEnumerable<Quest> Active
+		public static List<string> Stopped
         {
-            get
-            {
-                return Game.Instance.QuestCollection.ActiveQuests;
-            }
-        }
-
-        public static IEnumerable<Quest> Stoped
-        {
-            get
-            {
-                return Game.Instance.QuestCollection.StopedQuests;
-            }
+			get;
+			set;
         }
 
         public static bool IsActive(string questName)
         {
-            return Game.Instance.QuestCollection.IsActive(questName);
+			return Active.Any( o => o == questName);
         }
 
         public static bool IsStoped(string questName)
         {
-            return Game.Instance.QuestCollection.IsStoped(questName);
+			return Stopped.Any( o => o == questName);
         }
 
-        public static bool IsCompleted(string questName)
-        {
-            return Game.Instance.QuestCollection.IsCompleted(questName);
-        }
+		public static void Activate(string questName)
+		{
+			Active.Add(questName);
+		}
+
+		public static void Stop(string questName)
+		{
+			Active.Remove(questName);
+			Stopped.Add(questName);
+		}
+
+		static QuestHelper()
+		{
+			Active = new List<string>();
+			Stopped = new List<string>();
+		}
+//        public static bool IsCompleted(string questName)
+//        {
+//            return Game.Instance.QuestCollection.IsCompleted(questName);
+//        }
     }
 }

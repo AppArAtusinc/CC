@@ -17,7 +17,7 @@ public class uiManager : MonoBehaviour
     public static bool isPlaying;
 
     int currentDialogue;
-
+	public RigidbodyFirstPersonController playerController;
     NpcDialogue currentNpc;
 
     public AudioClip gameMenuSound;
@@ -31,7 +31,7 @@ public class uiManager : MonoBehaviour
     List<string> npcNames = new List<string>();
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
 
     }
@@ -120,7 +120,7 @@ public class uiManager : MonoBehaviour
 
     void MenuMouse()
     {
-        //Time.timeScale=0;
+		playerController.enabled=false;
         isPlaying = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -128,44 +128,17 @@ public class uiManager : MonoBehaviour
 
     void GameMouse()
     {
-        Time.timeScale = 1;
+		playerController.enabled=true;
         isPlaying = true;
         Cursor.lockState = CursorLockMode.Locked; //устанавливает курсор в центре и запрещает перемещиние
         Cursor.visible = false;
     }
 
-    //	public void ShowPlayerMenu()
-    //	{
-    //		if(!pauseMenuIsShowing&&!mainMenuIsShowing)
-    //		{
-    //			playerMenuIsShowing=!playerMenuIsShowing;
-    //			playerMenu.SetActive(playerMenuIsShowing);
-    //		}
-    //		return;
-    //	}
-    //	
-    //	public void ShowPauseMenu()
-    //	{
-    //		pauseMenuIsShowing=!pauseMenuIsShowing;
-    //		pauseMenu.SetActive(pauseMenuIsShowing);
-    //		return;
-    //	}
-    //	public void ShowGameUI()
-    //	{
-    //		mainMenuIsShowing=!mainMenuIsShowing;
-    //		mainMenu.SetActive(mainMenuIsShowing);
-    //		gameUI.SetActive(!mainMenuIsShowing);
-    //	}
-    //	
-    //	public void ShowMainMenu()
-    //	{
-    //		ShowPauseMenu();
-    //		ShowGameUI ();
-    //		
-    //		return;
-    //	}
-    //	
-    //	// Update is called once per frame
+	public void ToMainMenuBTN()
+	{
+		HideAllMenus();
+		ShowHideMenu(mainMenu,true);
+	}
 
     NPC npc;
 
@@ -235,7 +208,7 @@ public class uiManager : MonoBehaviour
     public void AnswerBTNClick(int buttonNumber)
     {
         int nextDialogue = Dialogues.allDialogues[currentDialogue].answers[buttonNumber].nextDialogue;
-
+		Dialogues.allDialogues[currentDialogue].answers[buttonNumber].DoWithQuest();
         if (nextDialogue != -1)
         {
             currentNpc.dialogueNum = nextDialogue;
