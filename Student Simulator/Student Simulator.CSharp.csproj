@@ -75,11 +75,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ClickableBed.cs" />
     <Compile Include="Assets\DoorOpen.cs" />
     <Compile Include="Assets\GameCore.cs" />
     <Compile Include="Assets\LoginButton.cs" />
     <Compile Include="Assets\NpcDialogue.cs" />
     <Compile Include="Assets\PlayerInit.cs" />
+    <Compile Include="Assets\QuestsTest.cs" />
     <Compile Include="Assets\Scene\Player_Testing_Poligon\DealDamage.cs" />
     <Compile Include="Assets\Scene\Player_Testing_Poligon\Heal.cs" />
     <Compile Include="Assets\Scene\Quest_Test_Poligon\LaunchQuest.cs" />
