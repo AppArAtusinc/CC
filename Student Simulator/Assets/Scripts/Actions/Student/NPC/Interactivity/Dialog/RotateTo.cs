@@ -2,6 +2,7 @@
 using Actions.Core;
 using StudentSimulator.SaveSystem;
 using Entites;
+using System.Collections;
 
 public class RotateTo : GameAction
 {
@@ -20,25 +21,18 @@ public class RotateTo : GameAction
     public override void Start()
     {
         base.Start();
-        this.InternalStart();
     }
 
-    public override void Load()
+    protected override void Tick(float delta)
     {
-        if (this.IsRunning)
+        if (Vector3.Angle(this.npc.Entity.GameObject.transform.forward, -this.playerTransform.forward) > 5.0f)
         {
-            this.InternalStart();
+            Transform npcT = this.npc.Entity.GameObject.transform, playerT = this.playerTransform;
+            npcT.forward = Vector3.Lerp(npcT.forward, -playerT.forward, .15f);
         }
-    }
-
-    private void InternalStart()
-    {
-        Debug.Log("RotateTo started");
-
-        this.npc.Entity.GameObject.transform.LookAt(this.playerTransform);
-
-        this.Finish();
-
-        Debug.Log("RotateTo finished");
+        else
+        {
+            this.Finish();
+        }
     }
 }

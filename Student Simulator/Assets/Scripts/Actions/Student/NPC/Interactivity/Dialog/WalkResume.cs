@@ -21,14 +21,6 @@ public class WalkResume : GameAction
         this.InternalStart();
     }
 
-    public override void Load()
-    {
-        if (this.IsRunning)
-        {
-            this.InternalStart();
-        }
-    }
-
     private void InternalStart()
     {
         Debug.Log("WalkResume started");
