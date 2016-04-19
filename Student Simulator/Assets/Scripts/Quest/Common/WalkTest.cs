@@ -17,17 +17,16 @@ namespace Assets.Scripts.Quest.Common
 
             var bot = Game.GetInstance().EntityCollection.Actors.Single(o => o.Name == "bot") as NPC;
 
-            new Sequence(
-                new Walk(bot, marker1.transform.position),
-                new Walk(bot, marker2.transform.position),
-                new Walk(bot, marker3.transform.position)
-                //,
-                //new Repeat(
-                //    new Walk(bot, marker1.transform.position),
-                //    new Walk(bot, marker2.transform.position))
-                )
-               .Start();
-
+//            new Sequence(
+//                new Walk(bot, marker1.transform.position),
+//                new Walk(bot, marker2.transform.position),
+//                new Walk(bot, marker3.transform.position)
+//                //,
+//                //new Repeat(
+//                //    new Walk(bot, marker1.transform.position),
+//                //    new Walk(bot, marker2.transform.position))
+//                )
+//               .Start();
             base.Start();
         }
     }

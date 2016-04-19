@@ -39,7 +39,7 @@ namespace StudentSimulator.SaveSystem
                 {
                     p.Writable = true;
                     p.Readable = true;
-                    //p.Required = Required.Always;
+                   // p.Required = Required.Always;
                 });
                 return props;
             }
@@ -47,7 +47,7 @@ namespace StudentSimulator.SaveSystem
 
         static JsonSerializerSettings setting = new JsonSerializerSettings()
         {
-            TypeNameAssemblyFormat = FormatterAssemblyStyle.Full,
+            TypeNameAssemblyFormat = FormatterAssemblyStyle.Simple,
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
             ObjectCreationHandling = ObjectCreationHandling.Replace,
             PreserveReferencesHandling = PreserveReferencesHandling.All,

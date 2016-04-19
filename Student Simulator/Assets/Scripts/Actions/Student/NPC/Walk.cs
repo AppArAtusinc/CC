@@ -8,17 +8,22 @@ using UnityEngine;
 public class Walk : GameAction
 {
     [Save]
-    Link<NPC> Target;
+	Link<NPC> NPC;
 
     [Save]
-    SimpleVector3 Position;
+	SimpleVector3 Position;
 
     NavMeshAgent navAgent;
 
-    public Walk(NPC gameObject, Vector3 position)
+	public Walk()
+	{
+		
+	}
+
+	public Walk(NPC gameObject, Actor marker)
     {
-        this.Target = new Link<NPC>(gameObject.Id);
-        this.Position = new SimpleVector3(position);
+        this.NPC = new Link<NPC>(gameObject.Id);
+		this.Position = marker.Transform.Position;
     }
 
     public override void Start()
@@ -38,7 +43,7 @@ public class Walk : GameAction
 
     protected override void Tick(float delta)
     {
-        if (Vector3.Distance(this.navAgent.destination, this.Target.Entity.Transform.Position) <= navAgent.stoppingDistance)
+        if (Vector3.Distance(this.navAgent.destination, this.NPC.Entity.Transform.Position) <= navAgent.stoppingDistance)
         {
             this.Finish();
         }
@@ -46,11 +51,11 @@ public class Walk : GameAction
 
     private void InternalStart()
     {
-        this.navAgent = this.Target.Entity.GameObject.GetComponent<NavMeshAgent>();
+        this.navAgent = this.NPC.Entity.GameObject.GetComponent<NavMeshAgent>();
 
         if (this.navAgent)
         {
-            this.navAgent.destination = this.Position.ToVector3();
+			this.navAgent.destination = this.Position;
         }
         else
         {

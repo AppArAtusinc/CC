@@ -43,8 +43,8 @@ public class uiManager : MonoBehaviour
     {
 		playerController = GameObject.Find("Player").GetComponent<RigidbodyFirstPersonController>();
         this.source = GetComponent<AudioSource>();
-//		source.clip = sounds[Random.Range(0,sounds.Length)];
-	//	source.Play();
+		source.clip = sounds[Random.Range(0,sounds.Length)];
+		source.Play();
         if (!this.source)
         {
            // throw new System.Exception("AudioSource not found");

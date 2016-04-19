@@ -6,6 +6,7 @@ using Quest.Common;
 using System.Linq;
 using System.Collections.Generic;
 using Entites;
+using Entites.Common;
 
 namespace Quest.Common
 {
@@ -23,7 +24,7 @@ namespace Quest.Common
             this.npcNames.Add("boy3");
             this.npcNames.Add("boy3 (1)");
             this.npcNames.Add("boy3 (2)");
-            this.npcNames.Add("girl1");
+			this.npcNames.Add("SuperGirl");
             this.npcNames.Add("girl1 (1)");
             this.npcNames.Add("girl2");
             this.npcNames.Add("girl3");
@@ -68,102 +69,93 @@ namespace Quest.Common
             // TODO: add animation template for all npc
             var bot1 = Game.GetInstance().EntityCollection.Actors.Find(o => o.Name == "bad_guy") as NPC;
 
-            var bot2 = Game.GetInstance().EntityCollection.Actors.Find(o =>
-            {
-                return o.Name == "girl1 (1)";
-            }) as NPC;
+			var girl = Game.GetInstance().EntityCollection.Actors.Find(o => o.Name == "SuperGirl") as NPC;
 
-            var bot3 = Game.GetInstance().EntityCollection.Actors.Find(o =>
-            {
-                return o.Name == "boy1";
-            }) as NPC;
+            var boy = Game.GetInstance().EntityCollection.Actors.Find(o => o.Name == "BadGuy") as NPC;
 
             var bot4 = Game.GetInstance().EntityCollection.Actors.Find(o =>
             {
                 return o.Name == "boy3";
             }) as NPC;
 
-            var marker1 = GameObject.Find("Marker (2)");
-            var marker2 = GameObject.Find("Marker (3)");
-            var marker3 = GameObject.Find("Marker (4)");
-            var marker4 = GameObject.Find("Marker (20)");
-            var marker5 = GameObject.Find("Marker (1)");
-            var marker6 = GameObject.Find("Marker");
-            var marker7 = GameObject.Find("Marker (7)");
-            var marker8 = GameObject.Find("Marker (18)");
-            var marker9 = GameObject.Find("Marker (9)");
-            var marker10 = GameObject.Find("Marker (21)");
+			var toalet1 = GameObject.Find("Toalet 1");
+			var toalet3 = GameObject.Find("Toalet 3");
+			var room108 = GameObject.Find("Room 108");
+            var room207 = GameObject.Find("Room 207");
 
-            var sequenceForBot1 = new Sequence(
-                new Delay(3),
-                new Walk(bot1, marker1.transform.position), 
-                new Delay(3),
-                new Walk(bot1, marker2.transform.position),
-                new Delay(3),
-                new Walk(bot1, marker3.transform.position),
-                new Delay(3),
-                new Walk(bot1, marker4.transform.position),
-                new Delay(3),
-                new Walk(bot1, marker8.transform.position),
-                new Delay(3),
-                new Walk(bot1, marker3.transform.position),
-                new Delay(3),
-                new Walk(bot1, marker1.transform.position)
-            );
+			new RepeatForever( new Walk(girl, toalet1.ToGameEntity() as Actor), new Delay(5), new Walk(girl, room108.ToGameEntity() as Actor)).Start();
+			new RepeatForever( new Walk(boy, toalet3.ToGameEntity() as Actor), new Delay(2), new Walk(boy, room207.ToGameEntity() as Actor)).Start();
 
-            var sequenceForBot2 = new Sequence(
-                new Delay(3),
-                new Walk(bot2, marker2.transform.position),
-                new Delay(3),
-                new Walk(bot2, marker1.transform.position),
-                new Delay(3),
-                new Walk(bot2, marker6.transform.position),
-                new Delay(3),
-                new Walk(bot2, marker8.transform.position),
-                new Delay(3),
-                new Walk(bot2, marker2.transform.position),
-                new Delay(3),
-                new Walk(bot2, marker7.transform.position),
-                new Delay(3),
-                new Walk(bot2, marker1.transform.position)
-            );
-
-            var sequenceForBot3 = new Sequence(
-                new Delay(3),
-                new Walk(bot3, marker4.transform.position),
-                new Delay(3),
-                new Walk(bot3, marker3.transform.position),
-                new Delay(3),
-                new Walk(bot3, marker2.transform.position),
-                new Delay(3),
-                new Walk(bot3, marker1.transform.position),
-                new Delay(3),
-                new Walk(bot3, marker4.transform.position),
-                new Delay(3),
-                new Walk(bot3, marker9.transform.position),
-                new Delay(3),
-                new Walk(bot3, marker2.transform.position),
-                new Delay(3),
-                new Walk(bot3, marker3.transform.position)
-            );
-
-            var sequenceForBot4 = new Sequence(
-                new Delay(3),
-                new Walk(bot4, marker6.transform.position),
-                new Delay(3),
-                new Walk(bot4, marker10.transform.position),
-                new Delay(3),
-                new Walk(bot4, marker5.transform.position),
-                new Delay(3),
-                new Walk(bot4, marker6.transform.position),
-                new Delay(5)
-            );
-
-            Parallel parallel = new Parallel(sequenceForBot1, sequenceForBot2, sequenceForBot3, sequenceForBot4);
-
-            var repeatForever = new RepeatForever(parallel);
-
-            repeatForever.Start();
+//            var sequenceForBot1 = new Sequence(
+//                new Delay(3),
+//				new Walk(bot1, marker1.ToGameEntity() as Actor), 
+//                new Delay(3),
+//				new Walk(bot1, marker2.ToGameEntity() as Actor),
+//                new Delay(3),
+//				new Walk(bot1, marker3.ToGameEntity() as Actor),
+//                new Delay(3),
+//				new Walk(bot1, marker4.ToGameEntity() as Actor),
+//                new Delay(3),
+//				new Walk(bot1, marker8.ToGameEntity() as Actor),
+//                new Delay(3),
+//				new Walk(bot1, marker3.ToGameEntity() as Actor),
+//                new Delay(3),
+//				new Walk(bot1, marker1.ToGameEntity() as Actor)
+//            );
+//
+//            var sequenceForBot2 = new Sequence(
+//                new Delay(3),
+//				new Walk(bot2, marker2.ToGameEntity() as Actor),
+//                new Delay(3),
+//				new Walk(bot2, marker1.ToGameEntity() as Actor),
+//                new Delay(3),
+//				new Walk(bot2, marker6.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot2, marker8.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot2, marker2.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot2, marker7.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot2, marker1.ToGameEntity() as Actor)
+//            );
+//
+//            var sequenceForBot3 = new Sequence(
+//                new Delay(3),
+//                new Walk(bot3, marker4.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot3, marker3.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot3, marker2.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot3, marker1.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot3, marker4.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot3, marker9.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot3, marker2.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot3, marker3.ToGameEntity() as Actor)
+//            );
+//
+//            var sequenceForBot4 = new Sequence(
+//                new Delay(3),
+//                new Walk(bot4, marker6.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot4, marker10.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot4, marker5.ToGameEntity() as Actor),
+//                new Delay(3),
+//                new Walk(bot4, marker6.ToGameEntity() as Actor),
+//                new Delay(5)
+//            );
+//
+//            Parallel parallel = new Parallel(sequenceForBot1, sequenceForBot2, sequenceForBot3, sequenceForBot4);
+//
+//            var repeatForever = new RepeatForever(parallel);
+//
+//            repeatForever.Start();
             base.Start();    
         }
 
