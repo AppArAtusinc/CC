@@ -17,7 +17,7 @@ public class Dialogues : MonoBehaviour
 		allDialogues[0].answers[0].nextDialogue=1;
 		allDialogues[1]=new Dialogue("И у меня всё хорошо. Куда идешь?", new Answer[]{new Answer("К комендантше, заселиться надо"),new Answer("Да вот, медосмотр прохожу"),new Answer("Не твоё дело")});
 		allDialogues[1].answers[0].nextDialogue=4;
-		allDialogues[2]=new Dialogue("Добрый день, молодой человек. Ваш пропуск?", new Answer[]{new Answer("Эмм, да мне на пару минут всего"),new Answer("Вот, пожалуйта[сделать доступным с выполнением квеста]"),new Answer("А что, нужен пропуск?")});
+		allDialogues[2]=new Dialogue("Добрый день, молодой человек. Ваш пропуск?", new Answer[]{new Answer("Эмм, да мне на пару минут всего"),new Answer("Мне не нужен пропуск!"),new Answer("А что, нужен пропуск?")});
 		allDialogues[2].answers[2].nextDialogue=3;
 		allDialogues[3]=new Dialogue("Вообще-то нужен. Ааа, абитуриент! Тебе надо к коменданту подойти. Проходи в 103 комнату", new Answer[]{new Answer("Хорошо"),new Answer("Ага, делать мне больше нечего"),new Answer("")});
 		allDialogues[0].answers[1].nextDialogue=4;

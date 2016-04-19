@@ -25,11 +25,7 @@ public class uiManager : MonoBehaviour
 	public RigidbodyFirstPersonController playerController;
     NpcDialogue currentNpc;
 
-    public AudioClip gameMenuSound;
-    public AudioClip mainMenuSound;
-
-    public float gameMenuSoundVolume = 0.5f;
-    public float mainMenuSoundVolume = 0.5f;
+    public AudioClip [] sounds;
 
     private AudioSource source;
 
@@ -41,21 +37,20 @@ public class uiManager : MonoBehaviour
 
 
     // Use this for initialization
-    void OnEnable()
-    {
 
-    }
 
     void Awake()
     {
+		playerController = GameObject.Find("Player").GetComponent<RigidbodyFirstPersonController>();
         this.source = GetComponent<AudioSource>();
-
+//		source.clip = sounds[Random.Range(0,sounds.Length)];
+	//	source.Play();
         if (!this.source)
         {
-            throw new System.Exception("AudioSource not found");
+           // throw new System.Exception("AudioSource not found");
         }
 
-        this.source.loop = true;
+        else  this.source.loop = true;
 
         this.npcNames.Add("bad_guy");
         this.npcNames.Add("bad_guy (1)");
@@ -88,35 +83,35 @@ public class uiManager : MonoBehaviour
         {
             MenuMouse();
 
-            if (menu.name == "PlayerMenu")
-            {
-                this.source.clip = this.gameMenuSound;
-                this.source.volume = this.gameMenuSoundVolume;
-            }
-            else
-            {
-                this.source.clip = this.mainMenuSound;
-                this.source.volume = this.mainMenuSoundVolume;
-            }
-
-            this.source.Play();
+//            if (menu.name == "PlayerMenu")
+//            {
+//                this.source.clip = this.gameMenuSound;
+//                this.source.volume = this.gameMenuSoundVolume;
+//            }
+//            else
+//            {
+//                this.source.clip = this.mainMenuSound;
+//                this.source.volume = this.mainMenuSoundVolume;
+//            }
+//
+//            this.source.Play();
         }
         else
         {
             GameMouse();
 
-            if (menu.name == "PlayerMenu")
-            {
-                this.source.clip = this.gameMenuSound;
-                this.source.volume = this.gameMenuSoundVolume;
-            }
-            else
-            {
-                this.source.clip = this.mainMenuSound;
-                this.source.volume = this.mainMenuSoundVolume;
-            }
+//            if (menu.name == "PlayerMenu")
+//            {
+//                this.source.clip = this.gameMenuSound;
+//                this.source.volume = this.gameMenuSoundVolume;
+//            }
+//            else
+//            {
+//                this.source.clip = this.mainMenuSound;
+//                this.source.volume = this.mainMenuSoundVolume;
+//            }
 
-            this.source.Stop();
+          //  this.source.Stop();
         }
     }
 

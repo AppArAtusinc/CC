@@ -39,7 +39,7 @@ public class QuestsTest : MonoBehaviour {
 	public static List<Quest> quests;
 	public static Text questsList;
 
-	void Start()
+	void Awake()
 	{
 		quests = new List<Quest>();
 
