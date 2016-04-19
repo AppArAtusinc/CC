@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 using Actions.Core;
+using System.Collections;
 
 public class uiManager : MonoBehaviour
 {
@@ -11,8 +12,12 @@ public class uiManager : MonoBehaviour
     public GameObject playerMenu;
     public GameObject dialogueMenu;
 
+	public GameObject winMenu, winMenuText;
+	public Image winMenuImg;
+
     public Text UiQuestion;
     public Text[] UiAnswers;
+	public GameObject DoorIsLockedText;
 
     public static bool isPlaying;
 
@@ -29,6 +34,11 @@ public class uiManager : MonoBehaviour
     private AudioSource source;
 
     List<string> npcNames = new List<string>();
+
+	public delegate void QuestEvents();
+	public static event QuestEvents StartQuest1;
+
+
 
     // Use this for initialization
     void OnEnable()
@@ -186,8 +196,22 @@ public class uiManager : MonoBehaviour
                 }
                 else if (hit.collider.gameObject.tag == "OpenableDoor")
                 {
-                    hit.collider.gameObject.GetComponent<DoorOpen>().UseDoor();
+					if( hit.collider.gameObject.GetComponent<DoorOpen>().UseDoor())
+					{
+						StartCoroutine(ShowDoorClosedText());
+					}
+						
                 }
+				else if (hit.collider.gameObject.tag == "Bed")
+				{
+					if((hit.collider.gameObject.name=="303"&&QuestsTest.quests[0].State==2&&QuestsTest.quests[3].State==1)||(hit.collider.gameObject.name=="209"&&QuestsTest.quests[4].State==1))
+					{
+						Debug.Log("You win!");
+
+						StartCoroutine(ShowWinMenu());
+					}
+
+				}
                 // Do something with the object that was hit by the raycast.
             }
 
@@ -195,8 +219,37 @@ public class uiManager : MonoBehaviour
         }
     }
 
+	IEnumerator ShowWinMenu()
+	{
+		Color clr = winMenuImg.color;
+		clr.a=0;
+		winMenuImg.color = clr;
+		winMenuText.SetActive(false);
+		winMenu.SetActive(true);
+		WaitForSeconds WS = new WaitForSeconds(.01f);
+		for(float i=0;i<1;i+=.01f)
+		{
+			clr.a=i;
+			winMenuImg.color = clr;
+			yield return WS;
+		}
+		winMenuText.SetActive(true);
+		yield return new WaitForSeconds(5);
+		Application.Quit();
+
+	}
+
+
+	IEnumerator ShowDoorClosedText()
+	{
+		DoorIsLockedText.SetActive(true);
+		yield return new WaitForSeconds(.3f);
+		DoorIsLockedText.SetActive(false);
+	}
+
     void GetDialogueToUI(int dialogueNumber = 0)
     {
+		Debug.Log(dialogueNumber);
         UiQuestion.text = Dialogues.allDialogues[dialogueNumber].question;
         for (int i = 0; i < 3; i++)
         {
@@ -208,11 +261,67 @@ public class uiManager : MonoBehaviour
     public void AnswerBTNClick(int buttonNumber)
     {
         int nextDialogue = Dialogues.allDialogues[currentDialogue].answers[buttonNumber].nextDialogue;
-		Dialogues.allDialogues[currentDialogue].answers[buttonNumber].DoWithQuest();
-        if (nextDialogue != -1)
+		int nextQuestDialogue = Dialogues.allDialogues[currentDialogue].answers[buttonNumber].nextQuestDialogue;
+		int questN = Dialogues.allDialogues[currentDialogue].answers[buttonNumber].questNumber;
+		if(currentDialogue==4&&buttonNumber==0) // studentQuest
+		{
+			QuestsTest.quests[0].State=1;
+			QuestsTest.UpdateQuestsUI();
+		}
+		if(currentDialogue==13) // studentQuest
+		{
+			QuestsTest.quests[1].State=2;
+			QuestsTest.quests[2].State=1;
+			QuestsTest.UpdateQuestsUI();
+		}
+		if(currentDialogue==11&&buttonNumber==0) // studentQuest
+		{
+			QuestsTest.quests[0].State=2;
+			QuestsTest.UpdateQuestsUI();
+		}
+		if(currentDialogue==15&&buttonNumber==1) // studentQuest
+		{
+			QuestsTest.quests[2].State=2;
+			QuestsTest.UpdateQuestsUI();
+		}
+		if(currentDialogue==17) // studentQuest
+		{
+			if(QuestsTest.quests[0].State==2)
+			{
+				QuestsTest.quests[3].State=1;
+			}
+			else
+			{
+				QuestsTest.quests[4].State=1;
+			}
+			QuestsTest.UpdateQuestsUI();
+		}
+		if(currentDialogue==3&&buttonNumber==0) //babkaQuest
+		{
+			QuestsTest.quests[1].State=1;
+			QuestsTest.UpdateQuestsUI();
+
+			if(StartQuest1!=null)
+			{
+				StartQuest1();
+			}
+		}
+
+		if (nextDialogue != -1||nextQuestDialogue!=-1)
         {
-            currentNpc.dialogueNum = nextDialogue;
-            GetDialogueToUI(nextDialogue);
+			if(nextQuestDialogue!=-1&&QuestsTest.quests[questN].State==1)
+			{
+				currentNpc.dialogueNum=nextQuestDialogue;
+				//GetDialogueToUI(nextQuestDialogue);
+				new WalkResume(this.npc).Start();
+
+				ShowHideMenu(dialogueMenu, !dialogueMenu.activeSelf);
+			}
+			else
+			{
+            	currentNpc.dialogueNum = nextDialogue;
+				GetDialogueToUI(nextDialogue);
+			}
         }
         else
         {

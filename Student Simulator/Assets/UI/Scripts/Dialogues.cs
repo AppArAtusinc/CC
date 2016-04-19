@@ -22,18 +22,14 @@ public class Dialogues : MonoBehaviour
 		allDialogues[3]=new Dialogue("Вообще-то нужен. Ааа, абитуриент! Тебе надо к коменданту подойти. Проходи в 103 комнату", new Answer[]{new Answer("Хорошо"),new Answer("Ага, делать мне больше нечего"),new Answer("")});
 		allDialogues[0].answers[1].nextDialogue=4;
 
-		//
-		allDialogues[3].answers[0].questName="test1";
-		allDialogues[3].answers[0].whatToDo=1;		
-
+		allDialogues[3].answers[0].SetQuest(1,15);
 
 		//
-		allDialogues[4]=new Dialogue("О, так ты первокурсник? Если хочешь, можешь к нам заселиться, попроси у коменды 304 комнату.", new Answer[]{new Answer("Классно, спасибо![Квест на комнату]"),new Answer("Я подумаю"),new Answer("")});
 
 		//
-		allDialogues[4].answers[0].questName="test1";
-		allDialogues[4].answers[0].whatToDo=2;
-		//
+		allDialogues[4]=new Dialogue("О, так ты первокурсник? Если хочешь, можешь к нам заселиться, попроси у коменды 303 комнату.", new Answer[]{new Answer("Классно, спасибо![Квест на комнату]"),new Answer("Я подумаю"),new Answer("")});
+
+
 
 		allDialogues[1].answers[1].nextDialogue=5;
 		allDialogues[5]=new Dialogue("Это тебе к комендантше, в 103", new Answer[]{new Answer("Та я знаю"),new Answer("А это где вообще?"),new Answer("")});
@@ -45,19 +41,31 @@ public class Dialogues : MonoBehaviour
 		//коменда
 		allDialogues[8]=new Dialogue("Добрый день! Чем могу помочь?", new Answer[]{new Answer("Здравствуйте, я абитуриент, вот, заселяюсь"),new Answer("Драсьте, меня к вам послали"),new Answer("Ой, дверью ошибся")});
 		allDialogues[8].answers[0].nextDialogue=9;
-		allDialogues[9]=new Dialogue("Отлично! Давай документы, будем заселять тебя", new Answer[]{new Answer("А можно мне в 304 комнату?"),new Answer("Хорошо, вот документы"),new Answer("Ой, кажется, я забыл документы")});
+		allDialogues[9]=new Dialogue("Отлично! Давай документы, будем заселять тебя", new Answer[]{new Answer("А можно мне в 303 комнату?"),new Answer("Хорошо, вот документы"),new Answer("Ой, кажется, я забыл документы")});
 		allDialogues[8].answers[1].nextDialogue=10;
 		allDialogues[10]=new Dialogue("\"Послали\", это не ко мне. Покиньте кабинет!", new Answer[]{new Answer("Извините"),new Answer(""),new Answer("")});
 		allDialogues[9].answers[0].nextDialogue=11;
-		allDialogues[11]=new Dialogue("В 304? Уверен? Там живут одни нарушители спокойствия.", new Answer[]{new Answer("Правда? Отлично!"),new Answer("Хм, тогда, пожалуй, другая комната подойдет"),new Answer("")});
+		allDialogues[11]=new Dialogue("В 303? Уверен? Там живут одни нарушители спокойствия.", new Answer[]{new Answer("Правда? Отлично!"),new Answer("Хм, тогда, пожалуй, другая комната подойдет"),new Answer("")});
 		allDialogues[11].answers[1].nextDialogue=12;
-		allDialogues[12]=new Dialogue("Тогда 209 тебе подойдет. Отличные парни живут.", new Answer[]{new Answer("Спасибо, что предупредили за 304"),new Answer("А в 304 все-таки можно?"),new Answer("")});
+		allDialogues[12]=new Dialogue("Тогда 208 тебе подойдет. Отличные парни живут.", new Answer[]{new Answer("Спасибо, что предупредили за 303"),new Answer("А в 303 все-таки можно?"),new Answer("")});
 		allDialogues[12].answers[0].nextDialogue=13;
 		allDialogues[12].answers[1].nextDialogue=11;
 		allDialogues[11].answers[0].nextDialogue=13;
 		allDialogues[13]=new Dialogue("Готово. Вот твой пропуск, подойди к вахтерше, запишись у неё.", new Answer[]{new Answer("Хорошо"),new Answer("Ага, сделаю"),new Answer("")});
+		allDialogues[13].answers[0].SetQuest(2,16);
+		allDialogues[13].answers[1].SetQuest(2,16);
+		allDialogues[13].answers[2].SetQuest(2,16);
 
+		//
 
+		allDialogues[14]=new Dialogue("Ну что, попросился уже в нашу комнату?", new Answer[]{new Answer("Еще нет"),new Answer("Да, уже все сделано"),new Answer("")});
+		allDialogues[4].answers[0].SetQuest(0,14);
+
+		allDialogues[15]=new Dialogue("103 комната. На первом этаже. Проходите, дверь открыта", new Answer[]{new Answer("Понял"),new Answer("Уже все сделал. Вот пропуск"),new Answer("")});
+		allDialogues[16]=new Dialogue("Что-то еще? Я же сказала, иди к вахтеру", new Answer[]{new Answer("Точно, спасибо"),new Answer("Понял"),new Answer("")});
+		allDialogues[17]=new Dialogue("Молодец! Можешь идти в свою комнату", new Answer[]{new Answer("Спасибо"),new Answer("Иду"),new Answer("")});
+
+		allDialogues[15].answers[1].nextDialogue=17;
 
 
 	}
@@ -92,9 +100,8 @@ public class Dialogue
 public class Answer
 {
 	string textAnswer;
-	public int nextDialogue=-1;
-	public string questName="";
-	public int whatToDo=0;
+	public int nextDialogue=-1, nextQuestDialogue=-1;
+	public int questNumber=-1;
 
 	public Answer(string textAnswer="")
 	{
@@ -104,26 +111,13 @@ public class Answer
 	public override string ToString ()
 	{
 		string ret=textAnswer;
-		//			if(nextDialogue)
-		//			{
-		//				ret+=" (Leads to "+nextDialogue.ToString()+")";
-		//			}
 		return string.Format (ret);
 	}
 
-	public void DoWithQuest()
+	public void SetQuest(int questN, int questDialogue)
 	{
-		if(whatToDo==1)
-		{
-			QuestHelper.Activate(questName);
-			Debug.Log("Activated "+questName);
-		}
-		if(whatToDo==2)
-		{
-			QuestHelper.Stop(questName);
-			Debug.Log("Stopped "+questName);
-		}
+		nextQuestDialogue=questDialogue;
+		questNumber=questN;
 	}
-
 
 }

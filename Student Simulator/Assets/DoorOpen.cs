@@ -8,7 +8,7 @@ public class DoorOpen : MonoBehaviour
 
     public Vector3 rotateToOpen;
 
-    public bool isLocked;
+    public bool isLocked, questDoor;
 
 
     bool isOpened = false, isOpening = false;
@@ -16,16 +16,27 @@ public class DoorOpen : MonoBehaviour
     Transform TR;
 
     // Use this for initialization
+
     void Start()
     {
+		uiManager.StartQuest1+=OpenQuestDoor;
         this.tag = "OpenableDoor";
         TR = this.transform;
     }
 
-    public void UseDoor()
+	public bool UseDoor()
     {
         if (!isOpening && !isLocked) StartCoroutine(SmoothDoorOpen());
+		return isLocked;
     }
+
+	void OpenQuestDoor()
+	{
+		if(questDoor)
+		{
+			isLocked=false;
+		}
+	}
 
     IEnumerator SmoothDoorOpen()
     {
