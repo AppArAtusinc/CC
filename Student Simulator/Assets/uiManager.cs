@@ -227,7 +227,7 @@ public class uiManager : MonoBehaviour
 		winMenuText.SetActive(false);
 		winMenu.SetActive(true);
 		WaitForSeconds WS = new WaitForSeconds(.01f);
-		for(float i=0;i<1;i+=.01f)
+		for(float i=0;i<=1;i+=.01f)
 		{
 			clr.a=i;
 			winMenuImg.color = clr;
