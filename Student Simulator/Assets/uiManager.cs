@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Actions.Core;
 using System.Collections;
+using StudentSimulator.SaveSystem;
 
 public class uiManager : MonoBehaviour
 {
@@ -66,7 +67,19 @@ public class uiManager : MonoBehaviour
         this.npcNames.Add("girl3");
         this.npcNames.Add("mom");
         this.npcNames.Add("old_woman");
+
+		SaveGame();
     }
+
+	public void SaveGame()
+	{
+		LoadManager.Save("test");
+	}
+
+	public void LoadGame()
+	{
+		LoadManager.Load("test");
+	}
 
     public void ShowGameUI()
     {
@@ -75,6 +88,11 @@ public class uiManager : MonoBehaviour
         GameMouse();
     }
 		
+	public void QuitGame()
+	{
+		Application.Quit();
+	}
+
     void ShowHideMenu(GameObject menu, bool show)
     {
         menu.SetActive(show);
@@ -125,6 +143,8 @@ public class uiManager : MonoBehaviour
 
     void MenuMouse()
     {
+		playerController = GameObject.Find("Player").GetComponent<RigidbodyFirstPersonController>();
+
 		playerController.enabled=false;
         isPlaying = false;
         Cursor.lockState = CursorLockMode.None;
@@ -133,6 +153,8 @@ public class uiManager : MonoBehaviour
 
     void GameMouse()
     {
+		playerController = GameObject.Find("Player").GetComponent<RigidbodyFirstPersonController>();
+
 		playerController.enabled=true;
         isPlaying = true;
         Cursor.lockState = CursorLockMode.Locked; //устанавливает курсор в центре и запрещает перемещиние
@@ -145,6 +167,16 @@ public class uiManager : MonoBehaviour
 		ShowHideMenu(mainMenu,true);
 	}
 
+	public void ExitPauseMenu()
+	{
+		ShowHideMenu(pauseMenu, !pauseMenu.activeSelf);
+	}
+
+	public void ToMainMenu()
+	{
+		ShowHideMenu(mainMenu, !pauseMenu.activeSelf);
+	}
+
     NPC npc;
 
     void Update()
@@ -155,14 +187,14 @@ public class uiManager : MonoBehaviour
             Cursor.visible = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))//&&!mainMenuIsShowing)
+		if (Input.GetKeyDown(KeyCode.Escape)&&!dialogueMenu.activeSelf)
         {
             ShowHideMenu(pauseMenu, !pauseMenu.activeSelf);
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            ShowHideMenu(playerMenu, !playerMenu.activeSelf);
-        }
+//        if (Input.GetKeyDown(KeyCode.Tab))
+//        {
+//            ShowHideMenu(playerMenu, !playerMenu.activeSelf);
+//        }
         if (Input.GetKeyDown(KeyCode.E))
         {
             RaycastHit hit;
