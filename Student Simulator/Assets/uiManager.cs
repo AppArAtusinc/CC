@@ -45,7 +45,7 @@ public class uiManager : MonoBehaviour
 		playerController = GameObject.Find("Player").GetComponent<RigidbodyFirstPersonController>();
         this.source = GetComponent<AudioSource>();
 
-        if (this.source)
+        //if (this.source)
         {
             this.source.clip = sounds[Random.Range(0, sounds.Length)];
             this.source.Play();
