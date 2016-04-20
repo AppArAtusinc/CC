@@ -26,7 +26,7 @@ public class uiManager : MonoBehaviour
 	public RigidbodyFirstPersonController playerController;
     NpcDialogue currentNpc;
 
-    public AudioClip [] sounds;
+    public AudioClip []sounds;
 
     private AudioSource source;
 
@@ -44,14 +44,13 @@ public class uiManager : MonoBehaviour
     {
 		playerController = GameObject.Find("Player").GetComponent<RigidbodyFirstPersonController>();
         this.source = GetComponent<AudioSource>();
-		source.clip = sounds[Random.Range(0,sounds.Length)];
-		source.Play();
-        if (!this.source)
-        {
-           // throw new System.Exception("AudioSource not found");
-        }
 
-        else  this.source.loop = true;
+        if (this.source)
+        {
+            this.source.clip = sounds[Random.Range(0, sounds.Length)];
+            this.source.Play();
+            this.source.loop = true;
+        }
 
         this.npcNames.Add("bad_guy");
         this.npcNames.Add("bad_guy (1)");
@@ -100,36 +99,10 @@ public class uiManager : MonoBehaviour
         if (show)
         {
             MenuMouse();
-
-//            if (menu.name == "PlayerMenu")
-//            {
-//                this.source.clip = this.gameMenuSound;
-//                this.source.volume = this.gameMenuSoundVolume;
-//            }
-//            else
-//            {
-//                this.source.clip = this.mainMenuSound;
-//                this.source.volume = this.mainMenuSoundVolume;
-//            }
-//
-//            this.source.Play();
         }
         else
         {
-            GameMouse();
-
-//            if (menu.name == "PlayerMenu")
-//            {
-//                this.source.clip = this.gameMenuSound;
-//                this.source.volume = this.gameMenuSoundVolume;
-//            }
-//            else
-//            {
-//                this.source.clip = this.mainMenuSound;
-//                this.source.volume = this.mainMenuSoundVolume;
-//            }
-
-          //  this.source.Stop();
+            GameMouse();            
         }
     }
 
@@ -180,7 +153,7 @@ public class uiManager : MonoBehaviour
     NPC npc;
 
     void Update()
-    {
+    {      
         if (isPlaying)
         {
             Cursor.lockState = CursorLockMode.Locked;

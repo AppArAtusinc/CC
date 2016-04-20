@@ -22,7 +22,7 @@
   "QuestCollection": {
     "$id": "6",
     "$type": "Quest.Common.Core.QuestCollection, Assembly-CSharp",
-    "Id": "760dbc3c-9f5f-408f-aa15-4a2d7a161b4b",
+    "Id": "bef7de12-c75f-47ef-875b-0301fa9f7d2f",
     "activeQuests": {
       "$id": "7",
       "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Quest.Common.Core.Quest, Assembly-CSharp]], mscorlib"
