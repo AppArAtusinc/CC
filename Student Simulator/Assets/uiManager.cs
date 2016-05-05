@@ -26,18 +26,15 @@ public class uiManager : MonoBehaviour
 	public RigidbodyFirstPersonController playerController;
     NpcDialogue currentNpc;
 
-    public AudioClip []sounds;
-
-    private AudioSource source;
+	public AudioClip []sounds;
+	private int soundsCount = 7;
+	private int currentSoundIndex = 0;
+	private AudioSource source;
 
     List<string> npcNames = new List<string>();
 
 	public delegate void QuestEvents();
 	public static event QuestEvents StartQuest1;
-
-
-
-    // Use this for initialization
 
 
     void Awake()
@@ -47,9 +44,9 @@ public class uiManager : MonoBehaviour
 
         //if (this.source)
         {
-            this.source.clip = sounds[Random.Range(0, sounds.Length)];
-            this.source.Play();
-            this.source.loop = true;
+			//this.source.clip = this.sounds[Random.Range(0, this.sounds.Length)];
+			this.source.clip = this.sounds[this.currentSoundIndex];
+			this.source.Play();
         }
 
         this.npcNames.Add("bad_guy");
@@ -154,6 +151,18 @@ public class uiManager : MonoBehaviour
 
     void Update()
     {      
+		if (!this.source.isPlaying && this.currentSoundIndex < this.soundsCount)
+		{
+			this.currentSoundIndex++;
+			this.source.Stop();
+			this.source.clip = this.sounds[this.currentSoundIndex];
+			this.source.Play();
+		}
+		else if (this.currentSoundIndex >= this.soundsCount)
+		{
+			this.currentSoundIndex = 0;
+		}
+
         if (isPlaying)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -164,10 +173,7 @@ public class uiManager : MonoBehaviour
         {
             ShowHideMenu(pauseMenu, !pauseMenu.activeSelf);
         }
-//        if (Input.GetKeyDown(KeyCode.Tab))
-//        {
-//            ShowHideMenu(playerMenu, !playerMenu.activeSelf);
-//        }
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             RaycastHit hit;
@@ -214,8 +220,6 @@ public class uiManager : MonoBehaviour
 				}
                 // Do something with the object that was hit by the raycast.
             }
-
-
         }
     }
 
